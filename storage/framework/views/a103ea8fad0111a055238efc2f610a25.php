@@ -33,17 +33,25 @@
 <div class="post_data_feed row">
 
 </div>
+<div class="post_data_feed_preview">
+
+</div>
 
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('scripts'); ?>
 <script>
+    var preview_feed_text = `
+        <?php echo $__env->make('frontend.feed.placeholder_partials_post.index_post', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    `;
+    document.querySelector('.post_data_feed_preview').innerHTML = preview_feed_text;
+
     document.addEventListener("DOMContentLoaded", function() {
         let isRequestInProgress = false;
         let first_load_checkpoint = false;
 
         function data_load_feed_post() {
-
+            document.querySelector('.post_data_feed_preview').innerHTML = preview_feed_text;
 
             if (!isRequestInProgress && (window.innerHeight + window.scrollY + 500) >= document.body.offsetHeight) {
                 isRequestInProgress = true;
@@ -53,7 +61,8 @@
 
                 xhr.onreadystatechange = () => {
                     if (xhr.readyState === 4) {
-                        $('.post_data_feed').append(xhr.response);
+                        
+                        
                         isRequestInProgress = false; // Reset the flag after the request is complete
                         if(first_load_checkpoint==false){
                             first_load_checkpoint=true
