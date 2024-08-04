@@ -33,7 +33,7 @@
 <div class="post_data_feed row">
 
 </div>
-<div class="post_data_feed_preview">
+<div class="post_data_feed_preview row">
 
 </div>
 
@@ -41,28 +41,38 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('scripts'); ?>
 <script>
-    var preview_feed_text = `
+    function feed_preview(data){
+        var preview_feed_text = `
         <?php echo $__env->make('frontend.feed.placeholder_partials_post.index_post', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     `;
-    document.querySelector('.post_data_feed_preview').innerHTML = preview_feed_text;
+        if(data > 0){
+            for(var i =0; i < data -1; i++){
+                document.querySelector('.post_data_feed_preview').innerHTML += preview_feed_text;
+
+            }
+        }else{
+            document.querySelector('.post_data_feed_preview').innerHTML = '';
+        }
+    }
+
 
     document.addEventListener("DOMContentLoaded", function() {
         let isRequestInProgress = false;
         let first_load_checkpoint = false;
 
         function data_load_feed_post() {
-            document.querySelector('.post_data_feed_preview').innerHTML = preview_feed_text;
+
 
             if (!isRequestInProgress && (window.innerHeight + window.scrollY + 500) >= document.body.offsetHeight) {
                 isRequestInProgress = true;
-
+                feed_preview(6)
                 const url = "<?php echo e(route('feed_load_data_post')); ?>"; //A local page
                 const xhr = new XMLHttpRequest();
 
                 xhr.onreadystatechange = () => {
                     if (xhr.readyState === 4) {
-                        
-                        
+                        $('.post_data_feed').append(xhr.response);
+                        feed_preview(0)
                         isRequestInProgress = false; // Reset the flag after the request is complete
                         if(first_load_checkpoint==false){
                             first_load_checkpoint=true
