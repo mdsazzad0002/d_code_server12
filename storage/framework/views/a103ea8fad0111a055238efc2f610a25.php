@@ -65,7 +65,7 @@
 
             if (!isRequestInProgress && (window.innerHeight + window.scrollY + 500) >= document.body.offsetHeight) {
                 isRequestInProgress = true;
-                feed_preview(6)
+                feed_preview(3)
                 const url = "<?php echo e(route('feed_load_data_post')); ?>"; //A local page
                 const xhr = new XMLHttpRequest();
 

@@ -1,68 +1,327 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category</loc>
+    
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/facilis-aut-ea-molestiae-doloribus-sit-possimus-beatae</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/html</loc>
+        <lastmod>2024-07-05T07:22:05+00:00</lastmod>
+
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/sed-quidem-molestias-eum-quia-repellendus</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/html/subcategory/meta-tag</loc>
+        <lastmod>2024-07-05T09:33:27+00:00</lastmod>
+
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/non-quidem-quasi-qui-ab</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/html/subcategory/meta-tag/html-meta-tag2024-08-02-144233</loc>
+        <lastmod>2024-08-02T20:42:33+00:00</lastmod>
+
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/sit-fuga-fuga-accusamus-ut</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/html/subcategory/js-or-css</loc>
+        <lastmod>2024-07-05T09:45:09+00:00</lastmod>
+
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/nihil-ratione-dolor-nobis-deleniti-saepe-deleniti</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/html/subcategory/js-or-css/javascript-and-css-link2024-08-01-091959</loc>
+        <lastmod>2024-08-01T15:19:59+00:00</lastmod>
+
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/numquam-aut-provident-et-et-beatae-amet</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/html/subcategory/html-elements</loc>
+        <lastmod>2024-07-05T09:52:58+00:00</lastmod>
+
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/unde-architecto-nihil-id-fugit-qui</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/html/subcategory/html-elements/this-is-sample-post2024-07-30-031346</loc>
+        <lastmod>2024-07-30T09:41:32+00:00</lastmod>
+
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/nihil-aut-aliquid-ducimus-nesciunt</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/css</loc>
+        <lastmod>2024-07-05T07:23:14+00:00</lastmod>
+
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/quos-dignissimos-ut-eveniet-est-ullam-ut</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/css/subcategory/css-elements</loc>
+        <lastmod>2024-07-05T10:24:52+00:00</lastmod>
+
             </url>
     <url>
-        <loc>http://localhost/GitHubDesktop/d_code_server/category/dicta-similique-sed-rerum-maiores-rerum-voluptatem</loc>
-        <lastmod>2024-07-20T05:20:33+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/css/subcategory/css-elements/how-to-limit-text-to-n-lines-with-css2024-07-28-172133</loc>
+        <lastmod>2024-07-29T08:13:26+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/js-or-javascript</loc>
+        <lastmod>2024-07-05T07:25:00+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/js-or-javascript/subcategory/converter</loc>
+        <lastmod>2024-07-05T07:49:10+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/js-or-javascript/subcategory/graph-chart</loc>
+        <lastmod>2024-07-05T07:51:33+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/js-or-javascript/subcategory/lazy-loading</loc>
+        <lastmod>2024-07-05T08:26:23+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/js-or-javascript/subcategory/lazy-loading/lazyload-image2024-07-02-065221</loc>
+        <lastmod>2024-07-29T23:00:20+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/js-or-javascript/subcategory/translator</loc>
+        <lastmod>2024-07-29T23:39:48+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/js-or-javascript/subcategory/translator/google-translate-free2024-07-25-104116</loc>
+        <lastmod>2024-07-29T23:40:03+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/jquery</loc>
+        <lastmod>2024-07-05T07:31:59+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/jquery/subcategory/jquery-ajax</loc>
+        <lastmod>2024-07-05T10:17:45+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/bootstrap-css</loc>
+        <lastmod>2024-07-05T07:33:31+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/bootstrap-css/subcategory/bootstrap-elements</loc>
+        <lastmod>2024-07-05T10:30:54+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/laravel</loc>
+        <lastmod>2024-07-05T07:39:10+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/laravel/subcategory/htaccess</loc>
+        <lastmod>2024-07-05T08:41:45+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/laravel/subcategory/route</loc>
+        <lastmod>2024-07-27T21:49:31+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/laravel/subcategory/route/route-using2024-07-28-071308</loc>
+        <lastmod>2024-07-29T22:52:38+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/laravel/subcategory/error-handling</loc>
+        <lastmod>2024-07-29T22:58:39+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/laravel/subcategory/error-handling/different-meaning-of-at-2024-07-28-070300</loc>
+        <lastmod>2024-07-29T22:59:30+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/php</loc>
+        <lastmod>2024-07-27T21:24:31+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/php/subcategory/function</loc>
+        <lastmod>2024-07-27T21:53:49+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/php/subcategory/function/php-function2024-07-27-025520</loc>
+        <lastmod>2024-07-29T23:00:02+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/php/subcategory/function/php-validate-e-mail2024-08-01-075038</loc>
+        <lastmod>2024-08-01T13:50:38+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/php/subcategory/function/php-validate-name2024-08-01-075807</loc>
+        <lastmod>2024-08-01T13:58:07+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/php/subcategory/function/php-validate-url2024-08-01-080356</loc>
+        <lastmod>2024-08-01T14:03:56+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/php/subcategory/function/php-database-column-add-remove-json-object2024-08-01-103204</loc>
+        <lastmod>2024-08-01T16:32:04+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/php/subcategory/switch-case</loc>
+        <lastmod>2024-07-29T23:04:47+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/php/subcategory/switch-case/php-switch-statement2024-07-25-075041</loc>
+        <lastmod>2024-07-29T23:33:44+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/vue-js</loc>
+        <lastmod>2024-07-27T21:28:14+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/category/react-js</loc>
+        <lastmod>2024-07-27T21:44:59+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/lazyload-image2024-07-02-065221</loc>
+        <lastmod>2024-07-29T23:00:20+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/php-switch-statement2024-07-25-075041</loc>
+        <lastmod>2024-07-29T23:33:44+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/google-translate-free2024-07-25-104116</loc>
+        <lastmod>2024-07-29T23:40:03+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/php-function2024-07-27-025520</loc>
+        <lastmod>2024-07-29T23:00:02+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/different-meaning-of-at-2024-07-28-070300</loc>
+        <lastmod>2024-07-29T22:59:30+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/route-using2024-07-28-071308</loc>
+        <lastmod>2024-07-29T22:52:38+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/how-to-limit-text-to-n-lines-with-css2024-07-28-172133</loc>
+        <lastmod>2024-07-29T08:13:26+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/this-is-sample-post2024-07-30-031346</loc>
+        <lastmod>2024-07-30T09:41:32+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/php-validate-e-mail2024-08-01-075038</loc>
+        <lastmod>2024-08-01T13:50:38+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/php-validate-name2024-08-01-075807</loc>
+        <lastmod>2024-08-01T13:58:07+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/php-validate-url2024-08-01-080356</loc>
+        <lastmod>2024-08-01T14:03:56+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/javascript-and-css-link2024-08-01-091959</loc>
+        <lastmod>2024-08-01T15:19:59+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/php-database-column-add-remove-json-object2024-08-01-103204</loc>
+        <lastmod>2024-08-01T16:32:04+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/post/html-meta-tag2024-08-02-144233</loc>
+        <lastmod>2024-08-02T20:42:33+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/superadmin</loc>
+        <lastmod>2024-07-27T01:10:51+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/superadmin/comment</loc>
+        <lastmod>2024-07-27T01:10:51+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/superadmin/vote</loc>
+        <lastmod>2024-07-27T01:10:51+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/superadmin/post</loc>
+        <lastmod>2024-07-27T01:10:51+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/vendor908250124145</loc>
+        <lastmod>2024-07-27T01:12:25+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/vendor908250124145/comment</loc>
+        <lastmod>2024-07-27T01:12:25+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/vendor908250124145/vote</loc>
+        <lastmod>2024-07-27T01:12:25+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/vendor908250124145/post</loc>
+        <lastmod>2024-07-27T01:12:25+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/al-amin874712520018</loc>
+        <lastmod>2024-07-30T09:12:06+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/al-amin874712520018/comment</loc>
+        <lastmod>2024-07-30T09:12:06+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/al-amin874712520018/vote</loc>
+        <lastmod>2024-07-30T09:12:06+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>http://localhost/GitHubDesktop/d_code_server/users/al-amin874712520018/post</loc>
+        <lastmod>2024-07-30T09:12:06+00:00</lastmod>
+
             </url>
 </urlset>

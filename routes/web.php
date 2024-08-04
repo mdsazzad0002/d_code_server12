@@ -2,25 +2,27 @@
 
 
 use App\Models\post;
+use App\Models\User;
 use App\Models\category;
+use App\Models\subcategory;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+use Database\Seeders\DatabaseSeeder;
+
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+
 use Illuminate\Support\Facades\Artisan;
-
-
+use App\Http\Controllers\frontend\FeedController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\DetailsController;
-
-
-
 use App\Http\Controllers\frontend\categoryController;
 use App\Http\Controllers\frontend\comment_controller;
-use App\Http\Controllers\frontend\FeedController;
 use App\Http\Controllers\vendor\postManageController;
 use App\Http\Controllers\frontend\subcategoryController;
-use Database\Seeders\DatabaseSeeder;
 
 /*
 |--------------------------------------------------------------------------
@@ -169,16 +171,39 @@ Route::get('/route_list', function(){
 Route::get('/sitemap', function () {
     $sitemap = Sitemap::create(config('app.url'))
     ->add(Url::create('/'));
+    $sitemap = Sitemap::create(config('app.url'))
+    ->add(Url::create('/category'));
     // ->add(Url::create(''))
 
     category::all()->each(function (category $category) use ($sitemap) {
         $sitemap->add(Url::create("category/{$category->slug}")
         ->setLastModificationDate($category->updated_at));
+
+        subcategory::where('category_id', $category->id)->get()->each(function ($subcategory) use ($sitemap , $category) {
+            $sitemap->add(Url::create("category/{$category->slug}/subcategory/{$subcategory->slug}")
+            ->setLastModificationDate($subcategory->updated_at));
+
+            Post::where('subcategory_id', $subcategory->id)->where('category_id', $category->id)->get()->each(function (Post $post) use ($sitemap, $category, $subcategory) {
+                $sitemap->add(Url::create("category/{$category->slug}/subcategory/{$subcategory->slug}/{$post->slug}")
+                ->setLastModificationDate($post->updated_at));
+            });
+        });
     });
 
     Post::all()->each(function (Post $post) use ($sitemap) {
         $sitemap->add(Url::create("post/{$post->slug}")
         ->setLastModificationDate($post->updated_at));
+    });
+
+    User::all()->each(function ($user_item) use ($sitemap) {
+           $sitemap->add(Url::create("users/{$user_item->username}")
+             ->setLastModificationDate($user_item->updated_at));
+           $sitemap->add(Url::create("users/{$user_item->username}/comment")
+             ->setLastModificationDate($user_item->updated_at));
+           $sitemap->add(Url::create("users/{$user_item->username}/vote")
+             ->setLastModificationDate($user_item->updated_at));
+           $sitemap->add(Url::create("users/{$user_item->username}/post")
+             ->setLastModificationDate($user_item->updated_at));
     });
     $sitemap->writeToFile(public_path('../sitemap.xml'));
 
