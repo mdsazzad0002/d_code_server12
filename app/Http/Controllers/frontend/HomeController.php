@@ -36,7 +36,7 @@ class HomeController extends Controller
                     ->where('tilte','LIKE','%'. $request->query_data.'%')
                     ->orWhere('short_details' ,'LIKE','%'.$request->query_data.'%')
                     ->orWhere('details','LIKE','%'.$request->query_data.'%')
-                    ->limit(15)
+                    ->limit(8)
                     ->get();
         }else{
             return '';
