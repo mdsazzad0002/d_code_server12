@@ -42,7 +42,7 @@ $post_after = general_setting('post_center_showup_after') ?? 100;
 
     <div>
         <h4 class="font-weight-bold "># <span class="text-success"> <?php echo e(Str::title($items->tilte)); ?></span></h4>
-        <img class="w-100 lazy" data-src="<?php echo e(dynamic_asset($items->uploads_id)); ?>" alt="">
+        <img class="w-100 lazy" data-src="<?php echo e(dynamic_asset($items->uploads_id)); ?>" alt="<?php echo e($items->tilte); ?>">
     </div>
     <div class="">
         <div class="mt-2">

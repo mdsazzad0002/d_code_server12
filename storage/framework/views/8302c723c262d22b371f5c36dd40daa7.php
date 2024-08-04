@@ -14,7 +14,7 @@
     <a href="<?php echo e(route('users.index', $contribute->username)); ?>" style=" display:inline-block">
         <img class="w-100 h-100 lazy" style="object-fit: cover" data-src="<?php echo e($contribute->upload_file); ?>" alt="<?php echo e($contribute->name); ?>">
         <div class="holder_name" style="border-radius: 4px;">
-            <?php echo e(Str::limit($contribute->name, 9, '...')); ?>
+            <?php echo e(Str::limit($contribute->name, 15, '...')); ?>
 
         </div>
     </a>
@@ -39,8 +39,8 @@
     }
     .overflow-auto a{
         margin-right: 8px;
-        height: 100px;
-        width: 80px;
+        height: 160px;
+        width: 125px;
         position: relative;
 
     }

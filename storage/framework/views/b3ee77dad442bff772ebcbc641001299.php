@@ -2,7 +2,7 @@
     <?php echo csrf_field(); ?>
     <label for="profile_image" class="mb-3 mt-3 position-relative">
         <img src="<?php echo e(dynamic_asset($user->upload_id)); ?>"
-            class="rounded-circle profile_image  img-fulid  mx-auto" />
+            class="rounded-circle profile_image  img-fulid  mx-auto" alt="<?php echo e($user->name); ?>" />
             <?php if(auth()?->user()?->id == $user->id): ?>
               <div class="profile_image_overlayer">
                 <i class="fa fa-camera mb-2" aria-hidden="true"></i>
