@@ -24,7 +24,7 @@
 
 <!--  Non-Essential, But Recommended -->
 <meta property="og:description" content="@yield('short_description')"/>
-<meta property="og:site_name" content="D Engr Web - D code"/>
+<meta property="og:site_name" content="D Codecamp"/>
 <meta name="twitter:image:alt" content="@yield('title')"/>
 
 
