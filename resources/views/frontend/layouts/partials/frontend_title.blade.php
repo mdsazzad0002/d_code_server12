@@ -7,9 +7,9 @@
                     <i class="fas fa-code font-weight-bold"></i>
                 </div>
             </div>
-            <div class="h3 mb-0">
+            <h1 class="h3 mb-0">
                @yield('title')
-            </div>
+            </h1>
           </div>
     </div>
   </div>
