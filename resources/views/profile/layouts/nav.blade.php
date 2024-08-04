@@ -5,7 +5,7 @@
 
     <ul class="navbar-nav ">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="{{ route('home') }}" role="button"><img  style="height: 40px" src="{{ general_setting('site_logo')}}" alt=""></a>
+        <a class="nav-link" data-widget="pushmenu" href="{{ route('home') }}" role="button"><img  style="height: 40px" src="{{ general_setting('site_logo')}}" alt="Site logo"></a>
       </li>
     </ul>
 

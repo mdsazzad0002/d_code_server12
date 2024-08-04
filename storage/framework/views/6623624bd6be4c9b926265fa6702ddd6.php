@@ -1,5 +1,5 @@
 
-<img class="w-100 placeholderimg_main" >
+<img class="w-100 placeholderimg_main">
 <div class="my-2">
     <a class="tag_data placeholder" href="#"></a>
     <a class="tag_data placeholder" href="#"></a>

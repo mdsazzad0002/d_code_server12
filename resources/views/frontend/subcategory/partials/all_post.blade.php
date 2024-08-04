@@ -32,7 +32,7 @@ $post_after = general_setting('post_center_showup_after') ?? 100;
 
     <div>
         <h4 class="font-weight-bold "># <span class="text-success"> {{ Str::title($items->tilte) }}</span></h4>
-        <img class="w-100 lazy" data-src="{{ dynamic_asset($items->uploads_id) }}" alt="">
+        <img class="w-100 lazy" data-src="{{ dynamic_asset($items->uploads_id) }}" alt="{{ $items->tilte }}">
     </div>
     <div class="">
         <div class="mt-2">

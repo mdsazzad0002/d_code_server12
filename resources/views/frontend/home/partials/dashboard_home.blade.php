@@ -43,7 +43,7 @@ $ads_enabled = general_setting('system_showup');
             </div>
             <div>
 
-                <img class="w-100" src="{{ dynamic_asset($items->uploads_id) }}" alt="">
+                <img class="w-100" src="{{ dynamic_asset($items->uploads_id) }}" alt="{{ $items->name }}">
                  <div class="line-climb-3">
                     {{ $items->description }}
                 </div>

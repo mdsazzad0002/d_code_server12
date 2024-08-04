@@ -3,7 +3,7 @@
 <div class=" overflow-auto">
     @foreach ($contribute_data as $contribute)
     <a href="{{ route('users.index', $contribute->username) }}" style=" display:inline-block">
-        <img class="w-100 h-100 lazy" style="object-fit: cover" data-src="{{ $contribute->upload_file }}" alt="">
+        <img class="w-100 h-100 lazy" style="object-fit: cover" data-src="{{ $contribute->upload_file }}" alt="{{ $contribute->name }}">
         <div class="holder_name" style="border-radius: 4px;">
             {{ Str::limit($contribute->name, 9, '...') }}
         </div>

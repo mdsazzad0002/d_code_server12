@@ -2,7 +2,7 @@
 
     <a href="<?php echo e(route('users.index',$view_post?->users?->username ?? '#')); ?>" class="mb-3 col-12 col-sm-7 col-md-6  d-flex align-items-center  text-light" style="gap: 10px">
         <div>
-            <img style="width: 60px; height:60px; border-radius:10%; object-fit:cover" class="lazy" data-src="<?php echo e(dynamic_asset($view_post?->users?->uploads?->id)); ?>" alt="s">
+            <img style="width: 60px; height:60px; border-radius:10%; object-fit:cover" class="lazy" data-src="<?php echo e(dynamic_asset($view_post?->users?->uploads?->id)); ?>" alt="<?php echo e($view_post?->tilte); ?>">
         </div>
         <div>
 

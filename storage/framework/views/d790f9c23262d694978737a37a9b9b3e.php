@@ -16,7 +16,7 @@
 <meta name="description" content="<?php echo $__env->yieldContent('short_description'); ?>">
 
 <!--  Essential META Tags -->
-<meta property="og:title" content="<?php echo $__env->yieldContent('title'); ?>"/>
+<meta property="og:title" content="<?php echo $__env->yieldContent('title'); ?> - D Codecamp"/>
 <meta property="og:type" content="article" />
 <meta property="og:image" content="<?php echo $__env->yieldContent('og_image'); ?>"/>
 <meta property="og:url" content="<?php echo e(url()->current()); ?>"/>
@@ -24,7 +24,7 @@
 
 <!--  Non-Essential, But Recommended -->
 <meta property="og:description" content="<?php echo $__env->yieldContent('short_description'); ?>"/>
-<meta property="og:site_name" content="D Engr Web - D code"/>
+<meta property="og:site_name" content="D Codecamp"/>
 <meta name="twitter:image:alt" content="<?php echo $__env->yieldContent('title'); ?>"/>
 
 
