@@ -13,7 +13,7 @@
 
 
 
-
+<meta name="description" content="<?php echo $__env->yieldContent('short_description'); ?>">
 
 <!--  Essential META Tags -->
 <meta property="og:title" content="<?php echo $__env->yieldContent('title'); ?>"/>

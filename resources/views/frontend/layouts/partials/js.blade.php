@@ -5,7 +5,7 @@
 <!-- Bootstrap -->
 <script src="{{ static_asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
-<script src="{{ static_asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+{{--  <script src="{{ static_asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>  --}}
 <!-- AdminLTE App -->
 <script src="{{ static_asset('frontend/js/adminlte.js')}}"></script>
 <script src="{{static_asset('plugins/')}}/select2/js/select2.full.min.js"></script>

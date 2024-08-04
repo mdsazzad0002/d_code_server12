@@ -1,6 +1,6 @@
 <?php $__env->startSection('sidebar'); ?>
 <?php $__currentLoopData = $sub_category_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<li class="nav-item">
+<li class="nav-item" role="menuitem">
     <a href="<?php echo e(route('subcategory.index',  [$category, $items->slug])); ?>" class="nav-link
                 <?php if($items->slug == $find_subcategory->slug): ?>
                     active
@@ -42,7 +42,7 @@ $post_after = general_setting('post_center_showup_after') ?? 100;
 
     <div>
         <h4 class="font-weight-bold "># <span class="text-success"> <?php echo e(Str::title($items->tilte)); ?></span></h4>
-        <img class="w-100" src="<?php echo e(dynamic_asset($items->uploads_id)); ?>" alt="">
+        <img class="w-100 lazy" data-src="<?php echo e(dynamic_asset($items->uploads_id)); ?>" alt="">
     </div>
     <div class="">
         <div class="mt-2">
@@ -55,7 +55,7 @@ $post_after = general_setting('post_center_showup_after') ?? 100;
 
             </div>
         </div>
-        <a class="btn btn-primary progress-bar progress-bar-striped btn-block p-2 px-4 mt-2" href="<?php echo e(route('post.index',[$category ,$subcategory, $items->slug])); ?>">See Details</a>
+        <a class="btn btn-primary progress-bar progress-bar-striped btn-block p-2 px-4 mt-2" href="<?php echo e(route('post.index',[$category ,$subcategory, $items->slug])); ?>">Details View</a>
     </div>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

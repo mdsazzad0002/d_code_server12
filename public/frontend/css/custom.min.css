@@ -126,3 +126,11 @@ div.code-toolbar
     background:#07cc9e;
     transform:rotate(45deg);
 }
+
+.dark-mode .main-footer
+{
+    color:#efefef;
+}
+footer.main-footer a{
+    color: #07cc9e;
+}

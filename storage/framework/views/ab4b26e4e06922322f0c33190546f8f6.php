@@ -13,7 +13,7 @@
                 </span>
                 <br>
                 <?php echo e(Str::title($view_post?->users?->tagline ?? 'Tagline Loading . . .')); ?><br>
-                ⨀<span class="text-info"><?php echo e($view_post->updated_at->format('d  M  Y h:sA')); ?></span>
+                ⨀<span class="text-success font-weight-bold"><?php echo e($view_post->updated_at->format('d  M  Y h:sA')); ?></span>
             </div>
         </div>
     </a>

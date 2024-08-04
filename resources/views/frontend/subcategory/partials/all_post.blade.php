@@ -1,6 +1,6 @@
 @section('sidebar')
 @foreach ($sub_category_list as $items)
-<li class="nav-item">
+<li class="nav-item" role="menuitem">
     <a href="{{ route('subcategory.index',  [$category, $items->slug]) }}" class="nav-link
                 @if($items->slug == $find_subcategory->slug)
                     active
@@ -32,7 +32,7 @@ $post_after = general_setting('post_center_showup_after') ?? 100;
 
     <div>
         <h4 class="font-weight-bold "># <span class="text-success"> {{ Str::title($items->tilte) }}</span></h4>
-        <img class="w-100" src="{{ dynamic_asset($items->uploads_id) }}" alt="">
+        <img class="w-100 lazy" data-src="{{ dynamic_asset($items->uploads_id) }}" alt="">
     </div>
     <div class="">
         <div class="mt-2">
@@ -43,7 +43,7 @@ $post_after = general_setting('post_center_showup_after') ?? 100;
                 {{ $items->short_details }}
             </div>
         </div>
-        <a class="btn btn-primary progress-bar progress-bar-striped btn-block p-2 px-4 mt-2" href="{{ route('post.index',[$category ,$subcategory, $items->slug]) }}">See Details</a>
+        <a class="btn btn-primary progress-bar progress-bar-striped btn-block p-2 px-4 mt-2" href="{{ route('post.index',[$category ,$subcategory, $items->slug]) }}">Details View</a>
     </div>
 </x-frontend.card>
 

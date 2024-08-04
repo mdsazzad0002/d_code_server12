@@ -2,7 +2,7 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            <a class="nav-link" aria-label="Menu left sidebar toggle" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
 
 
@@ -23,7 +23,7 @@
 
 
         <li class="nav-item">
-            <a class="nav-link docSearch_byModel_own" data-toggle="modal" data-target="#docSearch_byModel_own">
+            <a href="#" class="nav-link docSearch_byModel_own" aria-label="Search modal like algolia" data-toggle="modal" data-target="#docSearch_byModel_own">
                 <i class="fas fa-search"></i>
             </a>
         </li>
@@ -41,7 +41,7 @@
                 <i class="fa fa-plus"></i> Post</button>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <a class="nav-link" data-widget="fullscreen" href="#" aria-label="Maximize fullscreen button" role="button">
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>

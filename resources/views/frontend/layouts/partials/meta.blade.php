@@ -13,7 +13,7 @@
 
 
 
-
+<meta name="description" content="@yield('short_description')">
 
 <!--  Essential META Tags -->
 <meta property="og:title" content="@yield('title')"/>

@@ -182,6 +182,9 @@ Route::get('/sitemap', function () {
         subcategory::where('category_id', $category->id)->get()->each(function ($subcategory) use ($sitemap , $category) {
             $sitemap->add(Url::create("category/{$category->slug}/subcategory/{$subcategory->slug}")
             ->setLastModificationDate($subcategory->updated_at));
+            $sitemap->add(Url::create("subcategory/{$subcategory->id}/{$subcategory->slug}")
+            ->setLastModificationDate($subcategory->updated_at));
+
 
             Post::where('subcategory_id', $subcategory->id)->where('category_id', $category->id)->get()->each(function (Post $post) use ($sitemap, $category, $subcategory) {
                 $sitemap->add(Url::create("category/{$category->slug}/subcategory/{$subcategory->slug}/{$post->slug}")

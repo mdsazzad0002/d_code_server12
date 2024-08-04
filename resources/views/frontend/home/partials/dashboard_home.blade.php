@@ -1,6 +1,6 @@
 @section('sidebar')
 @foreach ($category as $items)
-<li class="nav-item">
+<li class="nav-item" role="menuitem">
     <a href="{{ route('category.index', $items->slug) }}" class="nav-link">
         <i class="nav-icon fas fa-newspaper"></i>
         <p>

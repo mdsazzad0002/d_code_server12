@@ -36,7 +36,7 @@
         bottom: 0;
         width: 100%;
         overflow: hidden;
-        background: gray;
+        background: #6c757d;
         color: white;
         padding: 2px 5px;
         padding: 2px 5px;

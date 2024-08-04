@@ -9,7 +9,7 @@
 
 <?php $__env->startSection('sidebar'); ?>
 <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<li class="nav-item">
+<li class="nav-item" role="menuitem">
     <a href="<?php echo e(route('category.index', $items->slug)); ?>" class="nav-link">
         <i class="nav-icon fas fa-newspaper"></i>
         <p>
