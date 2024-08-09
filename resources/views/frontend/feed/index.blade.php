@@ -25,6 +25,12 @@
 
 
 @section('content')
+<style>
+    .feed_image{
+        max-height: 220px;
+    }
+</style>
+
 @include('frontend.feed.create')
 
 @include('frontend.feed.partials.today_top_contribute')

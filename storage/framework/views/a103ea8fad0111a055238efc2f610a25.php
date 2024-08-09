@@ -23,6 +23,12 @@
 
 
 <?php $__env->startSection('content'); ?>
+<style>
+    .feed_image{
+        max-height: 220px;
+    }
+</style>
+
 <?php echo $__env->make('frontend.feed.create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php echo $__env->make('frontend.feed.partials.today_top_contribute', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

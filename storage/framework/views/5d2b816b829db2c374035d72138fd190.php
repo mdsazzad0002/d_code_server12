@@ -20,19 +20,46 @@
 <?php endif; ?>
 
 <script>
-    function form__by__image_load(keyword, img){
-        if(keyword.length > 2){
-              var form = new FormData();
+
+function load_image_form_pexels(keyword, img){
+    if(keyword.length > 2){
+        var form = new FormData();
+        var return_data ='';
+        var settings = {
+        "url": `https://api.pexels.com/v1/search?query=${keyword}&per_page=1`,
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "headers": {
+            "Authorization": "GUJ4dl3GG1tg68e9QMawgUtmbp6tu0skUg5AKNRt9FHvXWcEBESCOagO",
+
+        },
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "data": form
+        };
+
+
+        $.ajax(settings).done(function (response) {
+            img.src = response.photos[0].src.landscape
+            setTimeout(function(){
+                img.classList.remove('lazy');
+            },1000)
+        });
+    }
+
+}
+function load_image_form_pixabay(keyword, img){
+      if(keyword.length > 2){
+            var form = new FormData();
             var return_data ='';
             var settings = {
-            "url": `https://api.pexels.com/v1/search?query=${keyword}&per_page=1`,
+            "url": `https://pixabay.com/api/?key=45360085-2d224eab6a0d750f5199543f0&q=${keyword}&orientation=horizontal&safesearch=true&page=1&per_page=3`,
             "method": "GET",
             "timeout": 0,
             "dataType": "json",
-            "headers": {
-                "Authorization": "GUJ4dl3GG1tg68e9QMawgUtmbp6tu0skUg5AKNRt9FHvXWcEBESCOagO",
-
-            },
+         
             "processData": false,
             "mimeType": "multipart/form-data",
             "contentType": false,
@@ -41,13 +68,27 @@
 
 
             $.ajax(settings).done(function (response) {
-                img.src = response.photos[0].src.landscape
-                setTimeout(function(){
-                    img.classList.remove('lazy');
-                },1000)
+                if (parseInt(response.totalHits) > 0){
+                      img.src = response.hits[0].previewURL
+                        setTimeout(function(){
+                            img.classList.remove('lazy');
+                        },1000)
+                }
+              
             });
         }
+}
 
+    var i_image= 0;
+
+    function form__by__image_load(keyword, img){
+        
+        if(i_image%2==0){
+             load_image_form_pexels(keyword, img)
+        }else{
+            load_image_form_pixabay(keyword, img)
+        }
+        i_image++
 
     }
 
