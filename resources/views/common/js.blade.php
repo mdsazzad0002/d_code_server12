@@ -2,6 +2,42 @@
 <x-ajax_data_modal></x-ajax_data_modal>
 
 <script>
+    function form__by__image_load(keyword, img){
+        if(keyword.length > 2){
+              var form = new FormData();
+            var return_data ='';
+            var settings = {
+            "url": `https://api.pexels.com/v1/search?query=${keyword}&per_page=1`,
+            "method": "GET",
+            "timeout": 0,
+            "dataType": "json",
+            "headers": {
+                "Authorization": "GUJ4dl3GG1tg68e9QMawgUtmbp6tu0skUg5AKNRt9FHvXWcEBESCOagO",
+
+            },
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": form
+            };
+
+
+            $.ajax(settings).done(function (response) {
+                img.src = response.photos[0].src.landscape
+                setTimeout(function(){
+                    img.classList.remove('lazy');
+                },1000)
+            });
+        }
+
+
+    }
+
+
+
+
+
+
     //Lazy load
     var lazyloadThrottleTimeout;
     var hasScrolled = false;
@@ -16,8 +52,16 @@
             var scrollTop = window.pageYOffset;
             lazyloadImages.forEach(function(img) {
                 if (img.offsetTop < (window.innerHeight + scrollTop)) {
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
+                    if(img.dataset.src.includes('fixing')){
+                        var title = img.getAttribute('alt');
+                         form__by__image_load(title, img);
+                    }else{
+                     img.src = img.dataset.src;
+                     setTimeout(function(){
+                        img.classList.remove('lazy');
+                    },1000)
+                    }
+
                 }
             });
 

@@ -1,8 +1,8 @@
 <form action="{{ route('users.profile_pic_change.index') }}" id="profile_pic_update" method="POST" enctype="multipart/form-data">
     @csrf
     <label for="profile_image" class="mb-3 mt-3 position-relative">
-        <img src="{{ dynamic_asset($user->upload_id) }}"
-            class="rounded-circle profile_image  img-fulid  mx-auto" alt="{{ $user->name }}" />
+        <img data-src="{{ dynamic_asset($user->upload_id) }}"
+            class="rounded-circle profile_image  img-fulid  mx-auto lazy" alt="{{ $user->name }}" />
             @if(auth()?->user()?->id == $user->id)
               <div class="profile_image_overlayer">
                 <i class="fa fa-camera mb-2" aria-hidden="true"></i>

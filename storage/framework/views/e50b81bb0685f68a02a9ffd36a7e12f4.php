@@ -15,7 +15,7 @@
             <?php if(auth()->user()): ?>
             <img class="rounded-circle   w-100 h-100 lazy" style="object-fit: cover" data-src="<?php echo e(dynamic_asset(auth()->user()->upload_id)); ?>" alt=""></div>
         <?php else: ?>
-        <img class="rounded-circle  w-100 h-100 lazy" style="object-fit: cover" data-src="<?php echo e(dynamic_asset(0)); ?>" alt="">
+        <img class="rounded-circle  w-100 h-100 lazy" style="object-fit: cover" data-src="<?php echo e(dynamic_asset(0)); ?>" alt="Profile Image">
     </div>
     <?php endif; ?>
     <div style="width: calc(100% - 80px);    ">

@@ -6,7 +6,7 @@
             @if(auth()->user())
             <img class="rounded-circle   w-100 h-100 lazy" style="object-fit: cover" data-src="{{ dynamic_asset(auth()->user()->upload_id) }}" alt=""></div>
         @else
-        <img class="rounded-circle  w-100 h-100 lazy" style="object-fit: cover" data-src="{{ dynamic_asset(0) }}" alt="">
+        <img class="rounded-circle  w-100 h-100 lazy" style="object-fit: cover" data-src="{{ dynamic_asset(0) }}" alt="Profile Image">
     </div>
     @endif
     <div style="width: calc(100% - 80px);    ">
