@@ -31,14 +31,14 @@
     }
 </style>
 
-@include('frontend.feed.create')
-
-@include('frontend.feed.partials.today_top_contribute')
-
 
 
 <div class="row">
     <div class="col-xl-8">
+        
+        @include('frontend.feed.create')
+
+        @include('frontend.feed.partials.today_top_contribute')
         <div class="post_data_feed">
 
         </div>
