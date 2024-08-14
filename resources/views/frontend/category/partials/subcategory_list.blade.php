@@ -20,8 +20,9 @@ $i = 1;
 $ads_after_data = general_setting('post_center_showup_after')??100;
 $ads_enabled =general_setting('system_showup');
 @endphp
-<div class="row">
 
+<div class="row">
+    <div class="col-xl-8">
 
     @forelse ($subcategory as $items )
     @php
@@ -29,12 +30,12 @@ $ads_enabled =general_setting('system_showup');
     @endphp
     @if( $ads_enabled=='on')
     @if($i% $ads_after_data == 0)
-    <div class="col-12">
+    <div class="">
         @component('components.frontend.ads', ['where'=>'category_showup'])@endcomponent
     </div>
     @endif
     @endif
-    <div class="col-lg-6">
+    <div class="">
 
 
         <x-frontend.card>
@@ -70,3 +71,11 @@ $ads_enabled =general_setting('system_showup');
 </div>
 
 {{ $subcategory->links() }}
+       <div class="col-xl-4">
+        <div class="position_sticky_footer_side">
+            <x-footer_category></x-footer_category>
+        </div>
+    </div>
+</div>
+
+

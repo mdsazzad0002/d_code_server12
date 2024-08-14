@@ -27,7 +27,7 @@
 @section('content')
 <style>
     .feed_image{
-        max-height: 220px;
+        max-height: 250px;
     }
 </style>
 
@@ -37,13 +37,22 @@
 
 
 
+<div class="row">
+    <div class="col-xl-8">
+        <div class="post_data_feed">
 
-<div class="post_data_feed row">
+        </div>
+        <div class="post_data_feed_preview">
 
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="position_sticky_footer_side">
+            <x-footer_category></x-footer_category>
+        </div>
+    </div>
 </div>
-<div class="post_data_feed_preview row">
 
-</div>
 
 
 @stop

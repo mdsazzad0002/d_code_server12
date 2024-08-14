@@ -21,8 +21,9 @@ $i = 1;
 $ads_after_data = general_setting('post_center_showup_after')??100;
 $ads_enabled =general_setting('system_showup');
 ?>
-<div class="row">
 
+<div class="row">
+    <div class="col-xl-8">
 
     <?php $__empty_1 = true; $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
     <?php
@@ -30,12 +31,12 @@ $ads_enabled =general_setting('system_showup');
     ?>
     <?php if( $ads_enabled=='on'): ?>
     <?php if($i% $ads_after_data == 0): ?>
-    <div class="col-12">
+    <div class="">
         <?php $__env->startComponent('components.frontend.ads', ['where'=>'category_showup']); ?><?php echo $__env->renderComponent(); ?>
     </div>
     <?php endif; ?>
     <?php endif; ?>
-    <div class="col-lg-6">
+    <div class="">
 
 
         <?php if (isset($component)) { $__componentOriginal0a3246743b024a30070683ed74d4e791 = $component; } ?>
@@ -108,5 +109,31 @@ $ads_enabled =general_setting('system_showup');
 </div>
 
 <?php echo e($subcategory->links()); ?>
+
+       <div class="col-xl-4">
+        <div class="position_sticky_footer_side">
+            <?php if (isset($component)) { $__componentOriginal73f463ef31b8dcbfc5c52b151a9065df = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal73f463ef31b8dcbfc5c52b151a9065df = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.footer_category','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('footer_category'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?> <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal73f463ef31b8dcbfc5c52b151a9065df)): ?>
+<?php $attributes = $__attributesOriginal73f463ef31b8dcbfc5c52b151a9065df; ?>
+<?php unset($__attributesOriginal73f463ef31b8dcbfc5c52b151a9065df); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal73f463ef31b8dcbfc5c52b151a9065df)): ?>
+<?php $component = $__componentOriginal73f463ef31b8dcbfc5c52b151a9065df; ?>
+<?php unset($__componentOriginal73f463ef31b8dcbfc5c52b151a9065df); ?>
+<?php endif; ?>
+        </div>
+    </div>
+</div>
+
 
 <?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server\resources\views/frontend/category/partials/subcategory_list.blade.php ENDPATH**/ ?>

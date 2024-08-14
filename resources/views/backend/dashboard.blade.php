@@ -74,6 +74,13 @@
             </h1>
         </x-frontend.card>
     </div>
+    <div class="col-md-4 col-lg-3 col-sm-6">
+        <x-frontend.card footer="Visitors Report" class="bg-light text-dark border text-center mb-3 p-0" >
+            <a href='http://www.freevisitorcounters.com'>click here</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=0a444d9b0ae71df1096acb57e8147bf984be9504'></script>
+            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1220829/t/1"></script>
+
+        </x-frontend.card>
+    </div>
 
 </div>
 

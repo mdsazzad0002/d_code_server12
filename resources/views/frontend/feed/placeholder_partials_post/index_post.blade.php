@@ -1,4 +1,4 @@
-<div class="col-12 col-xxl-6 placeholder-glow">
+<div class=" placeholder-glow">
     <div class="shadow px-3 py-2 bg-dark mb-3 ">
         @include('frontend.feed.placeholder_partials_post.summary_post')
         <a  href="#">

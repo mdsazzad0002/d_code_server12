@@ -89,6 +89,7 @@ div.code-toolbar
 .text-success{
     color:#07cc9e !important;
 }
+@media (min-width:1200px) {
 
     .position_sticky_footer_side{
         position: sticky;
@@ -98,6 +99,7 @@ div.code-toolbar
         max-height: calc(100vh - 140px);
         overflow: auto;
     }
+}
 
 
 .position_sticky_footer_side .card .card-header{
