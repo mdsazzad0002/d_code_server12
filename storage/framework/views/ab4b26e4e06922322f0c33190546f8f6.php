@@ -1,6 +1,7 @@
+<div class=" px-3 py-2" style="background:#282828">
 <div class="row">
 
-    <a href="<?php echo e(route('users.index',$view_post?->users?->username ?? '#')); ?>" class="mb-3 col-12 col-sm-7 col-md-6  d-flex align-items-center  text-light" style="gap: 10px">
+    <a href="<?php echo e(route('users.index',$view_post?->users?->username ?? '#')); ?>" class=" col-12 col-sm-7 col-md-6  d-flex align-items-center  text-light" style="gap: 10px">
         <div>
             <img style="width: 60px; height:60px; border-radius:10%; object-fit:cover" class="lazy" data-src="<?php echo e(dynamic_asset($view_post?->users?->uploads?->id)); ?>" alt="<?php echo e($view_post?->tilte); ?>">
         </div>
@@ -12,13 +13,13 @@
 
                 </span>
                 <br>
-                <?php echo e(Str::title($view_post?->users?->tagline ?? 'Tagline Loading . . .')); ?><br>
+                <?php echo e(Str::title($view_post?->users?->tagline ?? 'Tagline Loading . . .')); ?><br/>
                 ⨀<span class="text-success font-weight-bold"><?php echo e($view_post->updated_at->format('d  M  Y h:sA')); ?></span>
             </div>
         </div>
     </a>
 
-    <div class="col-12 col-sm-5 col-md-6 d-none  d-sm-flex justify-content-end flex-column mb-3 " style="gap: 3px">
+    <div class="col-12 col-sm-5 col-md-6 d-none  d-sm-flex justify-content-end flex-column  " style="gap: 3px">
         <div class="text-sm-right">
             <?php if(date($view_post?->users?->created_at) >= Carbon\Carbon::now()->subMonths(3)): ?>
             New Users
@@ -46,7 +47,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <style>
     .gap-2{
         gap:4px;

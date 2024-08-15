@@ -63,7 +63,7 @@ class ViewProfileController extends Controller
 
 
 
-                $posts = post::where('user_id', $user->id)->limit(3)->get();
+                $posts = post::where('user_id', $user->id)->orderBy('id','desc')->limit(3)->get();
                 return view('profile.profile', compact('posts', 'user','vote_array_values', 'vote_array_key','post_array_key','post_array_values','comment_array_key','comment_array_values'));
             }else{
                 return abort(403,'User Not found');
@@ -78,7 +78,7 @@ class ViewProfileController extends Controller
         if($id != null && !empty($id)){
              $user = User::where('username', $id)->get()->first();
             if($user){
-                $comments = comment::where('user_id',  $user?->id)->paginate(30);
+                $comments = comment::where('user_id',  $user?->id)->orderBy('id','desc')->paginate(30);
                 return view('profile.comment.index', compact('comments','user'));
 
             }else{
@@ -93,7 +93,7 @@ class ViewProfileController extends Controller
         if($id != null && !empty($id)){
              $user = User::where('username', $id)->get()->first();
             if($user){
-                $votes = Vote::where('user_id', $user->id)->paginate(15);
+                $votes = Vote::where('user_id', $user->id)->orderBy('id','desc')->paginate(15);
                 return view('profile.vote.index', compact('votes','user'));
 
             }else{
@@ -108,7 +108,7 @@ class ViewProfileController extends Controller
         if($id != null && !empty($id)){
              $user = User::where('username', $id)->get()->first();
             if($user){
-                $posts = post::where('user_id', $user->id)->paginate(30);
+                $posts = post::where('user_id', $user->id)->orderBy('id','desc')->paginate(30);
                 return view('profile.post.index', compact('posts','user'));
 
             }else{

@@ -39,24 +39,29 @@ $post_after = general_setting('post_center_showup_after') ?? 100;
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-
-    <div>
-        <h4 class="font-weight-bold "># <span class="text-success"> <?php echo e(Str::title($items->tilte)); ?></span></h4>
-        <img class="w-100 lazy" data-src="<?php echo e(dynamic_asset($items->uploads_id)); ?>" alt="<?php echo e($items->tilte); ?>">
-    </div>
-    <div class="">
-        <div class="mt-2">
-            ⨀ <?php echo e($items->updated_at->format('d-M-Y h:s:i A')); ?>
-
+    <div class=" px-3 py-2" style="background:#282828">
+      <div>
+            <h4 class="font-weight-bold mb-0"># <span class="text-success"> <?php echo e(Str::title($items->tilte)); ?></span></h4>
         </div>
-        <div>
-            <div class="line-climb-3">
-                <?php echo e($items->short_details); ?>
+    </div> 
+    <div class=" px-3 py-2">
+    <img class="w-100 lazy" data-src="<?php echo e(dynamic_asset($items->uploads_id)); ?>" alt="<?php echo e($items->tilte); ?>">
+
+        <div class="">
+            <div class="mt-2">
+                ⨀ <?php echo e($items->updated_at->format('d-M-Y h:s:i A')); ?>
 
             </div>
+            <div>
+                <div class="line-climb-3">
+                    <?php echo e($items->short_details); ?>
+
+                </div>
+            </div>
+            <a class="btn btn-primary progress-bar progress-bar-striped btn-block p-2 px-4 mt-2" href="<?php echo e(route('post.index',[$category ,$subcategory, $items->slug])); ?>">Details View</a>
         </div>
-        <a class="btn btn-primary progress-bar progress-bar-striped btn-block p-2 px-4 mt-2" href="<?php echo e(route('post.index',[$category ,$subcategory, $items->slug])); ?>">Details View</a>
     </div>
+   
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal0a3246743b024a30070683ed74d4e791)): ?>

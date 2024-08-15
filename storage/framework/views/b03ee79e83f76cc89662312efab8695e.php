@@ -14,8 +14,8 @@
     ?>
     <div class="row">
         <?php $__currentLoopData = $catgory_list_footer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class=" col-md-4 col-xl-12 mb-2 p-2 " >
-                <div class="card mb-0">
+            <div class=" col-md-4 col-xl-12" >
+                <div class="card mb-0 mt-2 ml-2 mr-2">
                     <div class="card-body">
                         <a href="<?php echo e(route('category.index', $items->slug)); ?>" class=" text-black w-full"><?php echo e(Str::title($items->name)); ?></a>
                     </div>

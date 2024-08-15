@@ -50,14 +50,14 @@ $ads_enabled =general_setting('system_showup');
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
             <div class="">
-                <div class="d-flex align-items-center justify-content-between">
-                       <h4 class="font-weight-bold "># <span class="text-success"><?php echo e(Str::title($items->name)); ?></span> </h4>
-                <a href="{ route('category.index', $items->slug) }}" class="text-white font-italic">
-                    <?php echo e($items->posts_items); ?> Posts
-                </a>
+                <div class="d-flex align-items-center justify-content-between  px-3 py-2" style="background:#282828">
+                       <h4 class="font-weight-bold mb-0"># <span class="text-success"><?php echo e(Str::title($items->name)); ?></span> </h4>
+                    <a href="<?php echo e(route('category.index', $items->slug)); ?>" class="text-white font-italic">
+                        <?php echo e($items->posts_items); ?> Posts
+                    </a>
                 </div>
 
-                <div>
+                <div class=" px-3 py-2">
                     <div>
                         <img class="w-100 lazy" data-src="<?php echo e(dynamic_asset($items->uploads_id)); ?>" alt="<?php echo e($items->name); ?>">
                         <div class="line-climb-3">
@@ -134,6 +134,7 @@ $ads_enabled =general_setting('system_showup');
         </div>
     </div>
 </div>
+
 
 
 <?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server\resources\views/frontend/category/partials/subcategory_list.blade.php ENDPATH**/ ?>

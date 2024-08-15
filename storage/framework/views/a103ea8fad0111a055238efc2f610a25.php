@@ -33,7 +33,7 @@
 
 <div class="row">
     <div class="col-xl-8">
-        
+
         <?php echo $__env->make('frontend.feed.create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <?php echo $__env->make('frontend.feed.partials.today_top_contribute', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -77,6 +77,7 @@
     function feed_preview(data){
         var preview_feed_text = `
         <?php echo $__env->make('frontend.feed.placeholder_partials_post.index_post', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      
     `;
         if(data > 0){
             for(var i =0; i < data -1; i++){
@@ -130,6 +131,7 @@
     });
 
 </script>
+
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server\resources\views/frontend/feed/index.blade.php ENDPATH**/ ?>

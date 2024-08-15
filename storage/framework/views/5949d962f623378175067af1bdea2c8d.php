@@ -48,13 +48,15 @@ $ads_enabled = general_setting('system_showup');
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-            <div class="d-flex align-items-center justify-content-between">
-                <h4 class="font-weight-bold "># <span class="text-success"><?php echo e(Str::title($items->name)); ?></span> </h4>
-                <a href="<?php echo e(route('category.index', $items->slug)); ?>" class="text-white font-italic">
-                    <?php echo e($items->subcategory_items); ?> Subcategories
-                </a>
+            <div class=" px-3 py-2"  style="background:#282828">
+                <div class="d-flex align-items-center justify-content-between">
+                <h4 class="font-weight-bold mb-0"># <span class="text-success"><?php echo e(Str::title($items->name)); ?></span> </h4>
+                    <a href="<?php echo e(route('category.index', $items->slug)); ?>" class="text-white font-italic">
+                        <?php echo e($items->subcategory_items); ?> Subcategories
+                    </a>
+                </div>
             </div>
-            <div>
+            <div class=" px-3 py-2">
 
                 <img class="w-100" src="<?php echo e(dynamic_asset($items->uploads_id)); ?>" alt="<?php echo e($items->name); ?>">
                  <div class="line-climb-3">

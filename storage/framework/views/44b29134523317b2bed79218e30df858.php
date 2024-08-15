@@ -15,7 +15,7 @@ href="<?php echo e($href); ?>"
 <?php endif; ?>
 
 
-class="card
+class="card p-0
 
 
 <?php if(isset($class)): ?>
@@ -24,18 +24,19 @@ class="card
 <?php endif; ?>
 
 
-">
+" style="border-radius:5px;overflow:hidden">
 
     <?php if(isset($title)): ?>
-    <h4 class="card-header">
+    <h4 class="card-header  px-3 py-2" style="background:#282828">
         <?php echo e($title); ?>
 
     </h4>
+
     <?php endif; ?>
 
 
 
-<div class="card-body">
+<div class="card-body p-0">
     <?php echo e($slot); ?>
 
 </div>

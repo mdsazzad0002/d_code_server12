@@ -2,11 +2,13 @@
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="<?php echo e(static_asset('plugins/jquery/jquery.min.js')); ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="<?php echo e(static_asset('plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
 <!-- overlayScrollbars -->
 
 <!-- AdminLTE App -->
+<script src="<?php echo e(static_asset('common/main.js')); ?>"></script>
 <script src="<?php echo e(static_asset('frontend/js/adminlte.js')); ?>"></script>
 <script src="<?php echo e(static_asset('plugins/')); ?>/select2/js/select2.full.min.js"></script>
 <!-- PAGE PLUGINS -->

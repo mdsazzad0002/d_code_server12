@@ -97,7 +97,7 @@ div.code-toolbar
     }
     .position_sticky_footer_side .card-body{
         max-height: calc(100vh - 140px);
-        overflow: auto;
+        overflow-x: hidden;
     }
 }
 

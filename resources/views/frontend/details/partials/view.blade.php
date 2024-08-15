@@ -25,16 +25,20 @@
 
     @include('frontend.summary.summery_view')
 
-    <div class="row flex-column flex-md-row">
+    <div class=" px-3 py-2">
+<div class="row flex-column flex-md-row">
 
         <div class="col-md-12">
             @include('frontend.details.partials.post_short_info')
-            <div class="my-3">
+
+            <div class="my-3 ">
                 {!! Str::markdown($view_post->details) !!}
             </div>
         </div>
 
     </div>
+    </div>
+    
 </x-frontend.card>
 @else
 <x-404></x-404>
@@ -45,7 +49,7 @@
 
 </div>
 
-<x-frontend.card>
+<x-frontend.card class=" px-3 py-2">
     <h3 class="d-flex flex-wrap align-items-end">Write a Associte Comment <div class="text-warning mb-1 ml-2 h6">Markdown Editor</div></h3>
     <form action="" id="post_details_editor">
         @csrf

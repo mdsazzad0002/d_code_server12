@@ -35,7 +35,7 @@
 
 <div class="row">
     <div class="col-xl-8">
-        
+
         @include('frontend.feed.create')
 
         @include('frontend.feed.partials.today_top_contribute')
@@ -61,6 +61,7 @@
     function feed_preview(data){
         var preview_feed_text = `
         @include('frontend.feed.placeholder_partials_post.index_post')
+      
     `;
         if(data > 0){
             for(var i =0; i < data -1; i++){
@@ -114,4 +115,5 @@
     });
 
 </script>
+
 @endpush

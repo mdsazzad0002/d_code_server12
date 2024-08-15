@@ -14,7 +14,7 @@ href="{{ $href }}"
 @endisset
 {{--  End When found href element  --}}
 
-class="card
+class="card p-0
 
 {{--  When found class element  --}}
 @isset($class)
@@ -22,17 +22,18 @@ class="card
 @endisset
 {{--  End When found class element  --}}
 
-">
+" style="border-radius:5px;overflow:hidden">
 {{--  title attribute   --}}
     @isset($title)
-    <h4 class="card-header">
+    <h4 class="card-header  px-3 py-2" style="background:#282828">
         {{ $title }}
     </h4>
+
     @endisset
 {{--  title attribute   --}}
 
 {{--  body Element  --}}
-<div class="card-body">
+<div class="card-body p-0">
     {{ $slot }}
 </div>
 {{--  body Element  --}}
