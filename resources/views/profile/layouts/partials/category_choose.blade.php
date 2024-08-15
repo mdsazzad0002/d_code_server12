@@ -39,8 +39,10 @@
                         @php
                             $chosen_category_key = explode(',', $user->chosen_category);
                         @endphp
-                            $chosen_category_key =[];
-                        @else
+                    @else
+                        @php
+                        $chosen_category_key =[];
+                        @endphp
                      @endif
 
                     @foreach ($user->category_list() as $key => $value)
@@ -49,7 +51,7 @@
 
                 </select>
 
-                
+
               </div>
 
               <div class="modal-footer">
