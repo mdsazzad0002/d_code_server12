@@ -8,6 +8,13 @@
         </h6>
         <div class="dropdown-menu bg-dark text-light border-top-0" style="width:100% !important">
             <a href="<?php echo e(route('users.index', auth()->user()->username)); ?>" class="dropdown-item">Overview</a>
+            <a href="<?php echo e(route('users.comment', auth()->user()->username)); ?>" class="dropdown-item">Comment</a>
+            <a href="<?php echo e(route('users.vote', auth()->user()->username)); ?>" class="dropdown-item">Vote</a>
+            <a href="<?php echo e(route('users.post', auth()->user()->username)); ?>" class="dropdown-item">Post</a>
+
+            
+            
+            
             
 
             <form action="<?php echo e(route('logout')); ?>" method="POST">

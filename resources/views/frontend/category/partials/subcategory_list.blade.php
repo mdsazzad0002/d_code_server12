@@ -42,7 +42,7 @@ $ads_enabled =general_setting('system_showup');
             <div class="">
                 <div class="d-flex align-items-center justify-content-between  px-3 py-2" style="background:#282828">
                        <h4 class="font-weight-bold mb-0"># <span class="text-success">{{ Str::title($items->name) }}</span> </h4>
-                    <a href="{{ route('category.index', $items->slug) }}" class="text-white font-italic">
+                    <a href="{{ url('subcategory/'.$items->id.'/'.$items->slug) }}" class="text-white font-italic">
                         {{ $items->posts_items }} Posts
                     </a>
                 </div>

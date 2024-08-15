@@ -209,3 +209,24 @@ input[type=file].form-control{
         transition: all 200ms linear;
     }
 /* Footer back to top */
+
+
+/* table responsive */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    overflow:auto;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  /* end table responsive */
