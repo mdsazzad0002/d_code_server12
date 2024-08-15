@@ -12,7 +12,7 @@
 
     </style>
 
-    {{ Str::markdown($post->short_details) }}
+   <p> {{ $post->short_details }}</p>
 
 
 </x-frontend.card_link>

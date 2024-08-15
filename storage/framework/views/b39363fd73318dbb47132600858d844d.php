@@ -21,8 +21,7 @@
 
     </style>
 
-    <?php echo Str::markdown($post->short_details); ?>
-
+   <p> <?php echo e($post->short_details); ?></p>
 
 
  <?php echo $__env->renderComponent(); ?>
