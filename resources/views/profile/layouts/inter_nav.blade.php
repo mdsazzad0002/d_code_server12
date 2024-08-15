@@ -26,6 +26,11 @@
             {{-- end social information  --}}
 
 
+            {{--  Choosen category  --}}
+            @include('profile.layouts.partials.category_choose')
+            {{-- end Choosen category  --}}
+
+
             {{--  social information  --}}
             @include('profile.layouts.partials.report_user')
             {{-- end social information  --}}

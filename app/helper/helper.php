@@ -198,7 +198,7 @@ function vote_cookie($commnent_id){
                 return true;
             }
             return false;
-            
+
     }elseif ($type=='post') {
         $total_post =  post::where('user_id', $user_id)->count();
 
@@ -224,5 +224,6 @@ function vote_cookie($commnent_id){
 
 }
 //end  report contribute
+
 
 

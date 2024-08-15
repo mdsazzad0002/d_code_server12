@@ -42,7 +42,25 @@ class FeedController extends Controller
     }
 
     public function feed_load(){
-        $posts_data_format_feed    = post::inRandomOrder()->limit(6)->get();
+        if(auth()->user()){
+            if(auth()->user()->chosen_category != null){
+                $category_list =  explode(',',auth()->user()->chosen_category);
+                if(count($category_list) > 3){
+                    $posts_data_format_feed    = post::whereIn('category_id', $category_list)->inRandomOrder()->limit(6)->get();
+                }else{
+                    $rand_no = rand(1, 20);
+                    if($rand_no % 2 == 0){
+                        $posts_data_format_feed    = post::whereIn('category_id', $category_list)->inRandomOrder()->limit(6)->get();
+                    }else{
+                        $posts_data_format_feed    = post::inRandomOrder()->limit(6)->get();
+                    }
+                }
+            }else{
+                $posts_data_format_feed    = post::inRandomOrder()->limit(6)->get();
+            }
+        }else{
+            $posts_data_format_feed    = post::inRandomOrder()->limit(6)->get();
+        }
         return view('frontend.feed.post', compact('posts_data_format_feed'));
     }
 }

@@ -27,6 +27,11 @@
 
 
             
+            <?php echo $__env->make('profile.layouts.partials.category_choose', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            
+
+
+            
             <?php echo $__env->make('profile.layouts.partials.report_user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             
 

@@ -34,6 +34,9 @@ Route::post('/quick_link_update/', [profileController::class, 'quick_link_update
 Route::get('/quick_link_delete/', [profileController::class, 'quick_link_delete'])->name('quick_link_delete.index');
 
 
+Route::post('/chosencategory', [profileController::class, 'chosencategory'])->name('chosencategory.index');
+
+
 // Profile Details update
 Route::get('{id}/details/edit/', [profileController::class, 'profile_details_edit'])->name('profile_details.edit');
 Route::put('{id}/details/update/', [profileController::class, 'profile_details_update'])->name('profile_details.update');

@@ -89,4 +89,18 @@ class User extends Authenticatable
 
     }
 
+   public function chosen_category(){
+        $category = $this->chosen_category;
+        if($category != null){
+            $category = explode(',', $category);
+            return category::whereIn('id', $category)->get();
+        }
+    }
+
+    public function category_list(){
+        return category::get()->pluck('name', 'id')->toArray();
+    }
+
+
+
 }

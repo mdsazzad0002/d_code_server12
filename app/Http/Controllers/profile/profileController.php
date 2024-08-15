@@ -142,6 +142,22 @@ class profileController extends Controller
 
 
 
+    public function chosencategory(Request $request){
+        if(auth()->user() && auth()->user()->username == $request->id){
+            $choosen_category = $request->choosen_category;
+            if(is_array($choosen_category)){
+                $category = implode(',', $choosen_category);
+
+                $user_find = User::where('username', $request->id)->first();
+                if($user_find){
+                    $user_find->chosen_category = $category;
+                    $user_find->save();
+                }
+            }
+        }
+        return back();
+    }
+
 
 
 }
