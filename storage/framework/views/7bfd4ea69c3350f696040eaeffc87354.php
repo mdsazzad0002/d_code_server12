@@ -1,13 +1,14 @@
 <div class="mb-2">
-    <h4>Favorite Cateegory.</h4>
     <?php if($user->chosen_category != null): ?>
-
+        <h4>Favorite Cateegory.</h4>
         <?php if(count($user->chosen_category()) > 0): ?>
-            <?php $__currentLoopData = $user->chosen_category(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div>
-                    <a class="d-inline-block" href="<?php echo e(url('/category/'.$items->slug)); ?>"><i class="<?php echo e('bi bi-link-45deg'); ?>"></i><?php echo e($items->name); ?></a>
-                </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $user->chosen_category(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div>
+            <a class="d-inline-block" href="<?php echo e(url('/category/'.$items->slug)); ?>"><i class="<?php echo e('bi bi-link-45deg'); ?>"></i><?php echo e($items->name); ?></a>
+        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php elseif(auth()->user() &&  auth()?->user()?->id == $user->id): ?>
+        <h4>Favorite Cateegory.</h4>
         <?php endif; ?>
     <?php endif; ?>
 
@@ -39,8 +40,10 @@
                         <?php
                             $chosen_category_key = explode(',', $user->chosen_category);
                         ?>
-                            $chosen_category_key =[];
-                        <?php else: ?>
+                    <?php else: ?>
+                        <?php
+                        $chosen_category_key =[];
+                        ?>
                      <?php endif; ?>
 
                     <?php $__currentLoopData = $user->category_list(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -49,7 +52,7 @@
 
                 </select>
 
-                
+
               </div>
 
               <div class="modal-footer">

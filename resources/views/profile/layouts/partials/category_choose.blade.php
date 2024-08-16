@@ -1,13 +1,14 @@
 <div class="mb-2">
-    <h4>Favorite Cateegory.</h4>
     @if($user->chosen_category != null)
-
+        <h4>Favorite Cateegory.</h4>
         @if(count($user->chosen_category()) > 0)
-            @foreach ($user->chosen_category() as $items)
-                <div>
-                    <a class="d-inline-block" href="{{ url('/category/'.$items->slug) }}"><i class="{{'bi bi-link-45deg' }}"></i>{{ $items->name }}</a>
-                </div>
-            @endforeach
+        @foreach ($user->chosen_category() as $items)
+        <div>
+            <a class="d-inline-block" href="{{ url('/category/'.$items->slug) }}"><i class="{{'bi bi-link-45deg' }}"></i>{{ $items->name }}</a>
+        </div>
+        @endforeach
+        @elseif(auth()->user() &&  auth()?->user()?->id == $user->id)
+        <h4>Favorite Cateegory.</h4>
         @endif
     @endif
 
