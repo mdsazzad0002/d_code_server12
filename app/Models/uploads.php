@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class uploads extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','extension','size','external'];
+    protected $fillable = ['name','extension','size','external','creator_id','for','old_name'];
 }

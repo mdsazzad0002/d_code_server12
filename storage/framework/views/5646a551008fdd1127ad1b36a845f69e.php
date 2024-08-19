@@ -86,7 +86,25 @@
     </div>
 </div>
 
-
+<?php if (isset($component)) { $__componentOriginaleb14855206efe5a270ca610175ac6e86 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginaleb14855206efe5a270ca610175ac6e86 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.modal1','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('modal1'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?> <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginaleb14855206efe5a270ca610175ac6e86)): ?>
+<?php $attributes = $__attributesOriginaleb14855206efe5a270ca610175ac6e86; ?>
+<?php unset($__attributesOriginaleb14855206efe5a270ca610175ac6e86); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginaleb14855206efe5a270ca610175ac6e86)): ?>
+<?php $component = $__componentOriginaleb14855206efe5a270ca610175ac6e86; ?>
+<?php unset($__componentOriginaleb14855206efe5a270ca610175ac6e86); ?>
+<?php endif; ?>
 
 <?php $__env->stopSection(); ?>
 

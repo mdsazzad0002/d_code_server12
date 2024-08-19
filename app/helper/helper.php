@@ -20,7 +20,8 @@ function static_asset($string_data)
 
 function file_type($file_mime_type, $file_extension)
 {
-    if ($file_mime_type == 'image') {
+    // dd($file_mime_type);
+    if ($file_mime_type == 'image'  || $file_mime_type == 'application') {
         $image = ['png', 'jpg', 'gif', 'webp', 'jpeg', 'pdf', 'docx'];
         $file_extension = strtolower($file_extension);
         if (in_array($file_extension, $image)) {
@@ -31,12 +32,13 @@ function file_type($file_mime_type, $file_extension)
     }
 }
 
-function uploads($file, $id = null)
+function uploads($file, $id = null, $for = 'general')
 {
     $file_extension = $file->getClientOriginalExtension();
     $file_name = (rand (1000,100000).time() * 40202) . '.' . $file_extension;
 
     $file_temp_name  =  $file->getRealPath();
+    $orginalname = $file->getClientOriginalName();
     $file_size = $file->getSize();
 
     $file_mime_type = $file->getMimeType();
@@ -60,7 +62,9 @@ function uploads($file, $id = null)
                     'name' => $file_name,
                     'extension' => $file_extension,
                     'size' => $file_size,
-                    // 'extension'=>$external_link,
+                    'creator_id'=>auth()->user()->id ?? 0,
+                    'for'=>$for,
+                    'old_name'=> $orginalname
                 ]);
             }
         } else {
@@ -68,9 +72,13 @@ function uploads($file, $id = null)
                 'name' => $file_name,
                 'extension' => $file_extension,
                 'size' => $file_size,
-                // 'extension'=>$external_link,
+                'creator_id'=>auth()->user()->id ?? 0,
+                'for'=>$for,
+                'old_name'=> $orginalname
             ]);
         }
+    }else{
+        return 0;
     }
     //Move Uploaded File
     return uploads::where('name', $file_name)->get()->first()->id;

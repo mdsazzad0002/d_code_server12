@@ -51,7 +51,7 @@
     </div>
 </div>
 
-
+{{--  <x-modal1></x-modal1>  --}}
 
 @stop
 

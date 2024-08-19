@@ -6,19 +6,18 @@
     <input type="file" accept=".pdf" name="cv" id="cv" class="form-control">
 </div>
 
+@if(count($old_cv) > 0)
+
 <div class="mt-1">
     Select CV
-    <label class="cv_list" for="cv_list_id_0">
-        <input  name="cv_id" value="0"  id="cv_list_id_0" type="radio">
-    </label>
-    <label class="cv_list" for="cv_list_id_1">
-        <input  name="cv_id" value="0"  id="cv_list_id_1" type="radio">
-    </label>
-    <label class="cv_list" for="cv_list_id_2">
-        <input  name="cv_id" value="0"  id="cv_list_id_2" type="radio">
-    </label>
+    @foreach ($old_cv as $cv)
+        <label class="cv_list bg-secondary " for="cv_list_id_{{ $cv->id }}">
+            <input  name="cv_id" value="{{ $cv->id }}"  id="cv_list_id_{{ $cv->id }}" type="radio"> &nbsp; {{ $cv->old_name }} <a class="btn btn-primary float-right" href="{{ route('user-job-post.job-post.cv', $cv->name) }}" target="_blank">view</a>
+        </label>
 
+    @endforeach
 </div>
+@endif
 <div>
     <label for="details">Write Cv &nbsp;&nbsp;<span class="text-danger">* Markdown Editor</span></label>
     <textarea  name="long_details" Placeholder="Details" id="details" class="form-control mb-2" cols="30" rows="10"></textarea>

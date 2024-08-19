@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\District;
 use App\Models\JobPost;
+use App\Models\uploads;
 
 class JobPostManageController extends Controller
 {
@@ -175,24 +176,56 @@ class JobPostManageController extends Controller
 
 
     public function apply($id){
-        $jobPost = JobPost::find($id);
-        return view('frontend.job.job_apply.job_form', compact('jobPost'));
+        if(auth()->user()){
+            $jobPost = JobPost::find($id);
+            $old_cv = uploads::where('for', 'cv')->where('creator_id', auth()->user()->id)->get();
+            return view('frontend.job.job_apply.job_form', compact('jobPost','old_cv'));
+        }else{
+            return '<a class="btn btn-primary mx-auto d-block" href="'.url('login').'">Login Now</a>';
+        }
     }
 
     public function apply_store(Request $request){
+        // return $request;
         if(auth()->user()){
             $creator_id = auth()->user()->id;
             $post_find = JobPost::find($request->post_id);
             if($post_find){
                 $job_apply_find = JobApply::where('job_post_id', $request->post_id)->where('creator_id', $creator_id)->first();
                 if($job_apply_find){
-                    toastr()->error('Already Applied ', 'Congrats');
+                    toastr()->error('Already Applied ', 'Error');
+                    return back();
+                }else{
+                    $job_apply = new JobApply;
+                    $job_apply->job_post_id = $request->post_id;
+                    $job_apply->creator_id = $creator_id;
+                    $job_apply->details =  $request->long_details;
+                    if($request->file('cv')){
+                        $job_apply->cv_file_id = uploads($request->file('cv'), null, 'cv');
+                    }elseif($request->has('cv_id')){
+                        $job_apply->cv_file_id = $request->cv_id;
+                    }else{
+                        toastr()->error('Cv Not Found ', 'Error');
+                        return back();
+                    }
+
+                    $job_apply->details =  $request->long_details;
+                    $job_apply->save();
+
+                    toastr()->success('Successfully Applied ', 'Congress');
                     return back();
                 }
+            }else{
+                toastr()->error('Job post not Available', 'Error');
+                return back();
             }
-            return $request;
+
         }else{
             return redirect()->route('login');
         }
+    }
+
+    public function cvshow($name){
+        return view('frontend.job.job_apply.cv', compact('name'));
     }
 }
