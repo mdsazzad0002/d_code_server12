@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\frontend\jobpostcontroller;
 use App\Models\post;
 use App\Models\User;
 use App\Models\category;
@@ -23,6 +23,7 @@ use App\Http\Controllers\frontend\categoryController;
 use App\Http\Controllers\frontend\comment_controller;
 use App\Http\Controllers\vendor\postManageController;
 use App\Http\Controllers\frontend\subcategoryController;
+use App\Http\Controllers\JobPostManageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,6 +102,14 @@ Route::get('/search', [HomeController::class,'get_data_search'])->name('search_d
 // End Post Filter
 
 
+//job post details
+Route::prefix('job')
+    ->name('job.')
+    ->middleware('web')
+    ->group(function() {
+        Route::get('/{slug}', [jobpostcontroller::class, 'index'])->name('index');
+});
+
 
 
 
@@ -121,6 +130,24 @@ Route::prefix('user-post')
 
 
 
+//One User and guest Job Post create
+Route::prefix('user-job-post')
+        ->middleware('web')
+        ->name('user-job-post.')
+        ->group(function() {
+            Route::get('/job-apply/{id}', [JobPostManageController::class, 'apply'])->name('job-post.apply');
+            Route::post('/job-apply', [JobPostManageController::class, 'apply_store'])->name('job-post.apply_store');
+            Route::get('/job-post', [JobPostManageController::class, 'create'])->name('job-post.create');
+            Route::post('/job-post', [JobPostManageController::class, 'store'])->name('job-post.store');
+            Route::get('/job-post/{post}/edit', [JobPostManageController::class, 'edit'])->name('job-post.edit');
+            Route::put('/job-post/{post}', [JobPostManageController::class, 'update'])->name('job-post.update');
+            Route::get('/job-post/{post}', [JobPostManageController::class, 'show'])->name('job-post.show');
+            Route::get('/job-post/comment/{id}', [JobPostManageController::class, 'comment'])->name('job-post.comment');
+});
+//End One User and guest Job Post create
+
+
+
 
 // clear
 Route::get('clear', function () {
@@ -131,8 +158,6 @@ Route::get('clear', function () {
     toastr()->success('Successfully cleared', 'Congrats');
     return back();
 });
-
-
 
 
 

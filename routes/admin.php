@@ -2,14 +2,18 @@
 
 use App\Http\Controllers\backend\adminController;
 use App\Http\Controllers\backend\BannerController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\backend\DashboardController;
-use App\Http\Controllers\backend\RolePermissionController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\DistrictController;
 use App\Http\Controllers\backend\GeneralSettingController;
-use App\Http\Controllers\backend\SubcategoryController;
+use App\Http\Controllers\backend\JobPostController;
 use App\Http\Controllers\backend\PostController;
+use App\Http\Controllers\backend\RolePermissionController;
+use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\userController;
+use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +39,7 @@ Route::resource('/role', RolePermissionController::class);
 // category
 Route::resource('/category', CategoryController::class)->names('category');
 Route::resource('/subcategory', SubcategoryController::class)->names('subcategory');
+Route::resource('/district', DistrictController::class)->names('district');
 
 //post
 Route::resource('/post', PostController::class)->names('post');
@@ -51,6 +56,11 @@ Route::get('/system-settings/{category}', [GeneralSettingController::class, 'ind
 Route::post('/system-settings/{category}', [GeneralSettingController::class, 'update'])->name('system-setting.update');
 
 Route::resource('/banner', BannerController::class)->names('banner');
+
+
+//job-post
+Route::resource('/job-post', JobPostController::class)->names('job-post');
+
 
 
 //admin & user manage

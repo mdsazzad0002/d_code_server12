@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\profile\voteController;
+use App\Http\Controllers\JobPostManageController;
 use App\Http\Controllers\profile\reportController;
-use App\Http\Controllers\profile\commentController;
 
+use App\Http\Controllers\profile\commentController;
 use App\Http\Controllers\profile\profileController;
 use App\Http\Controllers\vendor\postManageController;
 use App\Http\Controllers\profile\ViewProfileController;
@@ -65,9 +66,13 @@ Route::get('/{id}/comment', [ViewProfileController::class, 'comment'])->name('co
 Route::get('/{id}/vote', [ViewProfileController::class, 'vote'])->name('vote');
 Route::get('/{id}/post', [ViewProfileController::class, 'post'])->name('post');
 
+Route::get('/{id}/job-post', [ViewProfileController::class, 'job'])->name('job-post');
 
 
 
 // Delete route
 Route::DELETE('/{id}/post/{post}', [postManageController::class, 'destroy'])->name('post.delete');
+Route::DELETE('/{id}/job-post/{post}', [JobPostManageController::class, 'destroy'])->name('job-post.delete');
+
+
 

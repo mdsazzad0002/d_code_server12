@@ -73,7 +73,13 @@ $ads_enabled =general_setting('system_showup');
 {{ $subcategory->links() }}
        <div class="col-xl-4">
         <div class="position_sticky_footer_side">
-            <x-footer_category></x-footer_category>
+            <x-frontend.card title="Recent Jobs">
+
+                @php
+                   $job_post = jobPost($category_slug, 15);
+                @endphp
+                @include('frontend.job.partials.job_post_card')
+            </x-frontend.card>
         </div>
     </div>
 </div>

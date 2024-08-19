@@ -1,6 +1,6 @@
   <!-- Modal -->
   <form class="modal fade" id="modal_setup" tabindex="-1" aria-labelledby="modal_setup" aria-hidden="true" enctype="multipart/form-data">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>

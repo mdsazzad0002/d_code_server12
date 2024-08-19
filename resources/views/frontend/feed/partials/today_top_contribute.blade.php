@@ -1,18 +1,17 @@
-<x-frontend.card>
-    <div class="mb-1 mt-0">Top Contributor</div>
-<div class=" overflow-auto">
-    @foreach ($contribute_data as $contribute)
-    <a href="{{ route('users.index', $contribute->username) }}" style=" display:inline-block">
-        <img class="w-100 h-100 lazy" style="object-fit: cover" data-src="{{ $contribute->upload_file }}" alt="{{ $contribute->name }}">
-        <div class="holder_name" style="border-radius: 4px;">
-            {{ Str::limit($contribute->name, 15, '...') }}
-        </div>
-    </a>
-    @endforeach
 
-</div>
+    {{--  <div class="mb-1 mt-0">Top Contributor</div>  --}}
+    <div class=" overflow-auto p-2 ">
+        @foreach ($contribute_data as $contribute)
+        <a href="{{ route('users.index', $contribute->username) }}" class="" style=" display:inline-block">
+            <img class="w-100 h-100 lazy" style="object-fit: cover" data-src="{{ $contribute->upload_file }}" alt="{{ $contribute->name }}">
+            <div class="holder_name" style="border-radius: 4px;">
+                {{ Str::limit($contribute->name, 15, '...') }}
+            </div>
+        </a>
+        @endforeach
+    </div>
 
-</x-frontend.card>
+
 <style>
     .overflow-auto{
         overflow: auto;

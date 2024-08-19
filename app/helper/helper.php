@@ -1,14 +1,15 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\post;
 use App\Models\Vote;
 use App\Models\comment;
+use App\Models\JobPost;
 use App\Models\uploads;
 use App\Models\category;
 use App\Models\subcategory;
 use App\Models\GeneralSetting;
 use App\Models\ContributeSummarye;
-use App\Models\post;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
@@ -20,7 +21,7 @@ function static_asset($string_data)
 function file_type($file_mime_type, $file_extension)
 {
     if ($file_mime_type == 'image') {
-        $image = ['png', 'jpg', 'gif', 'webp', 'jpeg'];
+        $image = ['png', 'jpg', 'gif', 'webp', 'jpeg', 'pdf', 'docx'];
         $file_extension = strtolower($file_extension);
         if (in_array($file_extension, $image)) {
             return true;
@@ -222,8 +223,40 @@ function vote_cookie($commnent_id){
 
     }
 
+
 }
 //end  report contribute
 
+
+function jobPost($cat_id = null, $items = 1){
+        $job_post = [];
+        $today = \Carbon\Carbon::now();
+        if($cat_id == null){
+            if(auth()->user()){
+                $job_post = JobPost::where(function ($query){
+                    if(auth()->user()->chosen_category !=null){
+                        $category_data = explode(',', auth()->user()->chosen_category);
+                        foreach ($category_data as $key => $value) {
+                            $query->orWhere('category_id',  'LIKE', '%'.$value.'%');
+                        }
+                    }
+                })->where('deadline', '>=', $today)->inRandomOrder()->limit($items)->get();
+            }else{
+
+                $job_post = JobPost::where('deadline', '>=', $today)->inRandomOrder()->limit($items)->get();
+            }
+        }else{
+        $cat_id = category::where('slug', $cat_id)->first();
+            if($cat_id){
+                $cat_id = $cat_id->id;
+                $job_post = JobPost::where('deadline', '>=', $today)->where('category_id',  'LIKE', '%'.$cat_id.'%')->inRandomOrder()->limit($items)->get();
+            }else{
+                $job_post = JobPost::where('deadline', '>=', $today)->where('category_id',  'LIKE', '%'.$cat_id.'%')->inRandomOrder()->limit($items)->get();
+
+            }
+        }
+
+        return $job_post;
+}
 
 

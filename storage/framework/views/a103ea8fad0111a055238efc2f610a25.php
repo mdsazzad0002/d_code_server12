@@ -8,17 +8,17 @@
 
 
 <?php $__env->startSection('sidebar'); ?>
-<?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<li class="nav-item" role="menuitem">
-    <a href="<?php echo e(route('category.index', $items->slug)); ?>" class="nav-link">
-        <i class="nav-icon fas fa-newspaper"></i>
-        <p>
-            <?php echo e(Str::title($items->name)); ?>
+    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <li class="nav-item" role="menuitem">
+        <a href="<?php echo e(route('category.index', $items->slug)); ?>" class="nav-link">
+            <i class="nav-icon fas fa-newspaper"></i>
+            <p>
+                <?php echo e(Str::title($items->name)); ?>
 
-        </p>
-    </a>
-</li>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </p>
+        </a>
+    </li>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php $__env->stopSection(); ?>
 
 
@@ -33,10 +33,31 @@
 
 <div class="row">
     <div class="col-xl-8">
+        <div class="p-1"></div>
+        <?php if (isset($component)) { $__componentOriginal0a3246743b024a30070683ed74d4e791 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal0a3246743b024a30070683ed74d4e791 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.frontend.card','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('frontend.card'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+            <?php echo $__env->make('frontend.feed.create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make('frontend.feed.partials.today_top_contribute', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+         <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal0a3246743b024a30070683ed74d4e791)): ?>
+<?php $attributes = $__attributesOriginal0a3246743b024a30070683ed74d4e791; ?>
+<?php unset($__attributesOriginal0a3246743b024a30070683ed74d4e791); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal0a3246743b024a30070683ed74d4e791)): ?>
+<?php $component = $__componentOriginal0a3246743b024a30070683ed74d4e791; ?>
+<?php unset($__componentOriginal0a3246743b024a30070683ed74d4e791); ?>
+<?php endif; ?>
 
-        <?php echo $__env->make('frontend.feed.create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-        <?php echo $__env->make('frontend.feed.partials.today_top_contribute', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="post_data_feed">
 
         </div>
@@ -44,26 +65,33 @@
 
         </div>
     </div>
-    <div class="col-xl-4">
+    <div class="col-xl-4 d-none d-lg-block">
         <div class="position_sticky_footer_side">
-            <?php if (isset($component)) { $__componentOriginal73f463ef31b8dcbfc5c52b151a9065df = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal73f463ef31b8dcbfc5c52b151a9065df = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.footer_category','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('footer_category'); ?>
+
+            <?php if (isset($component)) { $__componentOriginal0a3246743b024a30070683ed74d4e791 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal0a3246743b024a30070683ed74d4e791 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.frontend.card','data' => ['title' => 'Recent Jobs']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('frontend.card'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes([]); ?> <?php echo $__env->renderComponent(); ?>
+<?php $component->withAttributes(['title' => 'Recent Jobs']); ?>
+
+                <?php
+                   $job_post = jobPost(null, 15);
+                ?>
+                <?php echo $__env->make('frontend.job.partials.job_post_card', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+             <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php if (isset($__attributesOriginal73f463ef31b8dcbfc5c52b151a9065df)): ?>
-<?php $attributes = $__attributesOriginal73f463ef31b8dcbfc5c52b151a9065df; ?>
-<?php unset($__attributesOriginal73f463ef31b8dcbfc5c52b151a9065df); ?>
+<?php if (isset($__attributesOriginal0a3246743b024a30070683ed74d4e791)): ?>
+<?php $attributes = $__attributesOriginal0a3246743b024a30070683ed74d4e791; ?>
+<?php unset($__attributesOriginal0a3246743b024a30070683ed74d4e791); ?>
 <?php endif; ?>
-<?php if (isset($__componentOriginal73f463ef31b8dcbfc5c52b151a9065df)): ?>
-<?php $component = $__componentOriginal73f463ef31b8dcbfc5c52b151a9065df; ?>
-<?php unset($__componentOriginal73f463ef31b8dcbfc5c52b151a9065df); ?>
+<?php if (isset($__componentOriginal0a3246743b024a30070683ed74d4e791)): ?>
+<?php $component = $__componentOriginal0a3246743b024a30070683ed74d4e791; ?>
+<?php unset($__componentOriginal0a3246743b024a30070683ed74d4e791); ?>
 <?php endif; ?>
         </div>
     </div>
@@ -77,7 +105,7 @@
     function feed_preview(data){
         var preview_feed_text = `
         <?php echo $__env->make('frontend.feed.placeholder_partials_post.index_post', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      
+
     `;
         if(data > 0){
             for(var i =0; i < data -1; i++){

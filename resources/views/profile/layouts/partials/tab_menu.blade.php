@@ -28,15 +28,31 @@
         <a class="nav-link
        {{ Route::is('users.post', $user->username) ? 'active': '' }}" href="{{ route('users.post', $user->username) }}"><i class="fa-solid fa-rss"></i>Posts <span class="badge bg-primary">{{ $user->contribute->post ?? 0 }}</span></a>
     </li>
-    @if(auth()->user() && auth()->user()->id == $user->id)
-    <li class="nav-item ml-auto">
-        {{-- <div class="text-center mt-2 ">  --}}
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Post Create" data-action="{{ route('user-post.post.store') }}" data-socuce="{{ route('user-post.post.create') }}" data-method="post">
-            <i class="fa fa-plus"></i> Add New Post</button>
 
-        {{-- </div>  --}}
-    </li>
+        {{-- job menu --}}
+        <li class="nav-item">
+            <a class="nav-link
+           {{ Route::is('users.job-post', $user->username) ? 'active': '' }}" href="{{ route('users.job-post', $user->username) }}"><i class="fa-solid fa-toolbox"></i>Job Posts</a>
+        </li>
+
+
+
+        @if(auth()->user() && auth()->user()->id == $user->id)
+        <li class="nav-item ml-auto">
+            {{-- <div class="text-center mt-2 ">  --}}
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Job Post Create" data-action="{{ route('user-job-post.job-post.store') }}" data-socuce="{{ route('user-job-post.job-post.create') }}" data-method="post">
+                <i class="fa fa-plus"></i> Add New Job</button>
+
+            {{-- </div>  --}}
+
+            {{-- <div class="text-center mt-2 ">  --}}
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Post Create" data-action="{{ route('user-post.post.store') }}" data-socuce="{{ route('user-post.post.create') }}" data-method="post">
+                <i class="fa fa-plus"></i> Add New Post</button>
+
+            {{-- </div>  --}}
+        </li>
     {{-- End post Menu --}}
     @endif
 </ul>

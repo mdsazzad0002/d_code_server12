@@ -8,6 +8,7 @@ use App\Models\post;
 use App\Models\User;
 use App\Models\Vote;
 use App\Models\comment;
+use App\Models\JobPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -110,6 +111,23 @@ class ViewProfileController extends Controller
             if($user){
                 $posts = post::where('user_id', $user->id)->orderBy('id','desc')->paginate(30);
                 return view('profile.post.index', compact('posts','user'));
+
+            }else{
+                return abort(404,'Page Not Found');
+            }
+        }else{
+            return abort(404,'Page Not Found');
+        }
+
+    }
+
+
+    public function job($id){
+        if($id != null && !empty($id)){
+             $user = User::where('username', $id)->get()->first();
+            if($user){
+                $posts = JobPost::where('creatorId', $user->id)->orderBy('id','desc')->paginate(30);
+                return view('profile.job-post.index', compact('posts','user'));
 
             }else{
                 return abort(404,'Page Not Found');

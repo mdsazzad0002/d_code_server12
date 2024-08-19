@@ -25,9 +25,15 @@
                         </ul>
                     </li>
 
+                    <li class="{{ request()->is('admin/district*') ? 'active' : '' }}"><a
+                        href="{{ route('admin.district.index') }}"><i class="ti-receipt"></i> <span>District</span></a></li>
+
 
                     <li class="{{ request()->is('admin/post*') ? 'active' : '' }}"><a
                             href="{{ route('admin.post.index') }}"><i class="ti-receipt"></i> <span>Post</span></a></li>
+
+                    <li class="{{ request()->is('admin/job-post*') ? 'active' : '' }}"><a
+                                href="{{ route('admin.job-post.index') }}"><i class="ti-receipt"></i> <span>Job Post</span></a></li>
 
                     <li class="{{ request()->is('admin/admin-list*', 'admin/user-list*') ? 'active' : '' }}">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-users"></i>

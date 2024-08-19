@@ -41,9 +41,22 @@
 
                 </x-frontend.card>
             </div>
+
+            <div class="position_sticky_footer_side">
+                <x-frontend.card title="Recent Jobs">
+
+                    @php
+                       $job_post = jobPost($category, 15);
+                    @endphp
+                    @include('frontend.job.partials.job_post_card')
+                </x-frontend.card>
+
+            </div>
+
             <div class="position_sticky_footer_side">
                 <x-footer_category></x-footer_category>
              </div>
+
     </div>
 </div>
 

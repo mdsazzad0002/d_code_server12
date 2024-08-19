@@ -28,15 +28,31 @@
         <a class="nav-link
        <?php echo e(Route::is('users.post', $user->username) ? 'active': ''); ?>" href="<?php echo e(route('users.post', $user->username)); ?>"><i class="fa-solid fa-rss"></i>Posts <span class="badge bg-primary"><?php echo e($user->contribute->post ?? 0); ?></span></a>
     </li>
-    <?php if(auth()->user() && auth()->user()->id == $user->id): ?>
-    <li class="nav-item ml-auto">
-        
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Post Create" data-action="<?php echo e(route('user-post.post.store')); ?>" data-socuce="<?php echo e(route('user-post.post.create')); ?>" data-method="post">
-            <i class="fa fa-plus"></i> Add New Post</button>
 
         
-    </li>
+        <li class="nav-item">
+            <a class="nav-link
+           <?php echo e(Route::is('users.job-post', $user->username) ? 'active': ''); ?>" href="<?php echo e(route('users.job-post', $user->username)); ?>"><i class="fa-solid fa-toolbox"></i>Job Posts</a>
+        </li>
+
+
+
+        <?php if(auth()->user() && auth()->user()->id == $user->id): ?>
+        <li class="nav-item ml-auto">
+            
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Job Post Create" data-action="<?php echo e(route('user-job-post.job-post.store')); ?>" data-socuce="<?php echo e(route('user-job-post.job-post.create')); ?>" data-method="post">
+                <i class="fa fa-plus"></i> Add New Job</button>
+
+            
+
+            
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Post Create" data-action="<?php echo e(route('user-post.post.store')); ?>" data-socuce="<?php echo e(route('user-post.post.create')); ?>" data-method="post">
+                <i class="fa fa-plus"></i> Add New Post</button>
+
+            
+        </li>
     
     <?php endif; ?>
 </ul>

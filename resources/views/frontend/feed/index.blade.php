@@ -11,16 +11,16 @@
 {{--  Require all for seo  --}}
 
 @section('sidebar')
-@foreach ($category as $items)
-<li class="nav-item" role="menuitem">
-    <a href="{{ route('category.index', $items->slug) }}" class="nav-link">
-        <i class="nav-icon fas fa-newspaper"></i>
-        <p>
-            {{Str::title($items->name)}}
-        </p>
-    </a>
-</li>
-@endforeach
+    @foreach ($category as $items)
+    <li class="nav-item" role="menuitem">
+        <a href="{{ route('category.index', $items->slug) }}" class="nav-link">
+            <i class="nav-icon fas fa-newspaper"></i>
+            <p>
+                {{Str::title($items->name)}}
+            </p>
+        </a>
+    </li>
+    @endforeach
 @endsection
 
 
@@ -35,10 +35,13 @@
 
 <div class="row">
     <div class="col-xl-8">
+        <div class="p-1"></div>
+        <x-frontend.card>
+            @include('frontend.feed.create')
+            @include('frontend.feed.partials.today_top_contribute')
+        </x-frontend.card>
 
-        @include('frontend.feed.create')
 
-        @include('frontend.feed.partials.today_top_contribute')
         <div class="post_data_feed">
 
         </div>
@@ -46,9 +49,16 @@
 
         </div>
     </div>
-    <div class="col-xl-4">
+    <div class="col-xl-4 d-none d-lg-block">
         <div class="position_sticky_footer_side">
-            <x-footer_category></x-footer_category>
+
+            <x-frontend.card title="Recent Jobs">
+
+                @php
+                   $job_post = jobPost(null, 15);
+                @endphp
+                @include('frontend.job.partials.job_post_card')
+            </x-frontend.card>
         </div>
     </div>
 </div>
@@ -61,7 +71,7 @@
     function feed_preview(data){
         var preview_feed_text = `
         @include('frontend.feed.placeholder_partials_post.index_post')
-      
+
     `;
         if(data > 0){
             for(var i =0; i < data -1; i++){
