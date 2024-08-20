@@ -137,7 +137,10 @@ Route::prefix('user-job-post')
         ->group(function() {
             Route::get('/job-apply/{id}', [JobPostManageController::class, 'apply'])->name('job-post.apply');
             Route::post('/job-apply', [JobPostManageController::class, 'apply_store'])->name('job-post.apply_store');
+            Route::get('/holderSelected/{id}', [JobPostManageController::class, 'holderSelected'])->name('job-post.holderSelected');
             Route::get('/cv/{name}', [JobPostManageController::class, 'cvshow'])->name('job-post.cv');
+
+
 
             Route::get('/job-post', [JobPostManageController::class, 'create'])->name('job-post.create');
             Route::post('/job-post', [JobPostManageController::class, 'store'])->name('job-post.store');

@@ -14,6 +14,10 @@
 
         
 
+        <button type="button" class="dropdown-item view lg_view" data-toggle="modal" data-target="#modal_setup_view" data-title="Applied List - <?php echo e($post->title); ?>" data-socuce="<?php echo e(route('users.job-post.list', $post->id )); ?>" data-method="get">
+            <i class="fas fa-comment" aria-hidden="true"></i> Applyed List</button>
+
+
         <button type="button" class="dropdown-item bg-danger text-light delete"
                 data-target="#modal_setup_delete"
                 data-action="<?php echo e(route('users.job-post.delete', [auth()->user()->id, $post->id])); ?>"

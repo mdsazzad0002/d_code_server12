@@ -228,4 +228,19 @@ class JobPostManageController extends Controller
     public function cvshow($name){
         return view('frontend.job.job_apply.cv', compact('name'));
     }
+
+    public function holderSelected($id){
+        if($id){
+            $job_data = JobApply::find($id);
+            if($job_data){
+                $job_data->selected =  $job_data->selected == 0 ? 1 : 0;
+                $job_data->save();
+                return $job_data;
+            }else{
+                return 0;
+            }
+        }else{
+            return 0;
+        }
+    }
 }

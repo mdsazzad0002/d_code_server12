@@ -7,7 +7,8 @@
             <a  href="{{ route('job.index',$job_items->slug) }}" aria-label="View Details">
                 <h5 class="font-weight-bold text-success mb-0"> 🎀 {{ Str::title($job_items->title) }}</h5>
                 <div class="text-white mb-2">
-                    ⏱ <span class="text-danger">{{ \Carbon\Carbon::parse($job_items->dateline)->format('d-M-Y') }}</span> -  <span class="text-success">{{ \Carbon\Carbon::parse($job_items->dateline)->format('d-M-Y') }}</span>
+                    ⏱ <span class="text-danger">{{ \Carbon\Carbon::parse($job_items->start_date)->format('d-M-Y') }}</span> -  <span class="text-success">{{ \Carbon\Carbon::parse($job_items->deadline)->format('d-M-Y') }}</span>
+                    
 
                 </div>
                 <div class="line-climb-2 text-white">
@@ -16,7 +17,7 @@
                 <div class="text-secondary text-right">
                     -- {{ $job_items->company_name }}
                 </div>
-           
+
             </a>
             <div class="mt-3">
                 @foreach ($job_items->categoryname() as $category_samilar)

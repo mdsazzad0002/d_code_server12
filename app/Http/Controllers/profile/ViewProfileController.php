@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\profile;
 
+use App\Models\JobApply;
 use Carbon\Carbon;
 
 use App\Models\post;
@@ -136,6 +137,12 @@ class ViewProfileController extends Controller
             return abort(404,'Page Not Found');
         }
 
+    }
+
+    public function list_selected($id){
+
+        $list_applied_list = JobApply::where('job_post_id', $id)->get();
+        return view('profile.job-post.partials.viewProfile', compact('list_applied_list'));
     }
 
 }

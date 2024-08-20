@@ -16,6 +16,10 @@
             <i class="fas fa-comment" aria-hidden="true"></i> Comments</button>
         --}}
 
+        <button type="button" class="dropdown-item view lg_view" data-toggle="modal" data-target="#modal_setup_view" data-title="Applied List - {{ $post->title }}" data-socuce="{{ route('users.job-post.list', $post->id ) }}" data-method="get">
+            <i class="fas fa-comment" aria-hidden="true"></i> Applyed List</button>
+
+
         <button type="button" class="dropdown-item bg-danger text-light delete"
                 data-target="#modal_setup_delete"
                 data-action="{{ route('users.job-post.delete', [auth()->user()->id, $post->id]) }}"

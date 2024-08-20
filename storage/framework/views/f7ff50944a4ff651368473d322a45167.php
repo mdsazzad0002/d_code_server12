@@ -7,7 +7,8 @@
             <a  href="<?php echo e(route('job.index',$job_items->slug)); ?>" aria-label="View Details">
                 <h5 class="font-weight-bold text-success mb-0"> 🎀 <?php echo e(Str::title($job_items->title)); ?></h5>
                 <div class="text-white mb-2">
-                    ⏱ <span class="text-danger"><?php echo e(\Carbon\Carbon::parse($job_items->dateline)->format('d-M-Y')); ?></span> -  <span class="text-success"><?php echo e(\Carbon\Carbon::parse($job_items->dateline)->format('d-M-Y')); ?></span>
+                    ⏱ <span class="text-danger"><?php echo e(\Carbon\Carbon::parse($job_items->start_date)->format('d-M-Y')); ?></span> -  <span class="text-success"><?php echo e(\Carbon\Carbon::parse($job_items->deadline)->format('d-M-Y')); ?></span>
+                    
 
                 </div>
                 <div class="line-climb-2 text-white">
@@ -18,7 +19,7 @@
                     -- <?php echo e($job_items->company_name); ?>
 
                 </div>
-           
+
             </a>
             <div class="mt-3">
                 <?php $__currentLoopData = $job_items->categoryname(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category_samilar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
