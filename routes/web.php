@@ -1,29 +1,34 @@
 <?php
 
-use App\Http\Controllers\frontend\jobpostcontroller;
-use App\Models\post;
-use App\Models\User;
-use App\Models\category;
-use App\Models\subcategory;
-use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\Tags\Url;
-use Database\Seeders\DatabaseSeeder;
-
-
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
-
-
-use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\frontend\FeedController;
-use App\Http\Controllers\frontend\HomeController;
-use App\Http\Controllers\frontend\DetailsController;
 use App\Http\Controllers\frontend\categoryController;
 use App\Http\Controllers\frontend\comment_controller;
-use App\Http\Controllers\vendor\postManageController;
+use App\Http\Controllers\frontend\DetailsController;
+use App\Http\Controllers\frontend\FeedController;
+use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\jobpostcontroller;
 use App\Http\Controllers\frontend\subcategoryController;
 use App\Http\Controllers\JobPostManageController;
+
+
+use App\Http\Controllers\vendor\postManageController;
+use App\Models\category;
+
+
+
+use App\Models\post;
+use App\Models\subcategory;
+use App\Models\User;
+use Database\Seeders\DatabaseSeeder;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +42,66 @@ use App\Http\Controllers\JobPostManageController;
 
 
 */
+
+Route::get('/auth/redirect/github', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+
+Route::get('/auth/callback/github', function () {
+    $githubUser = Socialite::driver('github')->user();
+
+    $user = User::where('github_id', $githubUser->id)->first();
+    if($user != null){
+        $user->upload_id = uploads($githubUser->avatar,  $user->id, 'general', 'url');
+    }else{
+        $user =new  User;
+        $user->github_id = $githubUser->id;
+        $user->password = Hash::make($githubUser->nickname. $githubUser->name);
+        $user->upload_id = uploads($githubUser->avatar, null, 'general', 'url');
+        $user->email = $githubUser->email;
+
+    }
+    $user->name = $githubUser->name;
+    $user->username = $githubUser->nickname.time();
+    $user->github_token = $githubUser->token;
+    $user->github_refresh_token = $githubUser->refreshToken;
+    $user->save();
+
+
+
+    Auth::login($user);
+
+    return redirect('/');
+});
+
+
+
+Route::get('/auth/callback/google/', function () {
+
+    $request_data =  $_GET;
+
+
+    $user = User::where('email', $request_data['email'])->first();
+    if($user != null){
+        $user->upload_id = uploads($request_data['image'],  $user->id, 'general', 'url');
+    }else{
+        $user =new  User;
+        $user->google_id = $request_data['id'];
+        $user->password = Hash::make($request_data['name']);
+        $user->upload_id = uploads($request_data['image'], null, 'general', 'url');
+        $user->email = $request_data['email'] ?? '';
+
+    }
+    $user->name = $request_data['name'];
+    $user->username = Str::slug($request_data['name']) . time();
+    $user->save();
+
+
+
+    Auth::login($user);
+    return 'success';
+});
 
 
 

@@ -32,31 +32,82 @@ function file_type($file_mime_type, $file_extension)
     }
 }
 
-function uploads($file, $id = null, $for = 'general')
+function uploads($file, $id = null, $for = 'general', $type = 'file')
 {
-    $file_extension = $file->getClientOriginalExtension();
-    $file_name = (rand (1000,100000).time() * 40202) . '.' . $file_extension;
+    if($type == 'url'){
+        if($id != null){
+            $uploads = uploads::find($id);
+            if($uploads){
+                $uploads->update(
+                    [
+                        'name' => '',
+                        'external' => $file,
+                        'extension' => explode('.',$file)[-0],
+                        'size' => 0,
+                        'creator_id'=>auth()->user()->id ?? 0,
+                        'for'=>$for,
+                        'old_name'=> $file
+                    ]
+                );
+                return $uploads->id;
+            }else{
+                $uploads =  uploads::create([
+                     'name' => '',
+                     'external' => $file,
+                     'extension' => explode('.',$file)[-0],
+                     'size' => 0,
+                     'creator_id'=>auth()->user()->id ?? 0,
+                     'for'=>$for,
+                     'old_name'=> $file
+                 ]);
+                 return $uploads->id;
+            }
+        }
+       $uploads =  uploads::create([
+            'name' => '',
+            'external' => $file,
+            'extension' => explode('.',$file)[-0],
+            'size' => 0,
+            'creator_id'=>auth()->user()->id ?? 0,
+            'for'=>$for,
+            'old_name'=> $file
+        ]);
+        return $uploads->id;
+    }else{
 
-    $file_temp_name  =  $file->getRealPath();
-    $orginalname = $file->getClientOriginalName();
-    $file_size = $file->getSize();
+        $file_extension = $file->getClientOriginalExtension();
+        $file_name = (rand (1000,100000).time() * 40202) . '.' . $file_extension;
 
-    $file_mime_type = $file->getMimeType();
-    $file_mime_type = explode('/', $file_mime_type)[0];
+        $file_temp_name  =  $file->getRealPath();
+        $orginalname = $file->getClientOriginalName();
+        $file_size = $file->getSize();
 
-    if (file_type($file_mime_type, $file_extension)) {
-        $destinationPath = public_path() . '/uploads/';
-        $file->move($destinationPath, $file_name);
-        if ($id != null) {
-            $file_find = uploads::find($id);
-            if ($file_find) {
-                if (file_exists($destinationPath . $file_find->name)) {
-                    unlink($destinationPath . $file_find->name);
+        $file_mime_type = $file->getMimeType();
+        $file_mime_type = explode('/', $file_mime_type)[0];
+
+            if (file_type($file_mime_type, $file_extension)) {
+                $destinationPath = public_path() . '/uploads/';
+                $file->move($destinationPath, $file_name);
+                if ($id != null) {
+                    $file_find = uploads::find($id);
+                    if ($file_find) {
+                        if (file_exists($destinationPath . $file_find->name)) {
+                            unlink($destinationPath . $file_find->name);
+                        }
+                        $file_find->name = $file_name;
+                        $file_find->extension = $file_extension;
+                        $file_find->size = $file_size;
+                        $file_find->save();
+                    } else {
+                        uploads::create([
+                        'name' => $file_name,
+                        'extension' => $file_extension,
+                        'size' => $file_size,
+                        'creator_id'=>auth()->user()->id ?? 0,
+                        'for'=>$for,
+                        'old_name'=> $orginalname
+                    ]);
                 }
-                $file_find->name = $file_name;
-                $file_find->extension = $file_extension;
-                $file_find->size = $file_size;
-                $file_find->save();
             } else {
                 uploads::create([
                     'name' => $file_name,
@@ -67,18 +118,9 @@ function uploads($file, $id = null, $for = 'general')
                     'old_name'=> $orginalname
                 ]);
             }
-        } else {
-            uploads::create([
-                'name' => $file_name,
-                'extension' => $file_extension,
-                'size' => $file_size,
-                'creator_id'=>auth()->user()->id ?? 0,
-                'for'=>$for,
-                'old_name'=> $orginalname
-            ]);
+        }else{
+            return 0;
         }
-    }else{
-        return 0;
     }
     //Move Uploaded File
     return uploads::where('name', $file_name)->get()->first()->id;
@@ -89,6 +131,11 @@ function dynamic_asset($id)
     $destinationPath = 'uploads/';
     if ($id != null || $id != '') {
         if ($file1 = uploads::find($id)) {
+
+            if($file1->name == ''){
+                return $file1->external;
+            }
+
             $file1 = $destinationPath . $file1->name;
             if (File::exists(public_path($file1)) || is_dir(public_path($file1))) {
                 return static_asset($file1);

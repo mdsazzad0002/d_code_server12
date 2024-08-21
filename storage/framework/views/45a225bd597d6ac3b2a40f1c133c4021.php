@@ -98,6 +98,44 @@ unset($__errorArgs, $__bag); ?>
                                 <div>
                                     <a href="<?php echo e(route('register')); ?>">Do you have not Any Account? Create New.</a>
                                 </div>
+                                <div class="text-left">
+                                    <h1>Or</h1>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-2">
+                                        
+                                        <div>
+                                            <a class="btn btn-dark" href="<?php echo e(url('/auth/redirect/github')); ?>">Continue with Github</a>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-12 mb-2">
+                                        
+                                        <div>
+                                            <div id="g_id_onload" class=""
+                                                    data-client_id="7734250976-obt32uahupkmtaep4rr7gq0q8p0qibh7.apps.googleusercontent.com"
+                                                    data-context="signin"
+                                                    data-ux_mode="popup"
+                                                    data-callback="login_by_google"
+                                                    data-auto_select="true"
+                                                    data-itp_support="true">
+                                            </div>
+
+                                            <div class="g_id_signin" class="w-100"
+                                                    data-type="standard"
+                                                    data-shape="rectangular"
+                                                    data-theme="outline"
+                                                    data-text="signin_with"
+                                                    data-size="large"
+                                                    data-logo_alignment="left">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+
+
                             </div>
 
                         </div>
@@ -110,5 +148,52 @@ unset($__errorArgs, $__bag); ?>
     </div>
 </div>
 <?php $__env->stopSection(); ?>
+
+
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function login_by_google(response){
+
+            const tokens = response.credential.split(".");
+                const responsePayload = JSON.parse(atob(tokens[1]));
+                console.log(responsePayload)
+
+                    var xhr = new XMLHttpRequest();
+                    var url = new URL('<?php echo e(url('/auth/callback/google/')); ?>');
+
+                    // Append query parameters
+                    url.searchParams.append('id', responsePayload.sub);
+                    url.searchParams.append('name', responsePayload.name);
+                    url.searchParams.append('image', responsePayload.picture);
+                    url.searchParams.append('email', responsePayload.email);
+
+                    xhr.open('GET', url, true);
+
+                    xhr.onload = function() {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            // Successful response
+                            if (xhr.responseText === 'success') {
+                                window.location.reload(); // Fixed typo from `window.reload()` to `window.location.reload()`
+                            } else {
+                                console.error('Unexpected response:', xhr.responseText);
+                            }
+                        } else {
+                            // Handle HTTP errors
+                            console.error('HTTP error:', xhr.status, xhr.statusText);
+                        }
+                    };
+
+                    xhr.onerror = function() {
+                        // Handle network errors
+                        console.error('Network error:', xhr.statusText);
+                    };
+
+                    xhr.send();
+
+
+        }
+
+    </script>
 
 <?php echo $__env->make('profile.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server\resources\views/auth/login.blade.php ENDPATH**/ ?>
