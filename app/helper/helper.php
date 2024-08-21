@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\File;
 
 function static_asset($string_data)
 {
-    // return asset('public/' . $string_data);
-    return asset( $string_data);
+    return asset('public/' . $string_data);
+    // return asset( $string_data);
 
 }
 
