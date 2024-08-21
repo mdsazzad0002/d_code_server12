@@ -49,15 +49,20 @@ class DistrictController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:districts,name',
+            'name' => 'required',
         ]);
         // $request->validate(['name'=>'required|unique:districts,name']);
         if (!$validator->fails()) {
-            $category = new District();
-            $category->name = $request->name;
-            $category->creatorId = auth()->user()->id;
-            $category->save();
-
+            $districts = explode(',', $request->name);
+            foreach($districts as $key => $items){
+                $category = District::where('name', $items)->first();
+                if($category == null){
+                    $category = new District();
+                    $category->name = $items;
+                    $category->creatorId = auth()->user()->id;
+                    $category->save();
+                }
+            }
 
 
             toastr()->success('Successfully Created District!', 'Congrats');

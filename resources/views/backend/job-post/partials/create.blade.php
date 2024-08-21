@@ -18,7 +18,7 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label for="district_select">Job District &nbsp;&nbsp;<span class="text-danger">* </span></label>
-            <select required class="form-control select2 mb-2" name="district_id" placeholder="District">
+            <select required class="form-control select2 tag_true mb-2" name="district_id" placeholder="District">
                 <option value="">--Select District--</option>
                 @foreach ($district as $items)
                 <option value="{{ $items->id }}">{{ $items->name }}</option>
