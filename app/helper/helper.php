@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\File;
 
 function static_asset($string_data)
 {
-    return asset('public/' . $string_data);
+    // return asset('public/' . $string_data);
+    return asset( $string_data);
+
 }
 
 function file_type($file_mime_type, $file_extension)

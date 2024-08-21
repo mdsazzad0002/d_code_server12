@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\DistrictController;
 use App\Http\Controllers\backend\GeneralSettingController;
 use App\Http\Controllers\backend\JobPostController;
 use App\Http\Controllers\backend\PostController;
+use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\RolePermissionController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\userController;
@@ -60,6 +61,7 @@ Route::resource('/banner', BannerController::class)->names('banner');
 
 //job-post
 Route::resource('/job-post', JobPostController::class)->names('job-post');
+Route::resource('/report', ReportController::class)->names('report');
 
 
 

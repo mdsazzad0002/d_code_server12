@@ -24,6 +24,7 @@ use App\Http\Controllers\frontend\comment_controller;
 use App\Http\Controllers\vendor\postManageController;
 use App\Http\Controllers\frontend\subcategoryController;
 use App\Http\Controllers\JobPostManageController;
+use App\Http\Controllers\LoginWithSocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,8 +73,6 @@ Route::get('category_by_subcategory/{category_id}', [subcategoryController::clas
 Route::post('comment', [comment_controller::class, 'store'])->name('comment.post');
 Route::get('comment', [comment_controller::class, 'index'])->name('comment.index');
 Route::get('comment/update', [comment_controller::class, 'update'])->name('comment.update');
-
-
 
 
 
