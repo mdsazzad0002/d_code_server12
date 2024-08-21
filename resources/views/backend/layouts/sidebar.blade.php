@@ -63,6 +63,8 @@
 
                         </ul>
                     </li>
+                    <li class="{{ request()->is('admin/job-post*') ? 'active' : '' }}"><a
+                        href="{{ route('admin.report.index') }}"><i class="ti-receipt"></i> <span>Report</span></a></li>
 
                 </ul>
             </nav>
