@@ -23,7 +23,7 @@
         color: black;
         display: flex;
         gap: 15px;
-        padding: 10px;
+        padding: 7px;
         align-items: center;
         background: white;
         border-radius: 5px;
@@ -106,6 +106,11 @@
     #docSearch_byModel_own input#search_diaload_input {
         padding: 15px 15px 15px 50px;
     }
+    .img_search{
+        width: 70px;
+        height: 48px;
+        object-fit: cover;
+    }
 </style>
 
 {{-- <button type="button" class="btn btn-primary docSearch_byModel_own" data-toggle="modal"
@@ -116,7 +121,7 @@
 <!-- Modal -->
 <div class="modal fade" id="docSearch_byModel_own" tabindex="-1" role="dialog"
     aria-labelledby="docSearch_byModel_ownTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <input type="search" id="search_diaload_input" class="form-control"
@@ -330,11 +335,11 @@
                          data_format= '<ul class="list-unstyled" id="Item_diaload_menu">';
                         if(data_response.length > 0){
                             data_response.forEach((element)=>{
-                               
+
                                     data_format+=`
                                     <li class="">
                                         <a class="text-decoration-none" href="{{url('post')}}/${element.slug.replace(/<[^>]+>/g, '')}">
-                                            <i class="fa fa-code" aria-hidden="true"></i>
+                                            <img class="img_search" src="${element.uploads_url}"/>
                                             <div>
                                                 <div class="title_post">
                                                     ${element.tilte.replace(/<[^>]+>/g, '')}
