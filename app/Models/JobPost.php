@@ -13,7 +13,7 @@ class JobPost extends Model
     protected $casts = [
         'created_at' => 'date:d-M-Y h:s A',
     ];
-    protected $appends = ['status_name', 'category_name', 'district_name'];
+    protected $appends = ['status_name', 'category_name', 'district_name','uploads_url'];
     public function users(){
         return $this->hasOne(User::class,'id' ,'user_id' );
     }
@@ -48,5 +48,8 @@ class JobPost extends Model
 
     public function category_list(){
         return category::get()->pluck('name', 'id')->toArray();
+    }
+    public function getUploadsUrlAttribute(){
+        return static_asset('uploads/post-icon-jobs.png');
     }
 }
