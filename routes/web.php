@@ -60,7 +60,9 @@ Route::get('/auth/callback/github', function () {
         $user->github_id = $githubUser->id;
         $user->password = Hash::make($githubUser->nickname. $githubUser->name);
         $user->upload_id = uploads($githubUser->avatar, null, 'general', 'url');
-        $user->email = $githubUser->email;
+        if($githubUser->email != null){
+            $user->email = $githubUser->email;
+        }
 
     }
     $user->name = $githubUser->name;
