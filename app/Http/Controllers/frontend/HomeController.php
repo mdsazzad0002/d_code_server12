@@ -55,7 +55,7 @@ class HomeController extends Controller
                     ->limit(8)
                     ->get();
 
-          return   $post->merge($job);
+          return   $post->concat($job);
 
 
         }else{
