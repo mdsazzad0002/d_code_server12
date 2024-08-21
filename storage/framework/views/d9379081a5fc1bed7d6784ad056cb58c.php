@@ -11,37 +11,38 @@
     
 
     
-    <li class="nav-item">
+    <li class="nav-item d-none d-md-block">
         <a class="nav-link  <?php echo e(Route::is('users.comment', $user->username) ? 'active': ''); ?>" href="<?php echo e(route('users.comment', $user->username)); ?>"><i class="fa fa-comments"></i>Comment <span class="badge bg-primary"><?php echo e($user->contribute->comment ?? 0); ?></span></a>
     </li>
     
 
     
-    <li class="nav-item">
+    <li class="nav-item d-none d-lg-block">
         <a class="nav-link
       <?php echo e(Route::is('users.vote', $user->username) ? 'active': ''); ?>" href="<?php echo e(route('users.vote', $user->username)); ?>"><i class="fa fa-id-card" aria-hidden="true"></i>Votes <span class="badge bg-primary"><?php echo e(($user->contribute->upvote ?? 0) + ($user->contribute->downvote ?? 0)); ?></span></a>
     </li>
     
 
     
-    <li class="nav-item">
+    <li class="nav-item d-none d-lg-block">
         <a class="nav-link
        <?php echo e(Route::is('users.post', $user->username) ? 'active': ''); ?>" href="<?php echo e(route('users.post', $user->username)); ?>"><i class="fa-solid fa-rss"></i>Posts <span class="badge bg-primary"><?php echo e($user->contribute->post ?? 0); ?></span></a>
     </li>
 
         
-        <li class="nav-item">
+        <li class="nav-item d-none d-xl-block">
             <a class="nav-link
            <?php echo e(Route::is('users.job-post', $user->username) ? 'active': ''); ?>" href="<?php echo e(route('users.job-post', $user->username)); ?>"><i class="fa-solid fa-toolbox"></i>Job Posts</a>
         </li>
 
 
 
+
         <?php if(auth()->user() && auth()->user()->id == $user->id): ?>
-        <li class="nav-item ml-auto">
+        <li class="nav-item ml-auto d-flex gap-2 mb-2">
             
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Job Post Create" data-action="<?php echo e(route('user-job-post.job-post.store')); ?>" data-socuce="<?php echo e(route('user-job-post.job-post.create')); ?>" data-method="post">
+            <button type="button" class="btn btn-primary form markdown d-none d-sm-block" data-toggle="modal" data-target="#modal_setup" data-title="Job Post Create" data-action="<?php echo e(route('user-job-post.job-post.store')); ?>" data-socuce="<?php echo e(route('user-job-post.job-post.create')); ?>" data-method="post">
                 <i class="fa fa-plus"></i> Add New Job</button>
 
             

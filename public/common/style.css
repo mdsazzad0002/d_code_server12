@@ -241,3 +241,8 @@ table {
             line-clamp: 2;
     -webkit-box-orient: vertical;
  }
+.dropdown-menu button{
+    cursor: pointer;
+}
+
+
