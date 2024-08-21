@@ -16,7 +16,7 @@ class post extends Model
     protected $casts = [
         'created_at' => 'date:d-M-Y h:s A',
     ];
-    protected $appends = ['status_name', 'category_name', 'subcategory_name', 'uploads_url'];
+    protected $appends = ['status_name', 'category_name', 'subcategory_name', 'uploads_url','details_url'];
     public function users(){
         return $this->hasOne(User::class,'id' ,'user_id' );
     }
@@ -43,6 +43,9 @@ class post extends Model
 
     public function getUploadsUrlAttribute(){
         return dynamic_asset($this->uploads_id);
+    }
+    public function getDetailsUrlAttribute(){
+        return url('post/'.$this->slug);
     }
 
 

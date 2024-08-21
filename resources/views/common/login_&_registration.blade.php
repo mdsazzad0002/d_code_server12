@@ -27,8 +27,7 @@
 
         @else
 
-        <h6 class="user-name dropdown-toggle mb-0" data-toggle="dropdown"><i class="fas fa-user"></i> Login /
-            registration</h6>
+        <h6 class="user-name dropdown-toggle mb-0" data-toggle="dropdown"><i class="fas fa-user"></i> Profile</h6>
         <div class="dropdown-menu bg-dark text-light border-top-0" style="width:100% !important">
 
             <button class="dropdown-item" style="border-bottom: 1px dotted rgb(39, 39, 39)" data-toggle="modal"

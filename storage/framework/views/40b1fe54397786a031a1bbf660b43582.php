@@ -305,7 +305,7 @@
 
                                     data_format+=`
                                     <li class="">
-                                        <a class="text-decoration-none" href="<?php echo e(url('post')); ?>/${element.slug.replace(/<[^>]+>/g, '')}">
+                                        <a class="text-decoration-none" href="${element.details_url.replace(/<[^>]+>/g, '')}">
                                             <img class="img_search" src="${element.uploads_url}"/>
                                             <div>
                                                 <div class="title_post">
