@@ -15,7 +15,7 @@ class JobPost extends Model
     ];
     protected $appends = ['status_name', 'category_name', 'district_name','uploads_url', 'details_url'];
     public function users(){
-        return $this->hasOne(User::class,'id' ,'user_id' );
+        return $this->hasOne(User::class,'id' ,'creatorId' );
     }
 
     public function category(){
@@ -55,4 +55,5 @@ class JobPost extends Model
     public function getDetailsUrlAttribute(){
         return url('job/'.$this->slug);
     }
+
 }

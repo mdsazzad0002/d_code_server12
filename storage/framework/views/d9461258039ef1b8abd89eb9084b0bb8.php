@@ -3,7 +3,7 @@
         <?php if(Auth::user()): ?>
 
         
-        <h6 class="user-name dropdown-toggle mb-0" data-toggle="dropdown"><?php echo e(Str::title(auth()->user()->name)); ?>
+        <h6 class="user-name dropdown-toggle mb-0" data-toggle="dropdown"><?php echo e(mb_strimwidth(Str::title(auth()->user()->name), 0, 12, "...")); ?>
 
         </h6>
         <div class="dropdown-menu bg-dark text-light border-top-0" style="width:100% !important">
@@ -11,6 +11,7 @@
             <a href="<?php echo e(route('users.comment', auth()->user()->username)); ?>" class="dropdown-item">Comment</a>
             <a href="<?php echo e(route('users.vote', auth()->user()->username)); ?>" class="dropdown-item">Vote</a>
             <a href="<?php echo e(route('users.post', auth()->user()->username)); ?>" class="dropdown-item">Post</a>
+            <a href="<?php echo e(route('users.job-post', auth()->user()->username)); ?>" class="dropdown-item">Job</a>
 
             
             

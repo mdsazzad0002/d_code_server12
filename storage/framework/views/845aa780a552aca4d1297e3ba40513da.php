@@ -18,7 +18,7 @@
 <?php $component->withAttributes([]); ?>
 
 
-    <?php echo $__env->make('frontend.summary.summery_view', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('frontend.summary.summery_view', ['view_post' => $job_details], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <div class=" px-3 py-2 position-relative">
         <div class="row flex-column flex-md-row">

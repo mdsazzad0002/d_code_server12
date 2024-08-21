@@ -5,11 +5,7 @@
       <b>Version</b> <?php echo e($asset_version); ?>
 
     </div>
-    <div class="text-center">
-         
-          <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=0a444d9b0ae71df1096acb57e8147bf984be9504'></script>
-        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1220829/t/5"></script>
-    </div>
+    
     <div class="paginacontainer">
 
 

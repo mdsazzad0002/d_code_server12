@@ -24,7 +24,7 @@
 <x-frontend.card >
 
 
-    @include('frontend.summary.summery_view')
+    @include('frontend.summary.summery_view', ['view_post' => $job_details])
 
     <div class=" px-3 py-2 position-relative">
         <div class="row flex-column flex-md-row">

@@ -40,7 +40,7 @@
             <button type="button" class="btn btn-link text-light  form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Post Create" data-action="{{ route('user-post.post.store') }}" data-socuce="{{ route('user-post.post.create') }}" data-method="post">
                 <i class="fa fa-plus"></i> Post</button>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-none d-md-block">
             <a class="nav-link" data-widget="fullscreen" href="#" aria-label="Maximize fullscreen button" role="button">
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>

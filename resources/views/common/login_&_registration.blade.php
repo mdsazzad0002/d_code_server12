@@ -4,13 +4,14 @@
 
         {{-- <img class="avatar user-thumb" src="{{asset('backend/')}}/assets/images/author/avatar.png"
             alt="avatar"> --}}
-        <h6 class="user-name dropdown-toggle mb-0" data-toggle="dropdown">{{ Str::title(auth()->user()->name) }}
+        <h6 class="user-name dropdown-toggle mb-0" data-toggle="dropdown">{{ mb_strimwidth(Str::title(auth()->user()->name), 0, 12, "...") }}
         </h6>
         <div class="dropdown-menu bg-dark text-light border-top-0" style="width:100% !important">
             <a href="{{ route('users.index', auth()->user()->username) }}" class="dropdown-item">Overview</a>
             <a href="{{ route('users.comment', auth()->user()->username) }}" class="dropdown-item">Comment</a>
             <a href="{{ route('users.vote', auth()->user()->username) }}" class="dropdown-item">Vote</a>
             <a href="{{ route('users.post', auth()->user()->username) }}" class="dropdown-item">Post</a>
+            <a href="{{ route('users.job-post', auth()->user()->username) }}" class="dropdown-item">Job</a>
 
             {{--  <a href="{{ route('users.index') }}" class="dropdown-item">Job Profile</a>  --}}
             {{--  <a href="{{ route('users.index') }}" class="dropdown-item">Job Post</a>  --}}
