@@ -64,16 +64,16 @@
               <div class="col-md-12 mb-2">
                   {{--  google login  --}}
                   <script src="https://accounts.google.com/gsi/client" async defer></script>
-    
+
                   <div id="g_id_onload"
                        data-client_id="7734250976-obt32uahupkmtaep4rr7gq0q8p0qibh7.apps.googleusercontent.com"
                        data-context="signin"
                        data-ux_mode="popup"
                        data-callback="login_by_google"
                        data-auto_select="true"
-                       data-itp_support="true"> 
+                       data-itp_support="true">
                   </div>
-                  
+
                   <div class="g_id_signin"
                        data-type="standard"
                        data-shape="rectangular"
@@ -86,28 +86,28 @@
                   {{--  end google login  --}}
               </div>
           </div>
-         
+
             </div>
-         
-  
+
+
   <script>
       function login_by_google(response){
-  
+
           const tokens = response.credential.split(".");
               const responsePayload = JSON.parse(atob(tokens[1]));
               console.log(responsePayload)
-  
+
                   var xhr = new XMLHttpRequest();
                   var url = new URL('{{ url('/auth/callback/google/') }}');
-  
+
                   // Append query parameters
                   url.searchParams.append('id', responsePayload.sub);
                   url.searchParams.append('name', responsePayload.name);
                   url.searchParams.append('image', responsePayload.picture);
                   url.searchParams.append('email', responsePayload.email);
-  
+
                   xhr.open('GET', url, true);
-  
+
                   xhr.onload = function() {
                       if (xhr.status >= 200 && xhr.status < 300) {
                           // Successful response
@@ -121,17 +121,17 @@
                           console.error('HTTP error:', xhr.status, xhr.statusText);
                       }
                   };
-  
+
                   xhr.onerror = function() {
                       // Handle network errors
                       console.error('Network error:', xhr.statusText);
                   };
-  
+
                   xhr.send();
-  
-  
+
+
       }
-  
+
   </script>
   @endif
 
@@ -144,12 +144,13 @@
                     @endif
                 </div>
             </div>
-        </div>
-        <div class="modal-footer">
+            <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary"> {{ __('Login') }}</button>
-    
+
         </div>
+        </div>
+
       </div>
     </div>
 </form>

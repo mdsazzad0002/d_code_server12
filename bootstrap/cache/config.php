@@ -200,8 +200,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/home/hossain/docde/d_code_server12/storage/framework/cache/data',
-        'lock_path' => '/home/hossain/docde/d_code_server12/storage/framework/cache/data',
+        'path' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\framework/cache/data',
+        'lock_path' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -435,7 +435,7 @@
       'enabled' => true,
       'open' => false,
       'driver' => 'file',
-      'path' => '/home/hossain/docde/d_code_server12/storage/debugbar',
+      'path' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\debugbar',
       'connection' => NULL,
       'provider' => '',
       'hostname' => '127.0.0.1',
@@ -579,13 +579,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/home/hossain/docde/d_code_server12/storage/app',
+        'root' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/home/hossain/docde/d_code_server12/storage/app/public',
+        'root' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\app/public',
         'url' => 'http://localhost/GitHubDesktop/d_code_server//storage',
         'visibility' => 'public',
         'throw' => false,
@@ -605,7 +605,7 @@
     ),
     'links' => 
     array (
-      '/home/hossain/docde/d_code_server12/public/storage' => '/home/hossain/docde/d_code_server12/storage/app/public',
+      'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\public\\storage' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\app/public',
     ),
   ),
   'flasher_toastr' => 
@@ -668,14 +668,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/home/hossain/docde/d_code_server12/storage/logs/laravel.log',
+        'path' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/home/hossain/docde/d_code_server12/storage/logs/laravel.log',
+        'path' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -740,7 +740,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/home/hossain/docde/d_code_server12/storage/logs/laravel.log',
+        'path' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -816,7 +816,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/home/hossain/docde/d_code_server12/resources/views/vendor/mail',
+        0 => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -1078,6 +1078,12 @@
       'secret' => '',
       'region' => 'us-east-1',
     ),
+    'github' => 
+    array (
+      'client_id' => 'Iv1.9d65f06c79d36c23',
+      'client_secret' => '20f120db3f0a7309780befe9fb0cfd6fe93775b0',
+      'redirect' => 'http://localhost/GitHubDesktop/d_code_server/auth/callback/github',
+    ),
   ),
   'session' => 
   array (
@@ -1085,7 +1091,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/home/hossain/docde/d_code_server12/storage/framework/sessions',
+    'files' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -1134,9 +1140,9 @@
   array (
     'paths' => 
     array (
-      0 => '/home/hossain/docde/d_code_server12/resources/views',
+      0 => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\resources\\views',
     ),
-    'compiled' => '/home/hossain/docde/d_code_server12/storage/framework/views',
+    'compiled' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server\\storage\\framework\\views',
   ),
   'flasher' => 
   array (
@@ -1304,7 +1310,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => '/home/hossain/docde/d_code_server12',
+    'remote_sites_path' => 'D:\\wamp\\www\\GitHubDesktop\\d_code_server',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
