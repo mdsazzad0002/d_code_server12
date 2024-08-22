@@ -1,4 +1,4 @@
-<form class="modal fade" id="login_modal" tabindex="-1" aria-labelledby="login_modal" method="POST" action="<?php echo e(route('login')); ?>" aria-hidden="true" enctype="multipart/form-data">
+<form class="modal fade" draggable="true" id="login_modal" tabindex="-1" aria-labelledby="login_modal" method="POST" action="<?php echo e(route('login')); ?>" aria-hidden="true" enctype="multipart/form-data">
     <?php echo csrf_field(); ?>
     <div class="modal-dialog">
         <div class="modal-content">
@@ -118,7 +118,7 @@ unset($__errorArgs, $__bag); ?>
                         console.log(responsePayload)
 
                         var xhr = new XMLHttpRequest();
-                        var url = new URL('<?php echo e(url(' / auth / callback / google / ')); ?>');
+                        var url = new URL('<?php echo e(url('/auth/callback/google/')); ?>');
 
                         // Append query parameters
                         url.searchParams.append('id', responsePayload.sub);

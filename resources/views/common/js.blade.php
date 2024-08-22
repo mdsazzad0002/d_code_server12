@@ -41,7 +41,7 @@ function load_image_form_pixabay(keyword, img){
             "method": "GET",
             "timeout": 0,
             "dataType": "json",
-         
+
             "processData": false,
             "mimeType": "multipart/form-data",
             "contentType": false,
@@ -56,7 +56,7 @@ function load_image_form_pixabay(keyword, img){
                             img.classList.remove('lazy');
                         },1000)
                 }
-              
+
             });
         }
 }
@@ -64,7 +64,7 @@ function load_image_form_pixabay(keyword, img){
     var i_image= 0;
 
     function form__by__image_load(keyword, img){
-        
+
         if(i_image%2==0){
              load_image_form_pexels(keyword, img)
         }else{
@@ -154,9 +154,21 @@ function load_image_form_pixabay(keyword, img){
 
 
 
+    document.querySelectorAll('.modal').forEach(element=>{
+        element.addEventListener("dragend", (e) => {
 
+        console.log(e)
+
+        const rect = e.target.getBoundingClientRect()
+        const x = e.pageX - rect.left
+        const y = e.pageY - rect.top
+        console.log(y)
+        console.log(x)
+    })
+    })
 
 
 </script>
+
 <x-modal></x-modal>
 <x-tostar></x-tostar>

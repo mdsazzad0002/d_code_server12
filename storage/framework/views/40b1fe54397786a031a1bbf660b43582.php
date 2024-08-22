@@ -111,12 +111,26 @@
         height: 48px;
         object-fit: cover;
     }
+    button.modal_colose_searchbtn{
+        position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 88888;
+    background: red;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    }
 </style>
 
 
 
 <!-- Modal -->
-<div class="modal fade" id="docSearch_byModel_own" tabindex="-1" role="dialog"
+<div class="modal fade" draggable="true" id="docSearch_byModel_own" tabindex="-1" role="dialog"
     aria-labelledby="docSearch_byModel_ownTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -124,6 +138,9 @@
                 <input type="search" id="search_diaload_input" class="form-control"
                     placeholder="Enter your Keywords ....">
                 <i class="fa fa-search" aria-hidden="true"></i>
+                <button type="button" class="close modal_colose_searchbtn" data-dismiss="modal" aria-label="Close" >
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body ">
                 <div class="d-flex align-items-center gap-4 no_content justify-content-center">
