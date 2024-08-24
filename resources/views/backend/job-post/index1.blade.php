@@ -3,21 +3,7 @@
 
 @section('content')
     <div class="card border">
-        <div class="card-header d-flex justify-content-between ">
-            <h5>Job Apply List</h5>
-
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary form markdown"
-             data-toggle="modal"
-             data-target="#modal_setup"
-             data-title="Job Post Create"
-             data-action="{{ route('user-job-post.job-post.store') }}"
-             data-socuce="{{ route('user-job-post.job-post.create') }}"
-             data-method="post"
-             >
-             <i class="fa fa-plus"></i> Add New</button>
-
-        </div>
+        
         <div class="card-body">
             <table class="table table-striped table-hover" id="post_data">
              <thead>
