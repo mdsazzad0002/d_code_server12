@@ -38,8 +38,9 @@
 
     </div>
     </div>
-    
+
 </x-frontend.card>
+@component('components.frontend.ads', ['where'=>'details_showup'])@endcomponent
 @else
 <x-404></x-404>
 @endif

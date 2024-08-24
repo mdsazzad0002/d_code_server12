@@ -171,18 +171,29 @@ function load_image_form_pixabay(keyword, img){
     }
 
 
+    var drag_startpageX = 0;
+    var drag_startpageY = 0;
 
     document.querySelectorAll('.modal').forEach(element=>{
+         element.addEventListener("dragstart", (e) => {
+            const rect = e.target.getBoundingClientRect()
+            drag_startpageX = e.pageX - rect.left
+            drag_startpageY = e.pageY - rect.top
+        })
+
         element.addEventListener("dragend", (e) => {
+            const rect = e.target.getBoundingClientRect()
+            const x = e.pageX - rect.left
+            const y = e.pageY - rect.top
+            if((drag_startpageX - x) >= 200 || (x - drag_startpageX ) >= 200 || (drag_startpageY - y) >= 200 || (y -drag_startpageY) >= 200){
+                element.querySelector('.close').click();
+            }else{
+                //console.log('close false');
 
-        console.log(e)
-
-        const rect = e.target.getBoundingClientRect()
-        const x = e.pageX - rect.left
-        const y = e.pageY - rect.top
-        console.log(y)
-        console.log(x)
-    })
+            }
+            //console.log(y)
+            //console.log(x)
+        })
     })
 
 

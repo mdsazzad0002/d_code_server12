@@ -13,9 +13,9 @@
 
 
 @php
-$i = 1;
-$ads_after_data = general_setting('post_center_showup_after') ?? 100;
-$ads_enabled = general_setting('system_showup');
+    $i = 1;
+    $ads_after_data = general_setting('post_center_showup_after') ?? 100;
+    $ads_enabled = general_setting('system_showup');
 @endphp
 <div class="row">
     <div class="col-xl-8">
@@ -28,11 +28,11 @@ $ads_enabled = general_setting('system_showup');
     @endphp
 
     @if( $ads_enabled == 'on')
-    @if($i% $ads_after_data== 0)
-    <div class="">
-        @component('components.frontend.ads', ['where'=>'home_showup'])@endcomponent
-    </div>
-    @endif
+        @if($i% $ads_after_data== 0)
+        <div class="">
+            @component('components.frontend.ads', ['where'=>'category_showup'])@endcomponent
+        </div>
+        @endif
     @endif
 
 

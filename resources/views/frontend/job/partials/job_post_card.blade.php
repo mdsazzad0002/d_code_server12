@@ -1,4 +1,4 @@
-
+@component('components.frontend.ads', ['where'=>'job_sidebar_showup', 'class'=>'m-2'])@endcomponent
 @foreach ($job_post as $job_items)
 
 <div class="">
@@ -8,7 +8,7 @@
                 <h5 class="font-weight-bold text-success mb-0"> 🎀 {{ Str::title($job_items->title) }}</h5>
                 <div class="text-white mb-2">
                     ⏱ <span class="text-danger">{{ \Carbon\Carbon::parse($job_items->start_date)->format('d-M-Y') }}</span> -  <span class="text-success">{{ \Carbon\Carbon::parse($job_items->deadline)->format('d-M-Y') }}</span>
-                    
+
 
                 </div>
                 <div class="line-climb-2 text-white">

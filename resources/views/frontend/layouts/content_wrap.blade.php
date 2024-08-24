@@ -1,9 +1,4 @@
 <div class="content-wrapper">
-
-
-    @include('frontend.layouts.partials.header_ads')
-    
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -16,7 +11,5 @@
     </section>
     <!-- /.content -->
 
-   @include('frontend.layouts.partials.footer_ads')
-      <!-- /.content-header -->
   </div>
 

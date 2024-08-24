@@ -177,12 +177,12 @@ function asset_unlink($id)
 }
 
 function category_head($items){
-    return category::where('status', 1)->select('name','slug')->limit($items)->get();
+    return category::where('status', 1)->select('name','slug','description','uploads_id')->limit($items)->get();
 }
 function category_subcategory($category_slug, $items){
     $category_id = category::where('status', 1)->where('slug',$category_slug)->get()->first();
     if($category_id){
-        return subcategory::where('status', 1)->where('category_id', $category_id->id)->select('name','slug')->limit($items)->get();
+        return subcategory::where('status', 1)->where('category_id', $category_id->id)->select('name','slug','description','uploads_id')->limit($items)->get();
     }
 }
 

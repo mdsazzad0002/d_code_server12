@@ -31,7 +31,7 @@ $ads_enabled =general_setting('system_showup');
     @if( $ads_enabled=='on')
     @if($i% $ads_after_data == 0)
     <div class="">
-        @component('components.frontend.ads', ['where'=>'category_showup'])@endcomponent
+        @component('components.frontend.ads', ['where'=>'subcategory_showup'])@endcomponent
     </div>
     @endif
     @endif

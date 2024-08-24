@@ -21,4 +21,5 @@
 @endforeach
 
 @include('frontend.job.partials.postview_feed')
+@component('components.frontend.ads', ['where'=>'feed_showup'])@endcomponent
 

@@ -21,5 +21,6 @@
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 <?php echo $__env->make('frontend.job.partials.postview_feed', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->startComponent('components.frontend.ads', ['where'=>'feed_showup']); ?><?php echo $__env->renderComponent(); ?>
 
 <?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server\resources\views/frontend/feed/post.blade.php ENDPATH**/ ?>

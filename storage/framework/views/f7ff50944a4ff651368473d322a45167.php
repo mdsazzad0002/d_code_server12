@@ -1,4 +1,4 @@
-
+<?php $__env->startComponent('components.frontend.ads', ['where'=>'job_sidebar_showup', 'class'=>'m-2']); ?><?php echo $__env->renderComponent(); ?>
 <?php $__currentLoopData = $job_post; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $job_items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="">
@@ -8,7 +8,7 @@
                 <h5 class="font-weight-bold text-success mb-0"> 🎀 <?php echo e(Str::title($job_items->title)); ?></h5>
                 <div class="text-white mb-2">
                     ⏱ <span class="text-danger"><?php echo e(\Carbon\Carbon::parse($job_items->start_date)->format('d-M-Y')); ?></span> -  <span class="text-success"><?php echo e(\Carbon\Carbon::parse($job_items->deadline)->format('d-M-Y')); ?></span>
-                    
+
 
                 </div>
                 <div class="line-climb-2 text-white">

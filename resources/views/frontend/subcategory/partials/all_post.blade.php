@@ -26,14 +26,14 @@ $i++;
 $post_after = general_setting('post_center_showup_after') ?? 100;
 @endphp
 @if( $post_after && $i % $post_after == 0)
-@component('components.frontend.ads', ['where'=>'details_showup'])@endcomponent
+@component('components.frontend.ads', ['where'=>'post_showup'])@endcomponent
 @endif
 <x-frontend.card>
     <div class=" px-3 py-2" style="background:#282828">
       <div>
             <h4 class="font-weight-bold mb-0"># <span class="text-success"> {{ Str::title($items->tilte) }}</span></h4>
         </div>
-    </div> 
+    </div>
     <div class=" px-3 py-2">
     <img class="w-100 lazy" data-src="{{ dynamic_asset($items->uploads_id) }}" alt="{{ $items->tilte }}">
 
@@ -49,7 +49,7 @@ $post_after = general_setting('post_center_showup_after') ?? 100;
             <a class="btn btn-primary progress-bar progress-bar-striped btn-block p-2 px-4 mt-2" href="{{ route('post.index',[$category ,$subcategory, $items->slug]) }}">Details View</a>
         </div>
     </div>
-   
+
 </x-frontend.card>
 
 

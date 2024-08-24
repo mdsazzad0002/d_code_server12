@@ -75,6 +75,7 @@
     </div>
 
 </x-frontend.card>
+@component('components.frontend.ads', ['where'=>'job_showup'])@endcomponent
 @else
 <x-404></x-404>
 @endif
