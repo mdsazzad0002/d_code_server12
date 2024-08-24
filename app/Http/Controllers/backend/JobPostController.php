@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Models\JobPost;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\JobApply;
 use Yajra\DataTables\Facades\DataTables;
 
 class JobPostController extends Controller
@@ -120,6 +121,66 @@ class JobPostController extends Controller
     public function destroy(string $id)
     {
         JobPost::find($id)->delete();
+        return back();
+
+    }
+    public function index1(Request $request)
+    {
+        if($request->ajax()){
+
+            $post_all = JobApply::query();
+           return DataTables::of($post_all)
+               ->addColumn('action', function ($row) {
+                   $action = '';
+                //    $action .= '<button type="button" class="btn btn-primary form markdown"
+                //                data-toggle="modal"
+                //                data-target="#modal_setup"
+                //                data-title="Job Post Edit"
+                //                data-action="'.route('user-job-post.job-post.update', $row->id) .'"
+                //                data-socuce="'. route('user-job-post.job-post.edit', $row->id ) .'"
+                //                data-method="put"
+                //                >
+                //                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                //            </button>';
+
+                           $action .='<button type="button" class="btn btn-primary view lg_view "
+                               data-toggle="modal"
+                               data-target="#modal_setup_view"
+                               data-title="View"
+                               data-socuce="'. route('admin.apply-jobs.show', $row->id ) .'"
+                               data-method="get">
+                               <i class="fa fa-eye" aria-hidden="true"></i> View
+                           </button>';
+
+                             $action .='<button type="button" class="btn btn-danger delete"
+                           data-target="#modal_setup_delete"
+                           data-action="'. route('admin.apply-jobs.delete', $row->id) .'"
+                            data-method="delete"
+                           >
+                             <i class="fa fa-trash"></i> Delete</button>';
+                   return $action;
+               })
+               ->addColumn('image', function ($row) {
+                   return '<img src="' . dynamic_asset($row->uploads_id) . '"/>';
+           })
+           ->rawColumns(['image','action'])
+           ->make(true);
+
+
+       }
+       return view('backend.job-post.index1');
+    }
+    public function show1(string $id)
+    {
+        $post = JobApply::find($id);
+        return view('backend.job-post.partials.view1', compact('post'));
+
+    }
+    public function destroy1(string $id)
+    {
+        $job = JobApply::find($id);
+        asset_unlink($job->job_post_id);
+        $job->delete();
         return back();
 
     }

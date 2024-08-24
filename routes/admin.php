@@ -62,6 +62,11 @@ Route::resource('/banner', BannerController::class)->names('banner');
 //job-post
 Route::resource('/job-post', JobPostController::class)->names('job-post');
 Route::resource('/report', ReportController::class)->names('report');
+Route::get('/apply-jobs/list', [JobPostController::class, 'index1'])->name('apply-jobs.list');
+Route::get('/apply-jobs/show/{id}', [JobPostController::class, 'show1'])->name('apply-jobs.show');
+Route::delete('/apply-jobs/delete/{id}', [JobPostController::class, 'destroy1'])->name('apply-jobs.delete');
+
+
 
 
 
