@@ -63,10 +63,9 @@ Route::get('/auth/callback/github', function () {
         if($githubUser->email != null){
             $user->email = $githubUser->email;
         }
-
+        $user->name = $githubUser->name;
+        $user->username = $githubUser->nickname.time();
     }
-    $user->name = $githubUser->name;
-    $user->username = $githubUser->nickname.time();
     $user->github_token = $githubUser->token;
     $user->github_refresh_token = $githubUser->refreshToken;
     $user->save();
@@ -94,10 +93,10 @@ Route::get('/auth/callback/google/', function () {
         $user->password = Hash::make($request_data['name']);
         $user->upload_id = uploads($request_data['image'], null, 'general', 'url');
         $user->email = $request_data['email'] ?? '';
+        $user->name = $request_data['name'];
+        $user->username = Str::slug($request_data['name']) . time();
 
     }
-    $user->name = $request_data['name'];
-    $user->username = Str::slug($request_data['name']) . time();
     $user->save();
 
 
