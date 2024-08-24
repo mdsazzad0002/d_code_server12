@@ -35,6 +35,11 @@
            {{ Route::is('users.job-post', $user->username) ? 'active': '' }}" href="{{ route('users.job-post', $user->username) }}"><i class="fa-solid fa-toolbox"></i>Job Posts</a>
         </li>
 
+        <li class="nav-item d-none d-xl-block">
+            <a class="nav-link
+           {{ Route::is('users.apply.job-post', $user->username) ? 'active': '' }}" href="{{ route('users.apply.job-post', $user->username) }}"><i class="fa-solid fa-toolbox"></i>Apply Job List</a>
+        </li>
+
 
 
 
