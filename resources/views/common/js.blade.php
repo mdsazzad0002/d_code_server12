@@ -2,6 +2,10 @@
 <x-ajax_data_modal></x-ajax_data_modal>
 
 <script>
+    function not_load_image_form_source(img){
+        img.classList.remove('lazy');
+        img.src = img.dataset.src;
+    }
 
 function load_image_form_pexels(keyword, img){
     if(keyword.length > 2){
@@ -24,11 +28,17 @@ function load_image_form_pexels(keyword, img){
 
 
         $.ajax(settings).done(function (response) {
-            img.src = response.photos[0].src.landscape
-            setTimeout(function(){
+            if(response.photos.length > 0){
+                img.src = response.photos[0].src.landscape
                 img.classList.remove('lazy');
-            },1000)
-        });
+            }else{
+                not_load_image_form_source(img)
+            }
+
+        }) .fail(function (jqXHR, textStatus, errorThrown) {
+            // Handle AJAX request failure
+            not_load_image_form_source(img); // Fallback or retry logic
+        });;
     }
 
 }
@@ -51,27 +61,23 @@ function load_image_form_pixabay(keyword, img){
 
             $.ajax(settings).done(function (response) {
                 if (parseInt(response.totalHits) > 0){
-                      img.src = response.hits[0].previewURL
-                        setTimeout(function(){
-                            img.classList.remove('lazy');
-                        },1000)
+                    img.src = response.hits[0].previewURL
+                    img.classList.remove('lazy');
+                }else{
+                     load_image_form_pexels(keyword, img)
                 }
 
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                // Handle AJAX request failure
+                load_image_form_pexels(keyword, img); // Fallback or retry logic
             });
         }
 }
 
-    var i_image= 0;
 
     function form__by__image_load(keyword, img){
-
-        if(i_image%2==0){
-             load_image_form_pexels(keyword, img)
-        }else{
-            load_image_form_pixabay(keyword, img)
-        }
-        i_image++
-
+        load_image_form_pixabay(keyword, img)
     }
 
 

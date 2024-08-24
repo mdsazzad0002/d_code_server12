@@ -90,6 +90,15 @@
 
         function data_load_feed_post() {
 
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            // Check if the user has scrolled to the bottom
+            if (scrollTop + windowHeight >= documentHeight) {
+                // Trigger your function here
+                window.scrollBy(0, -500);
+            }
 
             if (!isRequestInProgress && (window.innerHeight + window.scrollY + 500) >= document.body.offsetHeight) {
                 isRequestInProgress = true;

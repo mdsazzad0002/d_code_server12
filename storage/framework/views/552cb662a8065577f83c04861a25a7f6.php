@@ -65,6 +65,8 @@
                     </li>
                     <li class="<?php echo e(request()->is('admin/job-post*') ? 'active' : ''); ?>"><a
                         href="<?php echo e(route('admin.report.index')); ?>"><i class="ti-receipt"></i> <span>Report</span></a></li>
+                        <li class="<?php echo e(request()->is('admin/job-post*') ? 'active' : ''); ?>"><a
+                            href="<?php echo e(route('admin.apply-jobs.list')); ?>"><i class="ti-receipt"></i> <span>Job Apply List</span></a></li>
 
                 </ul>
             </nav>
