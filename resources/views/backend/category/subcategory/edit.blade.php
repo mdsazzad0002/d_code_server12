@@ -13,7 +13,7 @@
 <br>
 <br>
 <textarea name="description" placeholder="Description" class="form-control mb-2" id="" cols="30" rows="5">{{ $subcategory->description }}</textarea>
-<input type="text" name="keywords" id="keywords" class="form-control mb-2" placeholder="Keywords saparate by comma">
+<input type="text" name="keywords" value="{{ $subcategory->keywords }}" id="keywords" class="form-control mb-2" placeholder="Keywords saparate by comma">
 <select class="form-control select2 mb-2" name="status" id="status">
 
     <option @if($subcategory->status == 1 ) selected @endif value="1">Active</option>
