@@ -21,10 +21,10 @@
     @include('profile.post.partials.post')
 </div>
 
-@include('profile.profile_partials.post_report')
-@include('profile.profile_partials.comment_report')
-@include('profile.profile_partials.vote_report')
 <script src="{{ static_asset('plugins/apexcharts/apexcharts.js') }}"></script>
+
+@include('profile.profile_partials.comment_report')
+
 @endsection
 
 

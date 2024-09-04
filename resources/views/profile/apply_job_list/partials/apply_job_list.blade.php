@@ -24,6 +24,7 @@ border: 0px solid #FFF;
     }
 }
 </style>
+@if(count($posts) > 0)
 
 <div class="">
     <div class="table-responsive">
@@ -38,7 +39,7 @@ border: 0px solid #FFF;
         </tr>
       </thead>
       <tbody>
-        @forelse ($posts as $post)
+        @foreach($posts as $post)
 
         <tr class="winner__table">
           <td>{{ $loop->iteration }}</td>
@@ -47,25 +48,25 @@ border: 0px solid #FFF;
           <td>{{ $post->details }}</td>
           <td>{{ $post->created_at->format('d F Y') }}</td>
         </tr>
+        @endforeach
       </tbody>
     </table>
     </div>
   </div>
+  {{ $posts->links()}}
+  @else
 
-@empty
 
 {{-- if not found any post or question crate one for button --}}
 <x-frontend.card>
-    <div class="text-center mt-2 ">
-        Not found data Asked a Question or Write a Post?
+    <div class="text-center mt-2 mb-2 ">
+        Not found data Applied Job?
     </div>
 
 </x-frontend.card>
 {{-- End if not found any post or question crate one for button --}}
 
-@endforelse
-@if($posts instanceof \Illuminate\Pagination\LengthAwarePaginator)
-{{ $posts->links()}}
 @endif
+
 
 

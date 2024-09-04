@@ -21,10 +21,18 @@
 @empty
 
 {{-- if not found any post or question crate one for button --}}
-<x-frontend.card>
+<x-frontend.card class="pb-2">
     <div class="text-center mt-2 ">
         Not found data Asked a Question or Write a Post?
     </div>
+    @if(auth()->user() && auth()->user()->id == $user->id)
+        <div class="text-center mt-2 ">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Post Create" data-action="{{ route('user-post.post.store') }}" data-socuce="{{ route('user-post.post.create') }}" data-method="post">
+                <i class="fa fa-plus"></i> Add New</button>
+
+        </div>
+    @endif
 
 </x-frontend.card>
 {{-- End if not found any post or question crate one for button --}}
@@ -34,14 +42,3 @@
 {{ $posts->links()}}
 @endif
 
-@if(auth()->user() && auth()->user()->id == $user->id)
-<x-frontend.card>
-
-    <div class="text-center mt-2 ">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Post Create" data-action="{{ route('user-post.post.store') }}" data-socuce="{{ route('user-post.post.create') }}" data-method="post">
-            <i class="fa fa-plus"></i> Add New</button>
-
-    </div>
-</x-frontend.card>
-@endif

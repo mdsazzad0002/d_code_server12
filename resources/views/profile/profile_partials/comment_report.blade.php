@@ -1,5 +1,5 @@
 <x-card.card>
-    <div id="comment_chart"></div>
+    <div id="contribution_chart"></div>
   </x-card.card>
 
 @push('script')
@@ -11,22 +11,35 @@
     var options = {
           series: [
           {
-            name: "Last 30 Days Comment",
+            name: "Comment",
             data: {{ $comment_array_values }}
+          },
+          {
+            name: "Post",
+            data: {{ $post_array_values }}
+          },
+          {
+            name: "Vote",
+            data: {{ $vote_array_values }}
+          },
+          {
+            name: "Job",
+            data: {{ $job_for_report }}
+          },
+          {
+            name: "Job Applied",
+            data: {{ $job_apply_for_report }}
           }
         ],
           chart: {
           height: 350,
-          type: 'line',
+          type: 'bar',
           foreColor: '#ccc',
-          dropShadow: {
-            enabled: true,
-            color: '#000',
-            top: 18,
-            left: 7,
-            blur: 10,
-            opacity: 0.2
+          stacked: true,
+          zoom: {
+            enabled: true
           },
+
           toolbar: {
             show: false
           }
@@ -34,7 +47,7 @@
         tooltip: {
             theme: 'dark'
         },
-        colors: ['#77B6EA', '#545454','#000'],
+        colors: ['#77B6EA', '#545454','#000','#6befce', '#d6fcdf'],
         dataLabels: {
           enabled: true,
         },
@@ -42,7 +55,7 @@
           curve: 'smooth'
         },
         title: {
-          text: "{{ $user->name }}'s Comment Contribute Rate",
+          text: "{{ $user->name }}'s  Contribute Rate",
           align: 'left'
         },
         grid: {
@@ -51,19 +64,23 @@
             colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
             opacity: 0.5
           },
+            padding: {
+              right: 20
+            }
+
         },
         markers: {
           size: 1
         },
         xaxis: {
-          categories: {{ $comment_array_key }},
+          categories: {{ $days30 }},
           title: {
             text: 'Date'
           }
         },
         yaxis: {
           title: {
-            text: 'Vote'
+            text: 'Vote * Comment * Post'
           },
           //min: 5,
           //max: 40
@@ -77,7 +94,7 @@
         }
         };
 
-        var chart = new ApexCharts(document.querySelector("#comment_chart"), options);
+        var chart = new ApexCharts(document.querySelector("#contribution_chart"), options);
         chart.render();
 </script>
 @endpush

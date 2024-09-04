@@ -10,7 +10,7 @@
 
 @empty
 <x-frontend.card>
-    <div class="text-center mt-2">
+    <div class="text-center mt-2 mb-2">
         No Vote Found.
         <br>
         <hr>

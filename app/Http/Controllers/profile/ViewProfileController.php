@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\profile;
 
-use App\Models\JobApply;
+use DateTime;
 use Carbon\Carbon;
 
 use App\Models\post;
@@ -10,12 +10,30 @@ use App\Models\User;
 use App\Models\Vote;
 use App\Models\comment;
 use App\Models\JobPost;
+use App\Models\JobApply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class ViewProfileController extends Controller
 {
+    public function report30days($data_array){
+        $data = [];
+        for ($i = 1; $i <= 30; $i++){
+            $data[$i] = $data_array[$i] ?? 0;
+        }
+
+        return $data;
+    }
+
+    public function date_format($items){
+        $day_counts = [];
+        foreach ($items as $index => $item) {
+            $day_number = (int) (new DateTime($index))->format('d'); // 'z' is the day of the year (0-based), add 1 for 1-based
+            $day_counts[$day_number] = $item;
+        }
+        return $day_counts;
+    }
     public function index($id){
         if($id != null && !empty($id)){
              $user = User::where('username', $id)->get()->first();
@@ -33,8 +51,10 @@ class ViewProfileController extends Controller
                                                 ->pluck( 'votes_items','dd')
                                                 ->toArray();
 
+
+                $vote_for_report = $this->report30days($vote_for_report);
                  $vote_array_values = json_encode(array_values($vote_for_report));
-                 $vote_array_key = json_encode(array_keys($vote_for_report));
+
 
 
                 // post report  profile dashboard
@@ -45,8 +65,10 @@ class ViewProfileController extends Controller
                                                 ->pluck( 'votes_items','dd')
                                                 ->toArray();
 
-                 $post_array_values = json_encode(array_values($post_for_report));
-                 $post_array_key = json_encode(array_keys($post_for_report));
+
+                $post_for_report = $this->report30days($post_for_report);
+                $post_array_values = json_encode(array_values($post_for_report));
+
 
                 // post report  profile dashboard
                  $comment_for_report = comment::whereBetween('updated_at', [$date_range, $date_today])
@@ -56,8 +78,38 @@ class ViewProfileController extends Controller
                                                 ->pluck( 'votes_items','dd')
                                                 ->toArray();
 
+                $comment_for_report = $this->report30days($comment_for_report);
+
                  $comment_array_values = json_encode(array_values($comment_for_report));
-                 $comment_array_key = json_encode(array_keys($comment_for_report));
+                 $days30 = json_encode(array_keys($comment_for_report));
+
+
+                 // job report  profile dashboard
+                  $job_for_report = JobPost::whereBetween('updated_at', [$date_range, $date_today])
+                                                ->where('creatorId', $user->id)
+                                                ->select(DB::raw('COUNT(*) AS votes_items'),DB::raw('DATE(updated_at) AS date'))
+                                                ->groupBy('date')
+                                                ->pluck( 'votes_items','date')
+                                                ->toArray();
+
+                 $job_for_report = $this->date_format($job_for_report);
+                $job_for_report = $this->report30days($job_for_report);
+
+                 $job_for_report = json_encode(array_values($job_for_report));
+
+                 // job Apply report  profile dashboard
+                  $job_apply_for_report = JobApply::whereBetween('updated_at', [$date_range, $date_today])
+                                                ->where('creator_id', $user->id)
+                                                ->select(DB::raw('COUNT(*) AS votes_items'),DB::raw('DATE(updated_at) AS date'))
+                                                ->groupBy('date')
+                                                ->pluck( 'votes_items','date')
+                                                ->toArray();
+
+                 $job_apply_for_report = $this->date_format($job_apply_for_report);
+                $job_apply_for_report = $this->report30days($job_apply_for_report);
+
+                 $job_apply_for_report = json_encode(array_values($job_apply_for_report));
+
 
 
 
@@ -66,7 +118,7 @@ class ViewProfileController extends Controller
 
 
                 $posts = post::where('user_id', $user->id)->orderBy('id','desc')->limit(3)->get();
-                return view('profile.profile', compact('posts', 'user','vote_array_values', 'vote_array_key','post_array_key','post_array_values','comment_array_key','comment_array_values'));
+                return view('profile.profile', compact('posts', 'user','vote_array_values','post_array_values','days30','comment_array_values','job_for_report','job_apply_for_report'));
             }else{
                 return abort(403,'User Not found');
             }
@@ -147,7 +199,7 @@ class ViewProfileController extends Controller
     public function applyJob($id){
         if($id != null && !empty($id)){
              $user = User::where('username', $id)->get()->first();
-             
+
             if($user){
                 $posts = JobApply::where('creator_id', $user->id)->orderBy('id','desc')->paginate(30);
                 return view('profile.apply_job_list.index', compact('posts','user'));

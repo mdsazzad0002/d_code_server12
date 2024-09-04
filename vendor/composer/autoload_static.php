@@ -757,6 +757,7 @@ class ComposerStaticInit41bd76f8bb18d670a14ce34da5a2f2db
         'App\\Http\\Controllers\\backend\\GeneralSettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/GeneralSettingController.php',
         'App\\Http\\Controllers\\backend\\JobPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/JobPostController.php',
         'App\\Http\\Controllers\\backend\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/PostController.php',
+        'App\\Http\\Controllers\\backend\\ReportController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/ReportController.php',
         'App\\Http\\Controllers\\backend\\RolePermissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/RolePermissionController.php',
         'App\\Http\\Controllers\\backend\\SubcategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/SubcategoryController.php',
         'App\\Http\\Controllers\\backend\\adminController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/adminController.php',

@@ -26,22 +26,20 @@
         Not found data Asked a Question or Write a Post?
     </div>
 
+    @if(auth()->user() && auth()->user()->id == $user->id)
+        <div class="text-center my-2 ">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Job Post Create" data-action="{{ route('user-job-post.job-post.store') }}" data-socuce="{{ route('user-job-post.job-post.create') }}" data-method="post">
+                <i class="fa fa-plus"></i> Add New</button>
+        </div>
+    @endif
+
 </x-frontend.card>
 {{-- End if not found any post or question crate one for button --}}
-
 @endforelse
+
 @if($posts instanceof \Illuminate\Pagination\LengthAwarePaginator)
 {{ $posts->links()}}
 @endif
 
-@if(auth()->user() && auth()->user()->id == $user->id)
-<x-frontend.card>
 
-    <div class="text-center my-2 ">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary form markdown" data-toggle="modal" data-target="#modal_setup" data-title="Job Post Create" data-action="{{ route('user-job-post.job-post.store') }}" data-socuce="{{ route('user-job-post.job-post.create') }}" data-method="post">
-            <i class="fa fa-plus"></i> Add New</button>
-
-    </div>
-</x-frontend.card>
-@endif

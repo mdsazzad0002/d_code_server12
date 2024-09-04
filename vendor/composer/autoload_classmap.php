@@ -92,6 +92,7 @@ return array(
     'App\\Http\\Controllers\\backend\\GeneralSettingController' => $baseDir . '/app/Http/Controllers/backend/GeneralSettingController.php',
     'App\\Http\\Controllers\\backend\\JobPostController' => $baseDir . '/app/Http/Controllers/backend/JobPostController.php',
     'App\\Http\\Controllers\\backend\\PostController' => $baseDir . '/app/Http/Controllers/backend/PostController.php',
+    'App\\Http\\Controllers\\backend\\ReportController' => $baseDir . '/app/Http/Controllers/backend/ReportController.php',
     'App\\Http\\Controllers\\backend\\RolePermissionController' => $baseDir . '/app/Http/Controllers/backend/RolePermissionController.php',
     'App\\Http\\Controllers\\backend\\SubcategoryController' => $baseDir . '/app/Http/Controllers/backend/SubcategoryController.php',
     'App\\Http\\Controllers\\backend\\adminController' => $baseDir . '/app/Http/Controllers/backend/adminController.php',
