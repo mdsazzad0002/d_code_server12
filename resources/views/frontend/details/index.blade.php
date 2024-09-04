@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('title', Str::title($view_post->tilte))
-@section('short_description', $view_post->short_details)
+@section('short_description', $view_post->short_details . $view_post?->users?->tagline ?? '' . $view_post?->users?->name ?? '' . $view_post?->users?->email ?? '')
 @section('og_image', dynamic_asset($view_post->uploads_id))
 @section('keywords', $view_post->keywords)
 
@@ -42,7 +42,7 @@
                                         </div>
                                     </a>
                             </div>
-                        
+
                                 </div>
 
                             </div>

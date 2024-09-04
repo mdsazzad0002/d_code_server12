@@ -8,6 +8,7 @@ use App\Http\Controllers\profile\reportController;
 
 use App\Http\Controllers\profile\commentController;
 use App\Http\Controllers\profile\profileController;
+use App\Http\Controllers\frontend\DetailsController;
 use App\Http\Controllers\vendor\postManageController;
 use App\Http\Controllers\profile\ViewProfileController;
 use App\Http\Controllers\profile\postController as ProfilePostController;
@@ -65,6 +66,7 @@ Route::get('/{id}', [ViewProfileController::class, 'index'])->name('index');
 Route::get('/{id}/comment', [ViewProfileController::class, 'comment'])->name('comment');
 Route::get('/{id}/vote', [ViewProfileController::class, 'vote'])->name('vote');
 Route::get('/{id}/post', [ViewProfileController::class, 'post'])->name('post');
+Route::get('/{id}/post/{slug}', [DetailsController::class, 'single_items']);
 
 Route::get('/{id}/job-post', [ViewProfileController::class, 'job'])->name('job-post');
 Route::get('/{id}/apply-job-post', [ViewProfileController::class, 'applyJob'])->name('apply.job-post');
