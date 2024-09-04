@@ -34,10 +34,13 @@ class DetailsController extends Controller
 
 
 
-
-    public function single_items($slug)
+    //id means username
+    public function single_items($id=null, $slug =null)
     {
 
+        if($slug == null){
+            $slug = $id;
+        }
         $view_post = post::where('slug', $slug)->get()->first();
         if ($view_post) {
             $subcategory_id =  subcategory::where('id', $view_post->subcategory_id)->get()->first();
