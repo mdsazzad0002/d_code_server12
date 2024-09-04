@@ -125,7 +125,7 @@ function uploads($file, $id = null, $for = 'general', $type = 'file')
         }
     }
     //Move Uploaded File
-    return $$file_find->id;
+    return $file_find->id;
 }
 
 function dynamic_asset($id)
