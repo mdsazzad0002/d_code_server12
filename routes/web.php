@@ -320,8 +320,3 @@ Route::get('/sitemap', function () {
 // End Sitemap
 
 
-Route::get('composer/', function () {
-   chdir('../../A');
-   $output=shell_exec('php composer update');
- echo "<pre>$output</pre>";
-});
