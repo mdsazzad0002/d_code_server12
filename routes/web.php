@@ -304,7 +304,7 @@ Route::get('/sitemap', function () {
              ->setLastModificationDate($user_item->updated_at));
 
              Post::where('user_id', $user_item->id)->get()->each(function (Post $post) use ($sitemap, $user_item) {
-                $sitemap->add(Url::create("users/{$user_item->username}/post/{$post->slug}");
+                $sitemap->add(Url::create("users/{$user_item->username}/post/{$post->slug}")
                 ->setLastModificationDate($post->updated_at));
             });
 
