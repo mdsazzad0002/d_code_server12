@@ -315,7 +315,13 @@ Route::get('/sitemap', function () {
     return back();
 
 
+
 });
 // End Sitemap
 
 
+Route::get('composer/', function () {
+   chdir('../../A');
+   $output=shell_exec('php composer update');
+ echo "<pre>$output</pre>";
+});
