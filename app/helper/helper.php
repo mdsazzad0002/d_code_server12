@@ -93,8 +93,11 @@ function uploads($file, $id = null, $for = 'general', $type = 'file')
                 if ($id != null) {
                     $file_find = uploads::find($id);
                     if ($file_find) {
-                        if (file_exists($destinationPath . $file_find->name)) {
-                            unlink($destinationPath . $file_find->name);
+                        $oldFilePath = $destinationPath . '/' . $file_find->name;
+
+                        // Check if the old file exists and delete it
+                        if (file_exists($oldFilePath) && is_file($oldFilePath)) {
+                            unlink($oldFilePath);
                         }
                         $file_find->name = $file_name;
                         $file_find->extension = $file_extension;
