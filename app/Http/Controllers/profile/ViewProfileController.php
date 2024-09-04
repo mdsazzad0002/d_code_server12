@@ -144,5 +144,21 @@ class ViewProfileController extends Controller
         $list_applied_list = JobApply::where('job_post_id', $id)->get();
         return view('profile.job-post.partials.viewProfile', compact('list_applied_list'));
     }
+    public function applyJob($id){
+        if($id != null && !empty($id)){
+             $user = User::where('username', $id)->get()->first();
+             
+            if($user){
+                $posts = JobApply::where('creator_id', $user->id)->orderBy('id','desc')->paginate(30);
+                return view('profile.apply_job_list.index', compact('posts','user'));
+
+            }else{
+                return abort(404,'Page Not Found');
+            }
+        }else{
+            return abort(404,'Page Not Found');
+        }
+
+    }
 
 }

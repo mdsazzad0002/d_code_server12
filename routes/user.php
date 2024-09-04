@@ -67,6 +67,7 @@ Route::get('/{id}/vote', [ViewProfileController::class, 'vote'])->name('vote');
 Route::get('/{id}/post', [ViewProfileController::class, 'post'])->name('post');
 
 Route::get('/{id}/job-post', [ViewProfileController::class, 'job'])->name('job-post');
+Route::get('/{id}/apply-job-post', [ViewProfileController::class, 'applyJob'])->name('apply.job-post');
 
 Route::get('/{id}/job-list', [ViewProfileController::class, 'list_selected'])->name('job-post.list');
 
