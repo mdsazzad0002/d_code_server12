@@ -23,7 +23,7 @@ class SubcategoryController extends Controller
                 ->addColumn('action', function ($row) {
                     $action = '';
 
-                    $action .= '<button type="button" class="btn btn-primary form" data-toggle="modal" data-target="#modal_setup"  data-title="Category Edit"  data-action="'. route('admin.category.update', $row->id) .'"   data-socuce="'. route('admin.subcategory.edit', $row->id ) .'"  data-method="put" > <i class="fa fa-eye" aria-hidden="true"></i> Edit</button>  ';
+                    $action .= '<button type="button" class="btn btn-primary form" data-toggle="modal" data-target="#modal_setup"  data-title="Category Edit"  data-action="'. route('admin.subcategory.update', $row->id) .'"   data-socuce="'. route('admin.subcategory.edit', $row->id ) .'"  data-method="put" > <i class="fa fa-eye" aria-hidden="true"></i> Edit</button>  ';
 
 
                     $action .= '<button type="button" class="btn btn-danger delete"  data-target="#modal_setup_delete"  data-action="'. route('admin.subcategory.destroy', $row->id) .'" data-method="delete" >  <i class="fa fa-trash"></i> Delete</button>';
