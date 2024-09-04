@@ -101,7 +101,7 @@ function uploads($file, $id = null, $for = 'general', $type = 'file')
                         $file_find->size = $file_size;
                         $file_find->save();
                     } else {
-                        uploads::create([
+                        $file_find = uploads::create([
                         'name' => $file_name,
                         'extension' => $file_extension,
                         'size' => $file_size,
@@ -111,7 +111,7 @@ function uploads($file, $id = null, $for = 'general', $type = 'file')
                     ]);
                 }
             } else {
-                uploads::create([
+                $file_find = uploads::create([
                     'name' => $file_name,
                     'extension' => $file_extension,
                     'size' => $file_size,
@@ -125,7 +125,7 @@ function uploads($file, $id = null, $for = 'general', $type = 'file')
         }
     }
     //Move Uploaded File
-    return uploads::where('name', $file_name)->get()->first()->id;
+    return $$file_find->id;
 }
 
 function dynamic_asset($id)

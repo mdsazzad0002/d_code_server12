@@ -54,7 +54,7 @@ Route::get('/auth/callback/github', function () {
 
     $user = User::where('github_id', $githubUser->id)->first();
     if($user != null){
-        $user->upload_id = uploads($githubUser->avatar,  $user->id, 'general', 'url');
+        $user->upload_id = uploads($githubUser->avatar,  $user->upload_id, 'general', 'url');
     }else{
         $user =new  User;
         $user->github_id = $githubUser->id;
@@ -86,7 +86,7 @@ Route::get('/auth/callback/google/', function () {
 
     $user = User::where('email', $request_data['email'])->first();
     if($user != null){
-        $user->upload_id = uploads($request_data['image'],  $user->id, 'general', 'url');
+        $user->upload_id = uploads($request_data['image'],  $user->upload_id, 'general', 'url');
     }else{
         $user =new  User;
         $user->google_id = $request_data['id'];
