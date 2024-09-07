@@ -47,5 +47,11 @@
         padding: .5rem 0.1rem;
         border-bottom: 1px dashed #ffffff;
     }
+    #nav_left_sidebar .nav-item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 9px;
+    }
   </style>
 <?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server12\resources\views/frontend/layouts/sidebar.blade.php ENDPATH**/ ?>
