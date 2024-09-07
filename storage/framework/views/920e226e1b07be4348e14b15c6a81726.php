@@ -41,6 +41,10 @@
         <div class="col-md-12">
             <?php echo $__env->make('frontend.details.partials.post_short_info', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+            
+            <br>
+            <div id="quick_access_tag"> </div>
+
             <div class="my-3 ">
                 <?php echo Str::markdown($view_post->details); ?>
 

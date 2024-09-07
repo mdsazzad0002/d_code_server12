@@ -31,6 +31,10 @@
         <div class="col-md-12">
             @include('frontend.details.partials.post_short_info')
 
+            
+            <br>
+            <div id="quick_access_tag"> </div>
+
             <div class="my-3 ">
                 {!! Str::markdown($view_post->details) !!}
             </div>

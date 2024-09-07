@@ -30,6 +30,7 @@
 
 
         <?php echo $__env->make('common.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        
     </div>
 
 

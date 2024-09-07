@@ -32,6 +32,14 @@
 
 
         @include('common.footer')
+        {{--  <script>
+            window.addEventListener('beforeunload', function (event) {
+                // Custom message is not supported in most modern browsers, but this line is kept for compatibility
+                const message = 'Are you sure you want to leave?';
+                event.returnValue = message; // Standard
+                return message; // For older browsers
+            });
+        </script>  --}}
     </div>
 
 

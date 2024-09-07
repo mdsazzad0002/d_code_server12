@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', Str::title($view_post->tilte)); ?>
 <?php $__env->startSection('short_description', $view_post->short_details . $view_post?->users?->tagline ?? '' . $view_post?->users?->name ?? '' . $view_post?->users?->email ?? ''); ?>
 <?php $__env->startSection('og_image', dynamic_asset($view_post->uploads_id)); ?>
@@ -9,9 +7,11 @@
 <?php $__env->startSection('content'); ?>
 <div class="row">
     <div class="col-xl-8">
+
         <?php echo $__env->make('frontend.details.partials.view', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
     <div class="col-xl-4">
+
         <div class="position_sticky_footer_side">
             <?php if (isset($component)) { $__componentOriginal0a3246743b024a30070683ed74d4e791 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal0a3246743b024a30070683ed74d4e791 = $attributes; } ?>
@@ -177,6 +177,71 @@
                 Prism.highlightAll();
             }
         })
+    });
+
+
+    function slugify(str) {
+        str = str.replace(/^\s+|\s+$/g, ''); // trim leading/trailing white space
+        str = str.toLowerCase(); // convert string to lowercase
+        str = str.replace(/[^a-z0-9 -]/g, '') // remove any non-alphanumeric characters
+                 .replace(/\s+/g, '-') // replace spaces with hyphens
+                 .replace(/-+/g, '-'); // remove consecutive hyphens
+        return str;
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+      var quick_access_tag = document.querySelector('#quick_access_tag');
+      var tag_rander = '';
+        var details_root_element = document.querySelector('.post_details_extra_deasign');
+        var h1_items = details_root_element.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        h1_items.forEach(function(element) {
+            const title = element.innerHTML;
+            const slug = slugify(title);
+            element.setAttribute('id', slug)
+            tag_rander+=`<div><a class="btn_link_data text-light mb-1" href="#${slug}"><b class="text-danger">#</b> ${element.innerHTML}</a></div>`;
+
+        });
+        quick_access_tag.innerHTML = tag_rander;
+
+
+
+
+        $('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function(event) {
+                // On-page links
+                if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                &&
+                location.hostname == this.hostname
+                ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                history.pushState(null, null, this.href);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                    // Only prevent default if animation is actually gonna happen
+                    event.preventDefault();
+                    $('html, body').animate({
+                    scrollTop: target.offset().top -120
+                    }, 1000, function() {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                        return false;
+                    } else {
+                        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                        $target.focus(); // Set focus again
+                    };
+                    });
+                }
+                }
+            });
     });
 
 

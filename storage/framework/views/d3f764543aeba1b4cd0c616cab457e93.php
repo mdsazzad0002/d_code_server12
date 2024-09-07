@@ -28,7 +28,7 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" id="nav_left_sidebar" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" id="nav_left_sidebar" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
@@ -40,4 +40,12 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
+
+  <style>
+    #nav_left_sidebar .nav-item .nav-link{
+        padding: .5rem 0.1rem;
+        border-bottom: 1px dashed #ffffff;
+    }
+  </style>
 <?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server12\resources\views/frontend/layouts/sidebar.blade.php ENDPATH**/ ?>
