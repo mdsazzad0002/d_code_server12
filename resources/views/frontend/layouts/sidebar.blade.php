@@ -45,7 +45,7 @@
   <style>
     #nav_left_sidebar .nav-item .nav-link{
         padding: .5rem 0.1rem;
-        border-bottom: 1px dashed #ffffff;
+        border-bottom: 1px dashed rgba(255, 255, 255,  0.33)
 
         display: flex;
         flex-direction: row;
