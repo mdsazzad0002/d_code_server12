@@ -47,4 +47,10 @@
         padding: .5rem 0.1rem;
         border-bottom: 1px dashed #ffffff;
     }
+    #nav_left_sidebar .nav-item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 9px;
+    }
   </style>
