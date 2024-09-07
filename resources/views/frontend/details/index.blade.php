@@ -219,5 +219,36 @@ function tag_scroll_and_target(){
     img{
         max-height: 300px;
     }
+
+    
+    div#quick_access_tag::before {
+        content: '';
+        position: absolute;
+        background: #00ad85;
+        height: 24px;
+        width: 22px;
+        transform: rotate(45deg);
+        right: -13px;
+        top: -2px;
+        border-radius: 3px;
+    }
+    div#quick_access_tag::after {
+        content: 'Quick Access Scroll Links';
+        background: #07cc9e;
+        /* width: 10px; */
+        /* height: 40px; */
+        position: absolute;
+        top: -18px;
+        right: -17px;
+        padding: 3px 10px;
+        border-radius: 2px;
+    }
+    #quick_access_tag{
+        border: 1px dashed #07cc9e;
+        padding: 10px;
+        border-radius: 6px;
+        position: relative;
+    }
+
 </style>
 @endpush
