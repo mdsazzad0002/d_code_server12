@@ -1,5 +1,5 @@
 @if(count($banner) != 0)
-<x-frontend.card>
+<x-frontend.card class="p-3">
 <div class="owl-carousel owl-theme">
     @foreach ($banner as $items)
         <a href="{{ $items->url }}">

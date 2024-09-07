@@ -61,6 +61,9 @@ function load_image_form_pexels(keyword, img){
 
 }
 function load_image_form_pixabay(keyword, img){
+        if(keyword == null){
+            keyword = 'programming';
+        }
       if(keyword.length > 2){
             var form = new FormData();
             var return_data ='';
