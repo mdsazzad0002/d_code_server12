@@ -192,7 +192,6 @@
     });
 
 
-
 </script>
 @endpush
 
@@ -213,6 +212,9 @@
     .editor-toolbar.fullscreen{
         background: #616161;
 
+    }
+    img{
+        max-height: 300px;
     }
 </style>
 @endpush

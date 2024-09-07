@@ -7,7 +7,7 @@
                     <i class="fas fa-code font-weight-bold"></i>
                 </div>
             </div>
-            <h1 class="h3 mb-0">
+            <h1 class="h5 font-weight-bold mb-0">
                <?php echo $__env->yieldContent('title'); ?>
             </h1>
           </div>

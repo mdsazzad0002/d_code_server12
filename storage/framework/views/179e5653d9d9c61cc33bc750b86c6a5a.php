@@ -245,7 +245,6 @@
     });
 
 
-
 </script>
 <?php $__env->stopPush(); ?>
 
@@ -266,6 +265,9 @@
     .editor-toolbar.fullscreen{
         background: #616161;
 
+    }
+    img{
+        max-height: 300px;
     }
 </style>
 <?php $__env->stopPush(); ?>
