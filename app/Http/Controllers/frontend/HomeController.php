@@ -44,12 +44,15 @@ class HomeController extends Controller
                     ->get();
 
             $job = JobPost::where('status', 1)
-                    ->where('title','LIKE','%'. $request->query_data.'%')
-                    ->orWhere('short_details' ,'LIKE','%'.$request->query_data.'%')
-                    ->orWhere('long_details','LIKE','%'.$request->query_data.'%')
-                    ->orWhere('company_name','LIKE','%'.$request->query_data.'%')
-                    ->orWhere('company_type','LIKE','%'.$request->query_data.'%')
-                    ->orWhere('location','LIKE','%'.$request->query_data.'%')
+                    ->where(function($query) use ($request){
+                        $query->where('title','LIKE','%'. $request->query_data.'%');
+                        $query->orWhere('short_details' ,'LIKE','%'.$request->query_data.'%');
+                        $query->orWhere('long_details','LIKE','%'.$request->query_data.'%');
+                        $query->orWhere('company_name','LIKE','%'.$request->query_data.'%');
+                        $query->orWhere('company_type','LIKE','%'.$request->query_data.'%');
+                        $query->orWhere('location','LIKE','%'.$request->query_data.'%');
+
+                    })
                     ->where('deadline','>=',$now)
                     ->select('title as tilte', 'short_details','slug')
                     ->limit(8)

@@ -22,6 +22,7 @@
     <?php echo $user->details?->details ? Str::markdown($user->details?->details): '🤣 '. $user->name .' ❤ Welcome to '.
     general_setting('site_title'); ?>
 
+
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal42d934a7d1fb95b9706d4d8ab536daec)): ?>
@@ -34,13 +35,17 @@
 <?php endif; ?>
 
 
+
+
+<script src="<?php echo e(static_asset('plugins/apexcharts/apexcharts.js')); ?>"></script>
+<?php echo $__env->make('profile.profile_partials.report', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <div id="paginated_content">
     <?php echo $__env->make('profile.post.partials.post', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </div>
 
-<script src="<?php echo e(static_asset('plugins/apexcharts/apexcharts.js')); ?>"></script>
 
-<?php echo $__env->make('profile.profile_partials.comment_report', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
 <?php $__env->stopSection(); ?>
 

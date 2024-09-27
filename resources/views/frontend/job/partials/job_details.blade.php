@@ -53,28 +53,32 @@
         </div>
 
 
+        @if($view_post->enable_apply == 1 && $view_post->deadline >= \Carbon\Carbon::now())
+                <button class="btn btn-primary apply_now  form markdown"
+                data-toggle="modal"
+                data-target="#modal_setup"
+                data-title="Apply {{ $view_post->title }}"
+                data-action="{{ route('user-job-post.job-post.apply_store', $view_post->id) }}"
+                data-socuce="{{ route('user-job-post.job-post.apply', $view_post->id ) }}" data-method="post"
 
+                style="position: fixed; bottom: 10px; z-index: 99; width: 300px;  border-radius: 35px;  transform: translateX(-50%);  left: 50%;">
+                    Apply Now
+            </button>
+        @endif
+     
 
-        <button class="btn btn-primary apply_now  form markdown"
-         data-toggle="modal"
-         data-target="#modal_setup"
-         data-title="Apply {{ $view_post->title }}"
-         data-action="{{ route('user-job-post.job-post.apply_store', $view_post->id) }}"
-         data-socuce="{{ route('user-job-post.job-post.apply', $view_post->id ) }}" data-method="post"
-
-            style="    position: fixed;
-    bottom: 10px;
-    z-index: 99;
-    width: 300px;
-    border-radius: 35px;
-    transform: translateX(-50%);
-    left: 50%;">
-            Apply Now
-        </button>
-
+        
     </div>
 
 </x-frontend.card>
+
+@if($view_post->jobApplys_data != null)
+<x-card.card>
+    Already Applied This Job.
+</x-card.card>
+@endif
+
+
 @component('components.frontend.ads', ['where'=>'job_showup'])@endcomponent
 @else
 <x-404></x-404>

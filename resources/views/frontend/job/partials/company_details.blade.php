@@ -41,7 +41,7 @@
                    : <span class="text-success">{{ \Carbon\Carbon::parse($job_items->start_date)->format('d-M-Y') }}</span>
                 </td>
             </tr>
-             <tr >
+             <tr @if($job_items->deadline < \Carbon\Carbon::now()) class="bg-danger"  @endif>
                 <td>
                     Dadeline
                 </td>

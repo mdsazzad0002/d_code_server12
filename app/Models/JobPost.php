@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\JobApply;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class JobPost extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','creatorId','status','long_details','short_details','district_id','category_id','start_date','deadline','company_name','company_type','location'];
+    protected $fillable = ['title','creatorId','status','long_details','short_details','district_id','category_id','start_date','deadline','company_name','company_type','location','enable_apply'];
     protected $casts = [
         'created_at' => 'date:d-M-Y h:s A',
     ];
@@ -54,6 +55,10 @@ class JobPost extends Model
     }
     public function getDetailsUrlAttribute(){
         return url('job/'.$this->slug);
+    }
+
+    public function jobApplys_data(){
+        return $this->hasOne(JobApply::class, 'job_post_id', 'id');
     }
 
 }

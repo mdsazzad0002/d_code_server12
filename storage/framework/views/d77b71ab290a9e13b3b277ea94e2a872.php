@@ -161,5 +161,10 @@
     background:#6b6b6b !important;
 
 }
+
+
+.pagination a.page-link{
+    background: #495057 !important;
+}
 </style>
 <?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server12\resources\views/profile/layouts/css.blade.php ENDPATH**/ ?>

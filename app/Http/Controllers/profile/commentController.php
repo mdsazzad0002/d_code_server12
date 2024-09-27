@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class commentController extends Controller
 {
     public function index(Request $request){
+        
         $user = auth()->user();
         $comments = comment::where('user_id', auth()?->user()?->id)->paginate(15);
         if($request->page){

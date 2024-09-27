@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\editorLiveController;
 use App\Http\Controllers\frontend\categoryController;
 use App\Http\Controllers\frontend\comment_controller;
 use App\Http\Controllers\frontend\DetailsController;
@@ -9,8 +10,7 @@ use App\Http\Controllers\frontend\jobpostcontroller;
 use App\Http\Controllers\frontend\subcategoryController;
 use App\Http\Controllers\JobPostManageController;
 use App\Http\Controllers\LoginWithSocialController;
-
-
+use App\Http\Controllers\profile\reportController;
 use App\Http\Controllers\vendor\postManageController;
 use App\Models\category;
 
@@ -177,6 +177,14 @@ Route::prefix('job')
 
 
 
+Route::prefix('helpdesk')
+    ->name('helpdesk.')
+    ->group(function () {
+        Route::get('/create', [reportController::class, 'helpdesk_create'])->name('create');
+        Route::post('/store', [reportController::class, 'store'])->name('store');
+    });
+
+
 
 
 //One User and guest Post create
@@ -318,5 +326,16 @@ Route::get('/sitemap', function () {
 
 });
 // End Sitemap
+
+
+
+
+
+
+
+
+Route::get('editor', [editorLiveController::class, 'index'])->name('editor.index');
+Route::get('editor/source', [editorLiveController::class, 'source'])->name('editor.source');
+Route::get('editor/output', [editorLiveController::class, 'output'])->name('editor.output');
 
 

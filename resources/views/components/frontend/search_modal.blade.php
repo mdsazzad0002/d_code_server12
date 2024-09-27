@@ -20,12 +20,12 @@
 
     #docSearch_byModel_own .modal-body a {
         text-decoration: none;
-        color: black;
+        color: black !important;
         display: flex;
         gap: 15px;
         padding: 7px;
         align-items: center;
-        background: white;
+        background: white !important;
         border-radius: 5px;
         margin-bottom: 10px;
     }
@@ -44,16 +44,16 @@
     }
 
     #docSearch_byModel_own .modal-body div.title {
-        color: var(--primary_color_search);
+        color: var(--primary_color_search) !important;
         margin-bottom: 5px;
         font-weight: 700;
     }
 
     #docSearch_byModel_own .modal-body a.active,
     #docSearch_byModel_own .modal-body a:hover {
-        color: white;
+        color: white  !important;
         align-items: center;
-        background: var(--primary_color_search);
+        background: var(--primary_color_search)  !important;
     }
 
     #docSearch_byModel_own .modal-footer {
@@ -127,10 +127,10 @@
     }
 </style>
 
-{{-- <button type="button" class="btn btn-primary docSearch_byModel_own" data-toggle="modal"
+{{--  <button type="button" class="btn btn-primary docSearch_byModel_own" data-toggle="modal"
     data-target="#docSearch_byModel_own">
     Launch demo modal
-</button> --}}
+</button>  --}}
 
 <!-- Modal -->
 <div class="modal fade" draggable="true" id="docSearch_byModel_own" tabindex="-1" role="dialog"

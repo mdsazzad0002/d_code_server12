@@ -34,23 +34,48 @@
 
            <?php echo $__env->yieldContent('sidebar'); ?>
 
+
+           <li>
+            <div class="p-2 text-center">
+                <div class=" bg-black p-3 px-3 rounded">
+                    <button class="btn btn-primary mb-2  rounded rounded-pill px-3 form" data-toggle="modal" data-target="#modal_setup" data-title="HelpDesk"  data-action="<?php echo e(route('helpdesk.store')); ?>" data-socuce="<?php echo e(route('helpdesk.create')); ?>" data-method="post">
+                        <i class="fas fa-support"></i>
+                        HelpDesk
+                    </button>
+
+                   
+
+
+
+                    <div class=" text-light-secondary">
+                        Write report and suggession. <br>
+                        Your Helpdesk is now here.
+                    </div>
+                </div>
+            </div>
+           </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
+
+
     <!-- /.sidebar -->
   </aside>
 
 
   <style>
     #nav_left_sidebar .nav-item .nav-link{
-        padding: .5rem 0.1rem;
-        border-bottom: 1px dashed #ffffff;
+        padding: .5rem 0.1rem;;
+        border-bottom: 1px dashed rgba(255, 255, 255,  0.33);
 
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 9px;
     }
+
+
   </style>
 <?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server12\resources\views/frontend/layouts/sidebar.blade.php ENDPATH**/ ?>

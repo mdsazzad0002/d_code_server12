@@ -90,3 +90,11 @@
 </div>
 
 
+<div class="mb-3">
+    <label for="enable_apply">Enable Online Apply &nbsp;&nbsp;<span class="text-danger">* </span></label>
+    <select required class="form-control  mb-2" name="enable_apply" >
+        <option {{ $jobPost->enable_apply == 0 ? 'checked' : '' }} value="0">No</option>
+        <option  {{ $jobPost->enable_apply == 1 ? 'checked' : '' }} value="1">Yes</option>
+    </select>
+</div>
+

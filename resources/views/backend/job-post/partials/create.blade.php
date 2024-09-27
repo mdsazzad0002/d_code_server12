@@ -71,4 +71,12 @@
     <textarea  name="long_details" Placeholder="Details" id="details" class="form-control mb-2" cols="30" rows="10"></textarea>
 </div>
 
+<div class="mb-3">
+    <label for="enable_apply">Enable Online Apply &nbsp;&nbsp;<span class="text-danger">* </span></label>
+    <select required class="form-control  mb-2" name="enable_apply" >
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </select>
+</div>
+
 

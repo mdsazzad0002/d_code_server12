@@ -45,7 +45,7 @@
                    : <span class="text-success"><?php echo e(\Carbon\Carbon::parse($job_items->start_date)->format('d-M-Y')); ?></span>
                 </td>
             </tr>
-             <tr >
+             <tr <?php if($job_items->deadline < \Carbon\Carbon::now()): ?> class="bg-danger"  <?php endif; ?>>
                 <td>
                     Dadeline
                 </td>

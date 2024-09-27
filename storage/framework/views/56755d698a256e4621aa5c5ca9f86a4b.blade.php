@@ -1,0 +1,1 @@
+components.frontend.card_link

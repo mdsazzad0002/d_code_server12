@@ -32,9 +32,16 @@
                     <li class="<?php echo e(request()->is('admin/post*') ? 'active' : ''); ?>"><a
                             href="<?php echo e(route('admin.post.index')); ?>"><i class="ti-receipt"></i> <span>Post</span></a></li>
 
-                    <li class="<?php echo e(request()->is('admin/job-post*') ? 'active' : ''); ?>"><a
+                    <li class="<?php echo e(request()->routeIs('admin.job-post.index') ? 'active' : ''); ?>"><a
                                 href="<?php echo e(route('admin.job-post.index')); ?>"><i class="ti-receipt"></i> <span>Job Post</span></a></li>
-
+                            
+                   <li class="<?php echo e(request()->routeIs('admin.apply-jobs.list') ? 'active' : ''); ?>"><a
+                                    href="<?php echo e(route('admin.apply-jobs.list')); ?>"><i class="ti-receipt"></i> <span>Job Apply List</span></a></li>
+        
+                     <li class="<?php echo e(request()->routeIs('admin.report.index') ? 'active' : ''); ?>"><a
+                                        href="<?php echo e(route('admin.report.index')); ?>"><i class="ti-receipt"></i> <span>Report</span></a></li>
+                    
+                                        
                     <li class="<?php echo e(request()->is('admin/admin-list*', 'admin/user-list*') ? 'active' : ''); ?>">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-users"></i>
                             <span>Users</span></a>
@@ -63,11 +70,8 @@
 
                         </ul>
                     </li>
-                    <li class="<?php echo e(request()->is('admin/job-post*') ? 'active' : ''); ?>"><a
-                        href="<?php echo e(route('admin.report.index')); ?>"><i class="ti-receipt"></i> <span>Report</span></a></li>
-                        <li class="<?php echo e(request()->is('admin/job-post*') ? 'active' : ''); ?>"><a
-                            href="<?php echo e(route('admin.apply-jobs.list')); ?>"><i class="ti-receipt"></i> <span>Job Apply List</span></a></li>
-
+                   
+                       
                 </ul>
             </nav>
         </div>

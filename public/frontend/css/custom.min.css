@@ -95,9 +95,14 @@ div.code-toolbar
         position: sticky;
         top: 65px;
     }
-    .position_sticky_footer_side .card-body{
+
+    .position_sticky_footer_side .card-body {
         max-height: calc(100vh - 140px);
+        min-height: calc(100vh - 140px);
         overflow-x: hidden;
+    }
+    .position_sticky_footer_side .card-body  .card-body {
+        min-height: auto;
     }
 }
 
@@ -135,4 +140,9 @@ div.code-toolbar
 }
 footer.main-footer a{
     color: #07cc9e;
+}
+
+.text-light-secondary
+{
+    color: #a9a9a9;
 }

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\category;
 use App\Models\post;
+use App\Models\category;
 use App\Models\subcategory;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DetailsController extends Controller
 {
@@ -23,7 +24,8 @@ class DetailsController extends Controller
             return 'something is wrong';
         }
 
-        $view_post = post::where('slug', $view_slug)->get()->first();
+         $view_post = post::where('slug', $view_slug)->get()->first();
+        
 
         if ($view_post) {
             return view('frontend.details.index', compact('view_post', 'category', 'subcategory', 'post_list_menu','subcategory_id'));

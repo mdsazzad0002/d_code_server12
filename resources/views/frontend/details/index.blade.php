@@ -21,6 +21,7 @@
                     // dd($category);
                     $catgory_list_footer = category_subcategory($category, 30);
                     @endphp
+                    
 
 
                     <div class="row">
@@ -71,6 +72,14 @@
             <div class="position_sticky_footer_side">
                 <x-footer_category></x-footer_category>
              </div>
+
+            <div class="position_sticky_footer_side">
+                <x-frontend.card title="Quick Flowing Tag">
+                   <div id="quick_access_tag_side" class="p-3"> </div>
+                </x-frontend.card>
+            </div>
+
+
 
     </div>
 </div>
@@ -139,18 +148,27 @@
 
     function index_tag_generate(){
       var quick_access_tag = document.querySelector('#quick_access_tag');
+      var quick_access_tag_side = document.querySelector('#quick_access_tag_side');
+
       var tag_rander = '';
-        var details_root_element = document.querySelector('.post_details_extra_deasign');
-        var h1_items = details_root_element.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+      var details_root_element = document.querySelector('.post_details_extra_deasign');
+      var h1_items = details_root_element.querySelectorAll('h1, h2, h3, h4, h5, h6');
 
         h1_items.forEach(function(element) {
             const title = element.innerHTML;
             const slug = slugify(title);
-            element.setAttribute('id', slug)
+            element.setAttribute('id', slug);
+
+
+
             tag_rander+=`<div><a class="btn_link_data text-light mb-1" href="#${slug}"><b class="text-danger">#</b> ${element.innerHTML}</a></div>`;
+
+            {{--  console.log(element);  --}}
 
         });
         quick_access_tag.innerHTML = tag_rander;
+        quick_access_tag_side.innerHTML = tag_rander;
 
 
         tag_scroll_and_target();
@@ -195,6 +213,31 @@ function tag_scroll_and_target(){
         }
     })
 }
+
+
+{{--  
+
+function target_editor_open_in_live(){
+    var data_array= [];
+    var all_taxt_element_code = document.querySelectorAll('code');
+    all_taxt_element_code.forEach(function(element){
+
+
+        var data_key = element.getAttribute('class');
+        data_key = data_key.replace('language-', '');
+        data_array[data_key]= element.textContent;
+
+    });
+    window.location.href = "{{ route("editor.index") }}?"+
+            'html='+ JSON.stringify(data_array.html) +
+            '&css=' + JSON.stringify(data_array.css)+
+            '&js=' + JSON.stringify(data_array.js);
+
+            console.log(data_array)
+}
+target_editor_open_in_live()  --}}
+
+
 </script>
 @endpush
 
@@ -220,7 +263,7 @@ function tag_scroll_and_target(){
         max-height: 300px;
     }
 
-    
+
     div#quick_access_tag::before {
         content: '';
         position: absolute;

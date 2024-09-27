@@ -163,4 +163,9 @@
     background:#6b6b6b !important;
 
 }
+
+
+.pagination a.page-link{
+    background: #495057 !important;
+}
 </style>

@@ -35,6 +35,7 @@ border: 0px solid #FFF;
           <th><i class="fa fa-user" aria-hidden="true"></i> Name</th>
           <th><i class="fa fa-tasks" aria-hidden="true"></i> Job Name</th>
           <th><i class="fa fa-text" aria-hidden="true"></i> Description</th>
+          <th><i class="fa fa-check" aria-hidden="true"></i> Selection Status</th>
           <th> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Apply Date</th>
         </tr>
       </thead>
@@ -46,6 +47,7 @@ border: 0px solid #FFF;
           <td><?php echo e($post->users->name); ?></td>
           <td> <a href="<?php echo e(route('job.index',$post->jobs->slug)); ?>"><?php echo e($post->jobs->title); ?></a> </td>
           <td><?php echo e($post->details); ?></td>
+          <td><?php echo e($post->selected ? 'Selected' : 'Waiting for Selected'); ?></td>
           <td><?php echo e($post->created_at->format('d F Y')); ?></td>
         </tr>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

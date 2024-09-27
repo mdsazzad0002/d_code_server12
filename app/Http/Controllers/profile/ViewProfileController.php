@@ -128,12 +128,18 @@ class ViewProfileController extends Controller
 
     }
 
-    public function comment($id){
+    public function comment(Request $request, $id){
         if($id != null && !empty($id)){
              $user = User::where('username', $id)->get()->first();
             if($user){
-                $comments = comment::where('user_id',  $user?->id)->orderBy('id','desc')->paginate(30);
-                return view('profile.comment.index', compact('comments','user'));
+                $comments = comment::where('user_id',  $user?->id)->orderBy('id','desc')->paginate(10);
+                if($request->ajax()){
+                    return view('profile.comment.partials.comment', compact('comments','user'));
+
+                }else{
+                    return view('profile.comment.index', compact('comments','user'));
+
+                }
 
             }else{
                 return abort(404,'Page Not Found');

@@ -6,9 +6,7 @@
     <div class="card-header d-flex justify-content-between ">
         <h5>Report</h5>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary form" data-toggle="modal" data-target="#modal_setup" data-title="Category Create" data-action="{{ route('admin.category.store') }}" data-socuce="{{ route('admin.category.create') }}" data-method="post">
-            <i class="fa-solid fa-plus"></i> Add New</button>
+
 
     </div>
 

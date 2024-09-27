@@ -60,6 +60,7 @@ class JobPostManageController extends Controller
         $post->company_name = $request->company_name;
         $post->company_type = $request->company_type;
         $post->location = $request->location;
+        $post->enable_apply = $request->enable_apply;
 
         $slug = Str::slug($request->title.Carbon::now()->toDateTimeString() ?? Carbon::now()->toDateTimeString(), '-');
         $post->slug = $slug ?? '';
@@ -140,6 +141,7 @@ class JobPostManageController extends Controller
             'company_name' => $request->company_name,
             'company_type' => $request->company_type,
             'location' => $request->location,
+            'enable_apply' => $request->enable_apply
         ]);
         return back();
     }
@@ -179,7 +181,12 @@ class JobPostManageController extends Controller
         if(auth()->user()){
             $jobPost = JobPost::find($id);
             $old_cv = uploads::where('for', 'cv')->where('creator_id', auth()->user()->id)->get();
-            return view('frontend.job.job_apply.job_form', compact('jobPost','old_cv'));
+
+            if($jobPost->jobApplys_data != null){
+                return '<a class="btn btn-primary mx-auto d-block" href="'.url('').'">Already Applied Find Anymore</a>';
+            }else{
+                return view('frontend.job.job_apply.job_form', compact('jobPost','old_cv'));
+            }
         }else{
             return '<a class="btn btn-primary mx-auto d-block" href="'.url('login').'">Login Now</a>';
         }
@@ -194,7 +201,7 @@ class JobPostManageController extends Controller
                 $job_apply_find = JobApply::where('job_post_id', $request->post_id)->where('creator_id', $creator_id)->first();
                 if($job_apply_find){
                     toastr()->error('Already Applied ', 'Error');
-                    return back();
+                    return redirect()->back();
                 }else{
                     $job_apply = new JobApply;
                     $job_apply->job_post_id = $request->post_id;
@@ -206,18 +213,18 @@ class JobPostManageController extends Controller
                         $job_apply->cv_file_id = $request->cv_id;
                     }else{
                         toastr()->error('Cv Not Found ', 'Error');
-                        return back();
+                        return redirect()->back();
                     }
 
                     $job_apply->details =  $request->long_details;
                     $job_apply->save();
 
                     toastr()->success('Successfully Applied ', 'Congress');
-                    return back();
+                    return redirect()->back();
                 }
             }else{
                 toastr()->error('Job post not Available', 'Error');
-                return back();
+                return redirect()->back();
             }
 
         }else{

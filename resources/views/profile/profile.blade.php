@@ -14,16 +14,21 @@
 
     {!! $user->details?->details ? Str::markdown($user->details?->details): '🤣 '. $user->name .' ❤ Welcome to '.
     general_setting('site_title')!!}
+
 </x-card.card>
 
+
+
+
+<script src="{{ static_asset('plugins/apexcharts/apexcharts.js') }}"></script>
+@include('profile.profile_partials.report')
 
 <div id="paginated_content">
     @include('profile.post.partials.post')
 </div>
 
-<script src="{{ static_asset('plugins/apexcharts/apexcharts.js') }}"></script>
 
-@include('profile.profile_partials.comment_report')
+
 
 @endsection
 
