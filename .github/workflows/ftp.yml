@@ -19,5 +19,5 @@ jobs:
           username: ${{ secrets.FTPUSERNAME }}
           password: ${{ secrets.FTPPASSWORD }}
           protocol: ftp
-          server-dir: public_html/
+          server-dir: /code.dengrweb.com/
 
