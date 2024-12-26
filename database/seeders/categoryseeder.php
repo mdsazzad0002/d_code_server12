@@ -24,6 +24,7 @@ class categoryseeder extends Seeder
                 'name' => $faker->word,
                 'slug' => $faker->slug,
                 'description' => $faker->sentence,
+                'keywords' => '',
                 'status' => $faker->randomElement([0, 1]),
                 'uploads_id' => $faker->uuid,
                 'created_at' => now(),

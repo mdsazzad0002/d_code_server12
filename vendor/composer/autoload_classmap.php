@@ -97,6 +97,7 @@ return array(
     'App\\Http\\Controllers\\backend\\SubcategoryController' => $baseDir . '/app/Http/Controllers/backend/SubcategoryController.php',
     'App\\Http\\Controllers\\backend\\adminController' => $baseDir . '/app/Http/Controllers/backend/adminController.php',
     'App\\Http\\Controllers\\backend\\userController' => $baseDir . '/app/Http/Controllers/backend/userController.php',
+    'App\\Http\\Controllers\\editorLiveController' => $baseDir . '/app/Http/Controllers/editorLiveController.php',
     'App\\Http\\Controllers\\frontend\\DetailsController' => $baseDir . '/app/Http/Controllers/frontend/DetailsController.php',
     'App\\Http\\Controllers\\frontend\\FeedController' => $baseDir . '/app/Http/Controllers/frontend/FeedController.php',
     'App\\Http\\Controllers\\frontend\\HomeController' => $baseDir . '/app/Http/Controllers/frontend/HomeController.php',

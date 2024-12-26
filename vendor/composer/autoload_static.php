@@ -762,6 +762,7 @@ class ComposerStaticInit41bd76f8bb18d670a14ce34da5a2f2db
         'App\\Http\\Controllers\\backend\\SubcategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/SubcategoryController.php',
         'App\\Http\\Controllers\\backend\\adminController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/adminController.php',
         'App\\Http\\Controllers\\backend\\userController' => __DIR__ . '/../..' . '/app/Http/Controllers/backend/userController.php',
+        'App\\Http\\Controllers\\editorLiveController' => __DIR__ . '/../..' . '/app/Http/Controllers/editorLiveController.php',
         'App\\Http\\Controllers\\frontend\\DetailsController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/DetailsController.php',
         'App\\Http\\Controllers\\frontend\\FeedController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/FeedController.php',
         'App\\Http\\Controllers\\frontend\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/frontend/HomeController.php',

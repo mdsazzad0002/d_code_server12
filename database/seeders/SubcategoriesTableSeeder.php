@@ -33,6 +33,7 @@ class SubcategoriesTableSeeder extends Seeder
                     'status' => $faker->randomElement([0, 1]),
                     'description' => $faker->paragraph,
                     'uploads_id' => $faker->uuid,
+                    'keywords' => '',
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];
