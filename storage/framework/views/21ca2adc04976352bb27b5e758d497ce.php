@@ -6,7 +6,7 @@
 <div class=" ">
     <div class="mb-2">
         <div>
-            <div class="text-secondary"> 🕒 <?php echo e($comment->created_at->format('d-m-Y h:i:s A')); ?></div>
+            <div class="text-secondary"> 🕒 <?php echo e($comment->updated_at->format('d-m-Y h:i:s A')); ?> (<?php echo e($comment->updated_at->diffForHumans()); ?>)</div>
         </div>
     </div>
     <div class="d-flex flex-wrap  btn-group">

@@ -4,7 +4,6 @@
 <div class="">
     <div class="shadow  mb-3 border bg-dark" style="border-color:#ee3f86 !important; border-radius: 5px; overflow:hidden;">
 
-
         <?php echo $__env->make('frontend.summary.summery_view', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <div class=" px-3 py-2">

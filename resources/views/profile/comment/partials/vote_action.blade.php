@@ -5,7 +5,7 @@
 <div class=" ">
     <div class="mb-2">
         <div>
-            <div class="text-secondary"> 🕒 {{ $comment->created_at->format('d-m-Y h:i:s A') }}</div>
+            <div class="text-secondary"> 🕒 {{ $comment->updated_at->format('d-m-Y h:i:s A') }} ({{ $comment->updated_at->diffForHumans() }})</div>
         </div>
     </div>
     <div class="d-flex flex-wrap  btn-group">

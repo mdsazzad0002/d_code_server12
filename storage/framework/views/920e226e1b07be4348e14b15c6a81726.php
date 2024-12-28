@@ -41,7 +41,7 @@
         <div class="col-md-12">
             <?php echo $__env->make('frontend.details.partials.post_short_info', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-            
+
             <br>
             <div id="quick_access_tag"> </div>
 
@@ -52,7 +52,20 @@
         </div>
 
     </div>
+    <div class="d-flex justify-content-between align-items-center">
+
+
+
+        <?php if(auth()->user() && $view_post->users): ?>
+            <?php echo $__env->make('common.subscribe', ['subscribe_id'=> $view_post->users->id], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php endif; ?>
+
+         <?php echo $__env->make('common.like_comment_post_summary', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+         
+         <?php echo $__env->make('common.sharer_and_summary', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
+    </div>
+
 
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

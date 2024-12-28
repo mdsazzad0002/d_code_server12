@@ -16,7 +16,7 @@ class post extends Model
     protected $casts = [
         'created_at' => 'date:d-M-Y h:s A',
     ];
-    protected $appends = ['status_name', 'category_name', 'subcategory_name', 'uploads_url','details_url'];
+    protected $appends = ['status_name', 'category_name', 'subcategory_name', 'uploads_url','details_url', 'comment_count'];
     public function users(){
         return $this->hasOne(User::class,'id' ,'user_id' );
     }
@@ -48,5 +48,23 @@ class post extends Model
         return url('post/'.$this->slug);
     }
 
+    public function comments(){
+        return $this->hasMany(comment::class, 'post_id');
+    }
+
+    public function getCommentCountAttribute(){
+        return $this->comments->count();
+
+    }
+
+    public function getLikeAttribute(){
+        $totalLikes = $this->comments()->sum('upvote');
+        $totalDislikes = $this->comments()->sum('downvote');
+
+        return [
+            'upvote' => $totalLikes,
+            'downvote' => $totalDislikes
+        ];
+    }
 
 }

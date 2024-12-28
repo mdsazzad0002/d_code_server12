@@ -31,7 +31,7 @@
         <div class="col-md-12">
             @include('frontend.details.partials.post_short_info')
 
-            
+
             <br>
             <div id="quick_access_tag"> </div>
 
@@ -41,7 +41,20 @@
         </div>
 
     </div>
+    <div class="d-flex justify-content-between align-items-center">
+
+
+
+        @if(auth()->user() && $view_post->users)
+            @include('common.subscribe', ['subscribe_id'=> $view_post->users->id])
+        @endif
+
+         @include('common.like_comment_post_summary')
+         
+         @include('common.sharer_and_summary')
     </div>
+    </div>
+
 
 </x-frontend.card>
 @component('components.frontend.ads', ['where'=>'details_showup'])@endcomponent

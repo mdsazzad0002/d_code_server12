@@ -103,4 +103,15 @@ class User extends Authenticatable
 
 
 
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'user_user', 'subscribe_id', 'subscriber_id');
+    }
+
+    // Users that this user subscribes to (following)
+    public function subscriptions()
+    {
+        return $this->belongsToMany(User::class, 'user_user', 'subscriber_id', 'subscribe_id');
+    }
+
 }

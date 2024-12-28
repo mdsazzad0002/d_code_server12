@@ -1,7 +1,7 @@
 <div class="row">
 
 <?php $__empty_1 = true; $__currentLoopData = $comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-    <div class="col-xl-6">
+    <div class="col-xl-12">
         <?php if (isset($component)) { $__componentOriginal01ae14b671bdc8cd9fd9d4dcc05ba0f5 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal01ae14b671bdc8cd9fd9d4dcc05ba0f5 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.card.card_link','data' => ['title' => '# '.e($comment?->post->tilte).'','tag' => 'a','class' => 'h4 mb-3','href' => ''.e(route('post.single',$comment?->post->slug )).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>

@@ -1,7 +1,7 @@
 <div class="row">
     <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-        <div class="col-lg-6">
-        
+        <div class="col-lg-12">
+
             <?php if (isset($component)) { $__componentOriginal01ae14b671bdc8cd9fd9d4dcc05ba0f5 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal01ae14b671bdc8cd9fd9d4dcc05ba0f5 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.card.card_link','data' => ['title' => '# '.e($post?->tilte).'','tag' => 'a','class' => 'h4','href' => ''.e(route('post.single',$post->slug )).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -22,7 +22,7 @@
                 </style>
 
             <p> <?php echo e($post->short_details); ?></p>
-            <p class="text-secondary">🕒 <?php echo e($post->created_at->format('d M Y h:i:s A')); ?></p>
+            <p class="text-secondary">🕒 <?php echo e($post->updated_at->format('d M Y h:i:s A')); ?> (<?php echo e($post->updated_at->diffForHumans()); ?>)</p>
 
              <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -34,7 +34,7 @@
 <?php $component = $__componentOriginal01ae14b671bdc8cd9fd9d4dcc05ba0f5; ?>
 <?php unset($__componentOriginal01ae14b671bdc8cd9fd9d4dcc05ba0f5); ?>
 <?php endif; ?>
-            
+
         </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
         <div class="col-lg-12">

@@ -1,34 +1,35 @@
 <?php
 
-use App\Http\Controllers\editorLiveController;
-use App\Http\Controllers\frontend\categoryController;
-use App\Http\Controllers\frontend\comment_controller;
-use App\Http\Controllers\frontend\DetailsController;
-use App\Http\Controllers\frontend\FeedController;
-use App\Http\Controllers\frontend\HomeController;
-use App\Http\Controllers\frontend\jobpostcontroller;
-use App\Http\Controllers\frontend\subcategoryController;
-use App\Http\Controllers\JobPostManageController;
-use App\Http\Controllers\LoginWithSocialController;
-use App\Http\Controllers\profile\reportController;
-use App\Http\Controllers\vendor\postManageController;
-use App\Models\category;
-
-
-
 use App\Models\post;
-use App\Models\subcategory;
 use App\Models\User;
-use Database\Seeders\DatabaseSeeder;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Route;
+use App\Models\category;
+use App\Models\subcategory;
 use Illuminate\Support\Str;
-use Laravel\Socialite\Facades\Socialite;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+use Database\Seeders\DatabaseSeeder;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Request;
+
+
+
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\editorLiveController;
+use App\Http\Controllers\backend\userController;
+use App\Http\Controllers\frontend\FeedController;
+use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\JobPostManageController;
+use App\Http\Controllers\profile\reportController;
+use App\Http\Controllers\LoginWithSocialController;
+use App\Http\Controllers\frontend\DetailsController;
+use App\Http\Controllers\frontend\jobpostcontroller;
+use App\Http\Controllers\frontend\categoryController;
+use App\Http\Controllers\frontend\comment_controller;
+use App\Http\Controllers\vendor\postManageController;
+use App\Http\Controllers\frontend\subcategoryController;
 
 
 /*
@@ -186,6 +187,8 @@ Route::prefix('helpdesk')
 
 
 
+
+Route::get('subscribe', [userController::class, 'subscribe'])->name('user.subscribe');
 
 //One User and guest Post create
 Route::prefix('user-post')

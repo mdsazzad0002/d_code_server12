@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Subscriber;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 
@@ -111,6 +112,34 @@ class userController extends Controller
         return back();
     }
 
+
+    public function subscribe(Request $request)
+    {
+        $request->validate([
+            'subscribe'=> 'required|numeric'
+        ]);
+
+        $subscribe_id = $request->subscribe;
+        
+        if(auth()->user()){
+            $user_subscriber = auth()->user();
+            $user_subscribe = $subscribe_id;
+            if( $user_subscriber->subscriptions->contains(  $user_subscribe)){
+                $user_subscriber->subscriptions()->detach(  $user_subscribe);
+                return json_encode([
+                    'title'=>'Successfully Unsubscribed',
+                    'type'=>'warning',
+                ]);
+            }else{
+                $user_subscriber->subscriptions()->attach(  $user_subscribe);
+                return json_encode([
+                    'title'=>'Successfully Subscribed',
+                    'type'=>'success',
+                ]);
+            }
+
+        }
+    }
 
 
 }

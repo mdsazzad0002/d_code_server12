@@ -120,6 +120,7 @@ $post->keywords= $request->keywords?? '';
         $post->tilte = $request->title;
         $post->short_details = strip_tags($request->short_details);
         $post->subcategory_id = $request->subcategory;
+        $post->enable_apply = $request->enable_apply;
         $post->category_id = $request->category;
         if(isset($request->upload_asset_image)){
             $post->uploads_id = uploads($request->file('upload_asset_image'), $post->upload_id);

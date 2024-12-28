@@ -42,15 +42,16 @@
                     Start Date
                 </td>
                 <td>
-                   : <span class="text-success"><?php echo e(\Carbon\Carbon::parse($job_items->start_date)->format('d-M-Y')); ?></span>
+                   : <span class="text-success"><?php echo e(\Carbon\Carbon::parse($job_items->start_date)->format('d-M-Y')); ?> (<?php echo e(\Carbon\Carbon::parse($job_items->start_date)->diffForHumans()); ?>)</span>
                 </td>
             </tr>
              <tr <?php if($job_items->deadline < \Carbon\Carbon::now()): ?> class="bg-danger"  <?php endif; ?>>
                 <td>
-                    Dadeline
+                    Dateline
                 </td>
                 <td>
-                   : <span class="text-dark"><?php echo e(\Carbon\Carbon::parse($job_items->deadline)->format('d-M-Y')); ?></span>
+                   : <span class="text-dark"><?php echo e(\Carbon\Carbon::parse($job_items->deadline)->format('d-M-Y')); ?> </span>
+                   <span class="text-decoration-underline">(<?php echo e(\Carbon\Carbon::parse($job_items->deadline)->diffForHumans()); ?>)</span>
                 </td>
             </tr>
 

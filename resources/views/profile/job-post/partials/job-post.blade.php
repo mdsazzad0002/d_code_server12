@@ -1,6 +1,6 @@
 <div class="row">
     @forelse ($posts as $post)
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <x-card.card_link title="Job Title : {{ $post?->title }}" tag="a" class="h4" href="{{ route('job.index',$post->slug ) }}">
                 <!-- Split dropup button -->
                 @include('profile.job-post.partials.job_post_action')
@@ -33,7 +33,7 @@
     </div>
 {{-- End if not found any post or question crate one for button --}}
     @endforelse
-    
+
     <div class="col-lg-6">
         {{ $posts->links()}}
     </div>

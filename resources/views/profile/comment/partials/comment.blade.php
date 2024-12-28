@@ -1,7 +1,7 @@
 <div class="row">
 
 @forelse ($comments as $comment)
-    <div class="col-xl-6">
+    <div class="col-xl-12">
         <x-card.card_link title="# {{ $comment?->post->tilte }}" tag="a" class="h4 mb-3" href="{{ route('post.single',$comment?->post->slug ) }}">
 
             {{--  profile comment action  --}}

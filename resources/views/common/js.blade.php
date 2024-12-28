@@ -5,6 +5,14 @@
     function not_load_image_form_source(img){
         img.classList.remove('lazy');
         img.src = img.dataset.src;
+
+        img.onerror = function() {
+            // Remove the lazy class when an error occurs
+            
+            // Replace with fallback image
+            img.setAttribute('data-src', '{{ dynamic_asset(0) }}');
+            img.classList.add('lazy');
+        };
     }
 
 function load_image_form_pexels(keyword, img){

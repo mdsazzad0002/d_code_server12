@@ -4,8 +4,7 @@
 <hr>
 <div class="mb-2 text-center">
         <div>
-            Date: <?php echo e($vote->updated_at->format('d-m-Y h:i:s A')); ?>
-
+            Date: <?php echo e($vote->updated_at->format('d-m-Y h:i:s A')); ?> (<?php echo e($vote->updated_at->diffForHumans()); ?>)
         </div>
     </div>
 

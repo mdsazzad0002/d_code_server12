@@ -1,6 +1,6 @@
 <div class="row">
     <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <?php if (isset($component)) { $__componentOriginal01ae14b671bdc8cd9fd9d4dcc05ba0f5 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal01ae14b671bdc8cd9fd9d4dcc05ba0f5 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.card.card_link','data' => ['title' => 'Job Title : '.e($post?->title).'','tag' => 'a','class' => 'h4','href' => ''.e(route('job.index',$post->slug )).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -69,7 +69,7 @@
     </div>
 
     <?php endif; ?>
-    
+
     <div class="col-lg-6">
         <?php echo e($posts->links()); ?>
 

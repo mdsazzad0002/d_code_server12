@@ -49,8 +49,7 @@ $post_after = general_setting('post_center_showup_after') ?? 100;
 
         <div class="">
             <div class="mt-2">
-                ⨀ <?php echo e($items->updated_at->format('d-M-Y h:s:i A')); ?>
-
+                ⨀ <?php echo e($items->updated_at->format('d-M-Y h:s:i A')); ?> <span class="text-success">( <?php echo e($items->updated_at->diffForHumans()); ?> )</span>
             </div>
             <div>
                 <div class="line-climb-3">

@@ -13,6 +13,8 @@
 <script src="{{static_asset('plugins/')}}/select2/js/select2.full.min.js"></script>
 <!-- PAGE PLUGINS -->
 
+<script src="{{static_asset('plugins/toastr/flasher.min.js')}}"></script>
+
 <script src="{{static_asset('plugins/')}}/markdown/simplemde.min.js"></script>
 <script src="{{static_asset('plugins/')}}/prism/prism.js"></script>
 

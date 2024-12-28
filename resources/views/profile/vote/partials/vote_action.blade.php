@@ -3,7 +3,7 @@
 <hr>
 <div class="mb-2 text-center">
         <div>
-            Date: {{ $vote->updated_at->format('d-m-Y h:i:s A') }}
+            Date: {{ $vote->updated_at->format('d-m-Y h:i:s A') }} ({{  $vote->updated_at->diffForHumans() }})
         </div>
     </div>
 

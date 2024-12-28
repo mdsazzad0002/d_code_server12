@@ -23,6 +23,7 @@
         height: 160px;
         width: 125px;
         position: relative;
+        overflow:hidden;
 
     }
     .overflow-auto a img{

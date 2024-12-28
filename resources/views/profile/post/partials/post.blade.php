@@ -1,7 +1,7 @@
 <div class="row">
     @forelse ($posts as $post)
-        <div class="col-lg-6">
-        
+        <div class="col-lg-12">
+
             <x-card.card_link title="# {{ $post?->tilte }}" tag="a" class="h4" href="{{ route('post.single',$post->slug ) }}">
                 <!-- Split dropup button -->
                 @include('profile.post.partials.post_action')
@@ -13,10 +13,10 @@
                 </style>
 
             <p> {{ $post->short_details }}</p>
-            <p class="text-secondary">🕒 {{ $post->created_at->format('d M Y h:i:s A') }}</p>
+            <p class="text-secondary">🕒 {{ $post->updated_at->format('d M Y h:i:s A') }} ({{ $post->updated_at->diffForHumans() }})</p>
 
             </x-card.card_link>
-            
+
         </div>
     @empty
         <div class="col-lg-12">
