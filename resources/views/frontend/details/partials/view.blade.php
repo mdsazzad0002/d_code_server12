@@ -43,14 +43,6 @@
     </div>
     <div class="d-flex justify-content-between align-items-center">
 
-
-
-        @if(auth()->user() && $view_post->users)
-            @include('common.subscribe', ['subscribe_id'=> $view_post->users->id])
-        @endif
-
-         @include('common.like_comment_post_summary')
-         
          @include('common.sharer_and_summary')
     </div>
     </div>

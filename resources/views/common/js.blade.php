@@ -1,6 +1,94 @@
 
 <x-ajax_data_modal></x-ajax_data_modal>
 
+
+<script>
+    async function share_window(title =null, text = null, url = null) {
+        // Check if the Web Share API is supported
+        if (navigator.share) {
+            try {
+                let shareData = {
+                    title: title ?? document.querySelector('title').innerHTML,
+                    text: text ?? document.querySelector('meta[name=description]').getAttribute('content'),
+                    url: url ?? window.location.href, // Use window.location.href to get the current URL
+                };
+
+                // Call the Web Share API
+                await navigator.share(shareData);
+                console.log('Share was successful!');
+            } catch (error) {
+                console.error('Error sharing:', error);
+            }
+        } else {
+            console.log('Web Share API is not supported in this browser.');
+            // Optionally, provide a fallback action here (like showing a custom share dialog)
+        }
+    }
+
+
+    async function copy_to_clipboard(title =null, text =null, url = null) {
+        try {
+            // Gather the content to be copied
+            let contentToCopy = `
+                Title: ${title ?? document.querySelector('title').innerHTML}
+                Description: ${text ?? document.querySelector('meta[name=description]').getAttribute('content')}
+                URL: ${url ?? window.location.href}
+            `;
+
+            // Copy the content to the clipboard
+            await navigator.clipboard.writeText(contentToCopy);
+
+            // Success message or confirmation
+            console.log('Content copied to clipboard!');
+            alert('Content copied to clipboard!');
+        } catch (error) {
+            console.error('Error copying text:', error);
+        }
+    }
+
+
+</script>
+
+<script>
+    function subscribe(thi){
+     $.ajax({
+         type:'get',
+         url:'{{ url('subscribe') }}',
+         data:{
+             'subscribe' : $(thi).data('id')
+         },
+         success:function(data){
+             {{--  console.log(data)  --}}
+             data = JSON.parse(data)
+             if(data.type == 'success'){
+                 flasher.success(data.title);
+                 $(thi).removeClass('btn-primary');
+                 $(thi).addClass('btn-danger');
+                 $(thi).find('span').html('Subscribed');
+             }else if(data.type == 'warning'){
+                 flasher.warning(data.title);
+                 $(thi).removeClass('btn-danger');
+                 $(thi).addClass('btn-primary');
+                 $(thi).find('span').html('Subscribe');
+
+             }
+         }
+     })
+    }
+
+
+ </script>
+
+ <script>
+    function report_modal_data(thi, id){
+        $('#reportModal').modal('show');
+        $('#reportModal').find('#post_id_id').val(id);
+        $('#reportModal').find('#reportModalLabel').html($(thi).data('title'));
+
+
+    }
+ </script>
+
 <script>
     function not_load_image_form_source(img){
         img.classList.remove('lazy');
@@ -8,7 +96,7 @@
 
         img.onerror = function() {
             // Remove the lazy class when an error occurs
-            
+
             // Replace with fallback image
             img.setAttribute('data-src', '{{ dynamic_asset(0) }}');
             img.classList.add('lazy');

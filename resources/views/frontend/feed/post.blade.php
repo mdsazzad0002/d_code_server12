@@ -2,30 +2,30 @@
 
 @foreach ($posts_data_format_feed as $view_post)
  <div class="">
-    <div class="shadow bg-dark mb-3 " style="border-radius: 5px; overflow:hidden">
+    <div class="shadow  mb-3 " style="border-radius: 5px; overflow:hidden;">
 
 
             @include('frontend.summary.summery_view')
 
         <div class=" px-3 py-2">
-               <a  href="{{ route('post.single',$view_post->slug) }}" aria-label="View Details">
+                <a  href="{{ route('post.single',$view_post->slug) }}" aria-label="View Details">
                     <h5 class="font-weight-bold text-success"> # {{ Str::title($view_post->tilte) }}</h5>
-                </a>
 
                 @include('frontend.details.partials.post_short_info')
 
-                
-                <div class="d-flex align-items-center justify-content-between mt-3">
-                    @include('common.like_comment_post_summary')
+                </a>
+                <div class="mt-2">
+                    <a class="tag_data" href="{{ route('subcategory_by_id.index', [$view_post->subcategory->id, $view_post->subcategory->slug]) }}"><i class="fa-solid fa-tags"></i> {{$view_post->subcategory->name ?? '' }}</a>
 
-                    @if(auth()->user() && $view_post->users)
-                        @include('common.subscribe', ['subscribe_id'=> $view_post->users->id])
-                    @endif
-
+                    <a class="tag_data" href="{{ route('category.index', [@$view_post->category->slug]) }}"><i class="fa-solid fa-tags"></i> {{$view_post->category->name ?? '' }}</a>
                 </div>
-
-                <a href="{{ route('post.single',$view_post->slug) }}" class="btn btn-primary  progress-bar progress-bar-striped btn-block my-2">View Details</a>
         </div>
+
+
+        <div class="d-flex align-items-center justify-content-between  px-3 py-2" style="background: #282828">
+            @include('common.sharer_and_summary')
+        </div>
+
     </div>
  </div>
 

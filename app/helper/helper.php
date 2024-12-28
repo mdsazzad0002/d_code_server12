@@ -7,6 +7,7 @@ use App\Models\comment;
 use App\Models\JobPost;
 use App\Models\uploads;
 use App\Models\category;
+use App\Models\ReportType;
 use App\Models\subcategory;
 use App\Models\GeneralSetting;
 use App\Models\ContributeSummarye;
@@ -320,3 +321,8 @@ function jobPost($cat_id = null, $items = 1){
 }
 
 
+
+function report_type()
+{
+    return $report_type = ReportType::all();
+}

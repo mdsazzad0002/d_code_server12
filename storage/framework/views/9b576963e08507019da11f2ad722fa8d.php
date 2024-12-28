@@ -1,6 +1,3 @@
-
-
-
 <?php $__env->startSection('title', 'News Feed'); ?>
 <?php $__env->startSection('short_description', 'Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.'); ?>
 <?php $__env->startSection('og_image', static_asset('uploads/BANNER_DATA.jpg')); ?>
@@ -60,6 +57,8 @@
 <?php unset($__componentOriginal0a3246743b024a30070683ed74d4e791); ?>
 <?php endif; ?>
 
+<?php echo $__env->make('frontend.report.create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
         <div class="post_data_feed">
 
@@ -99,6 +98,7 @@
         </div>
     </div>
 </div>
+
 
 
 

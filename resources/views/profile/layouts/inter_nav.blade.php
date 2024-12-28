@@ -33,12 +33,8 @@
             <div class="text-left mb-3">
 
                 @include('common.sharer_and_summary')
-              </div>   
-                @if(auth()->user())
-                    @include('common.subscribe', ['subscribe_id'=> $user->id])
-                    
-                @endif
-           
+              </div>
+
 
             {{--  social information  --}}
             @include('profile.layouts.partials.report_user')

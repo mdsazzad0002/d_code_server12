@@ -16,9 +16,7 @@
               </button>
           </div>
           <div class="modal-body">
-              <input hidden class="form-control bg-dark text-light mb-2" type="text" value="<?php echo e($user->id); ?> " name="user_id">
-              <input hidden class="form-control bg-dark text-light mb-2" type="text" value="<?php echo e(auth()->user()?->id); ?>" name="reporter_id">
-              <textarea name="details" placeholder="Enter Details Aganiest user" id="" cols="30" rows="10" class="form-control bg-dark text-light"></textarea>
+              <?php echo $__env->make('frontend.helpdesk.create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
           </div>
 
           <div class="modal-footer">

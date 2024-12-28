@@ -16,9 +16,7 @@
               </button>
           </div>
           <div class="modal-body">
-              <input hidden class="form-control bg-dark text-light mb-2" type="text" value="{{ $user->id }} " name="user_id">
-              <input hidden class="form-control bg-dark text-light mb-2" type="text" value="{{ auth()->user()?->id }}" name="reporter_id">
-              <textarea name="details" placeholder="Enter Details Aganiest user" id="" cols="30" rows="10" class="form-control bg-dark text-light"></textarea>
+              @include('frontend.helpdesk.create')
           </div>
 
           <div class="modal-footer">
