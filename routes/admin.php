@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\adminController;
 use App\Http\Controllers\backend\BannerController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CertificateController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\DistrictController;
 use App\Http\Controllers\backend\GeneralSettingController;
@@ -48,6 +49,9 @@ Route::get('/post/comment/{id}', [PostController::class, 'comment'])->name('post
 Route::get('/post/comment/edit/{id}', [PostController::class, 'comment_edit'])->name('post.comment_edit');
 Route::put('/post/comment/update/{id}', [PostController::class, 'comment_update'])->name('post.comment_update');
 Route::DELETE('/post/comment/comment_destroy/{id}', [PostController::class, 'comment_destroy'])->name('post.comment_destroy');
+
+//certificate
+Route::resource('/certificates', CertificateController::class)->names('certificate');
 
 
 
