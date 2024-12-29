@@ -41,6 +41,8 @@
             @include('frontend.feed.partials.today_top_contribute')
         </x-frontend.card>
 
+@include('frontend.report.create')
+
 
         <div class="post_data_feed">
 
@@ -62,6 +64,7 @@
         </div>
     </div>
 </div>
+
 
 
 

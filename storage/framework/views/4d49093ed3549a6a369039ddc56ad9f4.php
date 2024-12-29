@@ -2,7 +2,7 @@
     <img class="w-100 lazy feed_image" data-src="<?php echo e(dynamic_asset($view_post->uploads_id)); ?>" alt="<?php echo e($view_post->tilte); ?>">
 <?php endif; ?>
 
-<div class="line-climb-3">
+<div class="line-climb-3 text-white">
     <?php echo e($view_post->short_details); ?>
 
 </div>

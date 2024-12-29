@@ -33,12 +33,8 @@
             <div class="text-left mb-3">
 
                 <?php echo $__env->make('common.sharer_and_summary', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-              </div>   
-                <?php if(auth()->user()): ?>
-                    <?php echo $__env->make('common.subscribe', ['subscribe_id'=> $user->id], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                    
-                <?php endif; ?>
-           
+              </div>
+
 
             
             <?php echo $__env->make('profile.layouts.partials.report_user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

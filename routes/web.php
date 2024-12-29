@@ -185,6 +185,12 @@ Route::prefix('helpdesk')
         Route::post('/store', [reportController::class, 'store'])->name('store');
     });
 
+Route::prefix('postreport')
+    ->name('postreport.')
+    ->group(function () {
+        Route::post('/store', [reportController::class, 'postreportstore'])->name('store');
+    });
+
 
 
 
