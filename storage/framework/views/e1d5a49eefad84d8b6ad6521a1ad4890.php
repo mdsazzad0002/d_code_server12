@@ -1,1 +1,0 @@
-components.frontend.card_link<?php /**PATH D:\wamp\www\GitHubDesktop\d_code_server12\storage\framework\views/56755d698a256e4621aa5c5ca9f86a4b.blade.php ENDPATH**/ ?>

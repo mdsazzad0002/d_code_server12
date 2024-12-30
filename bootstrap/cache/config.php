@@ -1,16 +1,16 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Laravel',
-    'env' => 'live',
+    'name' => 'Notunthikana',
+    'env' => 'local',
     'debug' => true,
-    'url' => 'http:localhsot/d_code_server12',
-    'asset_url' => NULL,
+    'url' => 'http://192.168.0.50/notunthikanalatest/',
+    'asset_url' => 'http://192.168.0.50/notunthikanalatest/public',
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:P7X/6a9T5IDUanHEYBNT+x95G9/Yaq3icuR2AzosVlU=',
+    'key' => 'base64:CQn9S4B8KmrC5L/Gg6OWi9+GzYnLN4SUm+wtiHxS0zA=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -200,8 +200,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\laragon\\www\\d_code_server12\\storage\\framework/cache/data',
-        'lock_path' => 'C:\\laragon\\www\\d_code_server12\\storage\\framework/cache/data',
+        'path' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\framework/cache/data',
+        'lock_path' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -245,7 +245,7 @@
         'driver' => 'octane',
       ),
     ),
-    'prefix' => 'laravel_cache_',
+    'prefix' => 'notunthikana_cache_',
   ),
   'cors' => 
   array (
@@ -284,7 +284,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'codecamp',
+        'database' => 'notunth2_properdb',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -294,7 +294,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'codecamp',
+        'database' => 'notunth2_properdb',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -314,7 +314,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'codecamp',
+        'database' => 'notunth2_properdb',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -329,7 +329,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'codecamp',
+        'database' => 'notunth2_properdb',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -344,7 +344,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'notunthikana_database_',
       ),
       'default' => 
       array (
@@ -436,7 +436,7 @@
       'enabled' => true,
       'open' => false,
       'driver' => 'file',
-      'path' => 'C:\\laragon\\www\\d_code_server12\\storage\\debugbar',
+      'path' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\debugbar',
       'connection' => NULL,
       'provider' => '',
       'hostname' => '127.0.0.1',
@@ -580,14 +580,14 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\laragon\\www\\d_code_server12\\storage\\app',
+        'root' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\laragon\\www\\d_code_server12\\storage\\app/public',
-        'url' => 'http:localhsot/d_code_server12/storage',
+        'root' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\app/public',
+        'url' => 'http://192.168.0.50/notunthikanalatest//storage',
         'visibility' => 'public',
         'throw' => false,
       ),
@@ -606,7 +606,7 @@
     ),
     'links' => 
     array (
-      'C:\\laragon\\www\\d_code_server12\\public\\storage' => 'C:\\laragon\\www\\d_code_server12\\storage\\app/public',
+      'D:\\wamp64\\www\\GitHub\\d_code_server12\\public\\storage' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\app/public',
     ),
   ),
   'flasher_toastr' => 
@@ -669,14 +669,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\laragon\\www\\d_code_server12\\storage\\logs/laravel.log',
+        'path' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\laragon\\www\\d_code_server12\\storage\\logs/laravel.log',
+        'path' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -741,7 +741,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\laragon\\www\\d_code_server12\\storage\\logs/laravel.log',
+        'path' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -810,14 +810,14 @@
     'from' => 
     array (
       'address' => 'hello@example.com',
-      'name' => 'Laravel',
+      'name' => 'Notunthikana',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\laragon\\www\\d_code_server12\\resources\\views/vendor/mail',
+        0 => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -987,7 +987,7 @@
       2 => '127.0.0.1',
       3 => '127.0.0.1:8000',
       4 => '::1',
-      5 => '',
+      5 => '192.168.0.50',
     ),
     'guard' => 
     array (
@@ -1083,7 +1083,7 @@
     array (
       'client_id' => 'Iv1.9d65f06c79d36c23',
       'client_secret' => '20f120db3f0a7309780befe9fb0cfd6fe93775b0',
-      'redirect' => 'http:localhsot/d_code_server12auth/callback/github',
+      'redirect' => 'http://192.168.0.50/notunthikanalatest/auth/callback/github',
     ),
   ),
   'session' => 
@@ -1092,7 +1092,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\laragon\\www\\d_code_server12\\storage\\framework/sessions',
+    'files' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -1101,7 +1101,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'notunthikana_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,
@@ -1141,9 +1141,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\laragon\\www\\d_code_server12\\resources\\views',
+      0 => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\resources\\views',
     ),
-    'compiled' => 'C:\\laragon\\www\\d_code_server12\\storage\\framework\\views',
+    'compiled' => 'D:\\wamp64\\www\\GitHub\\d_code_server12\\storage\\framework\\views',
   ),
   'flasher' => 
   array (
@@ -1311,7 +1311,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'C:\\laragon\\www\\d_code_server12',
+    'remote_sites_path' => 'D:\\wamp64\\www\\GitHub\\d_code_server12',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
