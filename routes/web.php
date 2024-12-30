@@ -108,11 +108,11 @@ Route::get('/auth/callback/google/', function () {
 
 
 
+Route::get('/', [FeedController::class, 'index'])->name('home');
 
 // Homepage Frontend Homepage
 Route::get('/category', [HomeController::class, 'index'])->name('home.category');
 
-Route::get('/', [FeedController::class, 'index'])->name('home');
 
 Route::get('/feed_load_data_posst', [FeedController::class, 'feed_load'])->name('feed_load_data_post');
 
