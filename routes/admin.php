@@ -52,6 +52,8 @@ Route::DELETE('/post/comment/comment_destroy/{id}', [PostController::class, 'com
 
 //certificate
 Route::resource('/certificates', CertificateController::class)->names('certificate');
+Route::get('certificate-pdf/{id}', [CertificateController::class, 'certificatePdf'])->name('certificate.pdf');
+
 
 
 
