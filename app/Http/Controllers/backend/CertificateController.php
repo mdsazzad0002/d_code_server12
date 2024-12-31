@@ -25,7 +25,7 @@ class CertificateController extends Controller
                     $action .= '<a href="'.route('admin.certificate.pdf',$row->id).'" title="PDF">
                         <button class="btn btn-primary btn-sm mr-1"><i class="fa fa-file-pdf-o"></i> PDF</button>
                     </a>';
-                    
+
                     return  $action;
             })
             ->addColumn('gender', function ($row) {
@@ -51,7 +51,7 @@ class CertificateController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required', 
+            'name'=>'required',
             'father_name'=>'nullable',
             'mother_name'=>'nullable',
             'course'=>'required',
@@ -124,35 +124,36 @@ class CertificateController extends Controller
     {
         $certificate = Certificate::findOrFail($id);
 
-            $data = [
-                'certificate' => $certificate,
-            ];
+        //     $data = [
+        //         'certificate' => $certificate,
+        //     ];
 
-        $pdf = PDF::loadView(
-            'backend.certificate.pdf',
-            $data,
-            [],
-            [
-                'format' => 'A4-P',
-                'orientation' => 'P',
-                'margin-left' => 1,
+        // $pdf = PDF::loadView(
+        //     'backend.certificate.pdf',
+        //     $data,
+        //     [],
+        //     [
+        //         // 'format' => 'A4-P',
+        //         // 'orientation' => 'P',
+        //         // 'margin-left' => 1,
 
-                '', // mode - default ''
-                '', // format - A4, for example, default ''
-                0, // font size - default 0
-                '', // default font family
-                1, // margin_left
-                1, // margin right
-                1, // margin top
-                1, // margin bottom
-                1, // margin header
-                1, // margin footer
-                'L', // L - landscape, P - portrait
+        //         '', // mode - default ''
+        //         '', // format - A4, for example, default ''
+        //         0, // font size - default 0
+        //         '', // default font family
+        //         1, // margin_left
+        //         1, // margin right
+        //         1, // margin top
+        //         1, // margin bottom
+        //         1, // margin header
+        //         1, // margin footer
+        //         'L', // L - landscape, P - portrait
 
-            ]
-        );
-        $name = \Carbon\Carbon::now()->format('d-m-Y');
+        //     ]
+        // );
+        // $name = \Carbon\Carbon::now()->format('d-m-Y');
 
-        return $pdf->stream($name . '.pdf');
+        // return $pdf->stream($name . '.pdf');
+        return view('backend.certificate.pdf', compact('certificate'));
     }
 }
