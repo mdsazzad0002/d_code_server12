@@ -25,7 +25,7 @@
 
     @include('frontend.summary.summery_view')
 
-    <div class=" px-3 py-2">
+    <div class=" px-3 py-2" style="border: 4px solid #282828">
 <div class="row flex-column flex-md-row">
 
         <div class="col-md-12">
