@@ -45,7 +45,7 @@
 
 
 
-
+    @include('frontend.report.create')
 
     <!-- ./wrapper -->
     @include('frontend.layouts.partials.js')
@@ -60,6 +60,7 @@
        });
 
     </script>
+
 
 
 </body>

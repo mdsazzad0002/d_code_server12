@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\Models\Point;
 class post extends Model
 {
     use HasFactory, SoftDeletes;
@@ -65,6 +65,19 @@ class post extends Model
             'upvote' => $totalLikes,
             'downvote' => $totalDislikes
         ];
+    }
+
+
+    /**
+     * Get all of the comments for the post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+
+
+    public function point()
+    {
+        return $this->morphMany(Point::class, 'pointable');
     }
 
 }

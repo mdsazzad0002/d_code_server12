@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\ContributeSummarye;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Point;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class comment_controller extends Controller
@@ -38,6 +40,10 @@ class comment_controller extends Controller
 
         $comment->user_id = Auth::user()?->id ?? 0;
         $comment->save();
+
+
+        point_set($comment->id, get_class($comment), 10, 1);
+
 
         if(auth()->user()){
             if(contribute_report_update(auth()->user()->id, 'comment') == false){
@@ -95,6 +101,7 @@ class comment_controller extends Controller
                     }
                     $comment->save();
                     // return true;
+                    point_set($comment->id, comment::class, 5);
                 }
             }else{
                 $vote = new Vote;
@@ -112,6 +119,8 @@ class comment_controller extends Controller
                 // Commnet add upvote and downvote
                 $comment->$type_vote =  $comment->$type_vote + 1;
                 $comment->save();
+
+                point_set($vote->id, Vote::class, 1);
             }
 
             if(contribute_report_update(auth()->user()->id, 'vote')==false){

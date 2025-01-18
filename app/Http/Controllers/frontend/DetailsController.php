@@ -25,7 +25,7 @@ class DetailsController extends Controller
         }
 
          $view_post = post::where('slug', $view_slug)->get()->first();
-        
+
 
         if ($view_post) {
             return view('frontend.details.index', compact('view_post', 'category', 'subcategory', 'post_list_menu','subcategory_id'));
@@ -59,9 +59,9 @@ class DetailsController extends Controller
             } else {
                 return abort(403, 'Sub Category Not found');
             }
-        } else {
-            return 'Post Not found';
         }
-    return abort(404);
+         return 'Post Not found';
+
+
     }
 }

@@ -179,6 +179,7 @@ class JobPostManageController extends Controller
 
     public function apply($id){
         if(auth()->user()){
+
             $jobPost = JobPost::find($id);
             $old_cv = uploads::where('for', 'cv')->where('creator_id', auth()->user()->id)->get();
 
@@ -219,6 +220,8 @@ class JobPostManageController extends Controller
                     $job_apply->details =  $request->long_details;
                     $job_apply->save();
 
+                    point_set($job_apply->id, JobApply::class,8);
+
                     toastr()->success('Successfully Applied ', 'Congress');
                     return redirect()->back();
                 }
@@ -241,6 +244,9 @@ class JobPostManageController extends Controller
             $job_data = JobApply::find($id);
             if($job_data){
                 $job_data->selected =  $job_data->selected == 0 ? 1 : 0;
+
+                point_set($job_data->id, JobApply::class, 2);
+
                 $job_data->save();
                 return $job_data;
             }else{

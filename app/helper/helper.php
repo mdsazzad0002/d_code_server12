@@ -11,6 +11,8 @@ use App\Models\ReportType;
 use App\Models\subcategory;
 use App\Models\GeneralSetting;
 use App\Models\ContributeSummarye;
+use App\Models\Point;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
@@ -325,4 +327,30 @@ function jobPost($cat_id = null, $items = 1){
 function report_type()
 {
     return $report_type = ReportType::all();
+}
+
+/**
+ * Summary of point
+ * @param integer $id
+ * @param mixed $class
+ * @param integer     $point
+ * @param boolean $status
+ * @return void
+ */
+function point_set($id, $class, $points, $status = 1){
+
+    if(auth()->user()){
+        $point = new Point();
+        $point->pointable_id = $id;
+        $point->pointable_type = $class;
+        $point->type = $status;
+        $point->user_id = auth()->user()->id;
+        $point->point = $points;
+        $point->save();
+
+        $user = User::find(auth()->user()->id);
+        $user->point = $user->point + $points;
+        $user->save();
+    }
+
 }

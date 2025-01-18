@@ -59,6 +59,7 @@ $post->keywords= $request->keywords?? '';
         $post->save();
 
         if(auth()->user()){
+            point_set($post->id, post::class, 15);
             if(contribute_report_update(auth()->user()->id, 'post') == false){
                 return 'something is wrong';
             }
@@ -128,6 +129,7 @@ $post->keywords= $request->keywords?? '';
 
         $post->status = $request->status ?? 1;
         $post->short_details = $request->short_details ?? '';
+        point_set($post->id, post::class, 15);
         $post->save();
         return back();
     }
@@ -149,7 +151,8 @@ $post->keywords= $request->keywords?? '';
     public function destroy($id, post $post)
     {
         $user_id = $post->user_id;
-
+       point_set($post->id, post::class, 10, 0);
+ 
         Vote::where('post_id', $post->id)->delete();
         comment::where('post_id', $post->id)->delete();
         asset_unlink($post->uploads_id);

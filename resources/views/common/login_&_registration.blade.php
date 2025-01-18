@@ -1,9 +1,15 @@
+@if (auth()->user())
+<li class="nav-item">
+    <a href="javascript:void(0)" class="nav-link d-flex align-items-center justify-content-center">
+        {{ auth()->user()->point }} <img src="{{ static_asset('frontend/img/point.png') }}" class="img-circle" width="25" height="20" alt="User Image">
+    </a>
+</li>
+@endif
 <li class="nav-item">
     <div class="nav-link position-relative">
         @if(Auth::user())
 
-        {{-- <img class="avatar user-thumb" src="{{asset('backend/')}}/assets/images/author/avatar.png"
-            alt="avatar"> --}}
+        {{-- <img class="avatar user-thumb" src="{{asset('backend/')}}/assets/images/author/avatar.png"  alt="avatar"> --}}
         <h6 class="user-name dropdown-toggle mb-0" data-toggle="dropdown">{{ mb_strimwidth(Str::title(auth()->user()->name), 0, 12, "...") }}
         </h6>
         <div class="dropdown-menu bg-dark text-light border-top-0" style="width:100% !important">

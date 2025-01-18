@@ -22,6 +22,7 @@
     <ul class="navbar-nav ml-auto">
 
 
+  
         <li class="nav-item">
             <a href="#" class="nav-link docSearch_byModel_own" aria-label="Search modal like algolia" data-toggle="modal" data-target="#docSearch_byModel_own">
                 <i class="fas fa-search"></i>

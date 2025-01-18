@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\JobApply;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Point;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class JobPost extends Model
@@ -59,6 +60,11 @@ class JobPost extends Model
 
     public function jobApplys_data(){
         return $this->hasOne(JobApply::class, 'job_post_id', 'id');
+    }
+
+    public function point()
+    {
+        return $this->morphMany(Point::class, 'pointable');
     }
 
 }

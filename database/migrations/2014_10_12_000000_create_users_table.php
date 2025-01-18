@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->text('tagline')->nullable();
+            $table->text('point')->nullable();
             $table->string('username')->nullable();
             $table->bigInteger('upload_id')->nullable();
             $table->rememberToken();
